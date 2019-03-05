@@ -53,6 +53,14 @@
         {
             "path" : "pages/mall/cart/cart",
             "style" : {}
+        },
+        {
+            "path" : "pages/address/address",
+            "style" : {}
+        },
+        {
+            "path" : "pages/address/editAddress/editAddress",
+            "style" : {}
         }
     ],
     "tabBar" : {
