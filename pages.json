@@ -4,7 +4,14 @@
 		{
 			"path": "pages/main/main",
 			"style": {
-				"navigationBarTitleText": "登录模板"
+				"navigationStyle": "custom",
+				"navigationBarTitleText": "",
+				"navigationBarBackgroundColor": "#4A90E2",
+				"app-plus": {
+					"titleNView": {
+						"type": "transparent" //透明渐变导航栏
+					}
+				}
 			}
 		},
 		{
