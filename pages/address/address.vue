@@ -10,13 +10,13 @@
 						</view>
 						<view class="addr-detail">{{ address.detail }}</view>
 					</view>
-					<image v-bind:src="modifyIcon"></image>
+					<image v-bind:src="modifyIcon" @click="edit"></image>
 				</view>
 			</block>
 		</view>
 
-		<view class="add-addr-button">
-			<image v-bind:src="addIcon"></image>
+		<view class="add-addr-button" @click="edit">
+			<image v-bind:src="addIcon" ></image>
 			<view class="text">添加地址</view>
 		</view>
 	</view>
@@ -24,6 +24,13 @@
 
 <script>
 export default {
+	methods:{
+		edit(){
+			uni.navigateTo({
+				url:"edit"
+			})
+		}
+	},
 	data() {
 		return {
 			modifyIcon: '../../static/addr/addr_edit_icon.png',

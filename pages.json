@@ -59,7 +59,7 @@
             "style" : {}
         },
         {
-            "path" : "pages/address/editAddress/editAddress",
+            "path" : "pages/address/edit",
             "style" : {}
         }
     ],
