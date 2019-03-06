@@ -1,32 +1,36 @@
 <template>
-	<view class="content">
-		<view v-if="hasLogin" class="hello">
-			<view class="title">
-				您好 {{userName}}，您已成功登录。
-			</view>
-			<view class="ul">
-				<view>这是 uni-app 带登录模板的示例App首页。</view>
-				<view>在 “我的” 中点击 “退出” 可以 “注销当前账户”</view>
-			</view>
+	<view class="tea_mall_home_page">
+		<searchBox></searchBox>
+		<!-- 导航栏 -->
+		<navBarList></navBarList>
+		<banner></banner>
+		<view class="tea_mall_home_page_section">
+			<!-- 免费试饮 -->
+			<freeTea></freeTea>
+			<!-- 爆款工夫茶 -->
+			<hotTea></hotTea>
+			<!-- 限时秒杀 -->
+			<seckill></seckill>
+			<!-- 推荐 -->
+
 		</view>
-		<view v-if="!hasLogin" class="hello">
-			<view class="title">
-				您好 游客。
-			</view>
-			<view class="ul">
-				<view>这是 uni-app 带登录模板的示例App首页。</view>
-				<view>在 “我的” 中点击 “登录” 可以 “登录您的账户”</view>
-			</view>
-		</view>
+
 	</view>
 </template>
 
 <script>
-	import {
-		mapState
-	} from 'vuex'
-
+	
+	import {mapState} from "vuex";
+	import banner from './components/banner.vue';
+	import searchBox from './components/searchBox.vue';
+	import navBarList from './components/navBarList.vue';
+	import freeTea from './components/freeTea.vue';
+	import hotTea from './components/hotTea.vue';
+	import seckill from './components/seckill.vue';
 	export default {
+		data() {
+			return {}
+		},
 		computed: mapState(['forcedLogin', 'hasLogin', 'userName']),
 		onLoad() {
 			if (!this.hasLogin) {
@@ -55,29 +59,29 @@
 					}
 				});
 			}
+		},
+		components: {
+			banner,
+			searchBox,
+			navBarList,
+			freeTea,
+			hotTea,
+			seckill,
 		}
 	}
 </script>
 
-<style>
-	.hello {
-		display: flex;
-		flex: 1;
-		flex-direction: column;
-	}
+<style lang="less">
+	.tea_mall_home_page {
+		width: 100%;
+		background: #ffffff;
+		overflow-x: hidden;
 
-	.title {
-		color: #8f8f94;
-		margin-top: 50upx;
-	}
-
-	.ul {
-		font-size: 30upx;
-		color: #8f8f94;
-		margin-top: 50upx;
-	}
-
-	.ul>view {
-		line-height: 50upx;
+		.tea_mall_home_page_section {
+			width: 100%;
+			padding-left: 40upx;
+			padding-right: 40upx;
+			box-sizing: border-box;
+		}
 	}
 </style>

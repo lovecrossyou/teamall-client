@@ -16,7 +16,7 @@
 				arrowIcon: "../../static/setting/set_icon_next.png",
 				settingList: [{
 						txt: "地址管理",
-						url: "addressManage"
+						url: "../address/address"
 					},
 					{
 						txt: "绑定手机号",
