@@ -96,7 +96,7 @@
     
 </script>
 	
-<style scoped>
+<style >
 	.user_wrapper{
 		width: 100%;
 	}
