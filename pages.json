@@ -27,9 +27,39 @@
 		},
 
 		{
+			"path" : "pages/setting/setting",
+			"style" : {
+				"navigationBarTitleText" : "设置"
+			}
+		},
+		{
+			"path" : "pages/setting/addressManage",
+			"style" : {
+				"navigationBarTitleText" : "地址管理"
+			}
+		},
+		{
+			"path" : "pages/setting/phonenumberManage",
+			"style" : {
+				"navigationBarTitleText" : "绑定手机号"
+			}
+		},
+		{
+			"path" : "pages/setting/cacheManage",
+			"style" : {
+				"navigationBarTitleText" : "清理缓存"
+			}
+		},
+		{
+			"path" : "pages/setting/privacyManage",
+			"style" : {
+				"navigationBarTitleText" : "隐私设置"
+			}
+		},
+		{
 			"path": "pages/mall/mall",
 			"style": {
-				"navigationBarTitleText": "我的"
+				"navigationBarTitleText": "茶摩"
 			}
 		}, {
 			"path": "pages/user/user",
