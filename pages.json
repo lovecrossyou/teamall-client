@@ -60,7 +60,9 @@
         },
         {
             "path" : "pages/address/edit",
-            "style" : {}
+            "style" : {
+				"navigationBarTitleText":"地址管理"
+			}
         }
     ],
     "tabBar" : {
