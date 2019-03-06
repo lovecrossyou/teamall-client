@@ -13,7 +13,7 @@
 	export default {
 		data() {
 			return {
-				arrowIcon: "../../static/setting/set_icon_next",
+				arrowIcon: "../../static/setting/set_icon_next.png",
 				settingList: [{
 						txt: "地址管理",
 						url: "../address/address"
@@ -29,6 +29,10 @@
 					{
 						txt: "隐私设置",
 						url: "privacyManage"
+					},
+					{
+						txt: "退出登录",
+						url: "../login/login"
 					}
 				]
 			}
@@ -53,12 +57,15 @@
 			justify-content: space-between;
 			align-items: center;
 			background: #fff;
-			height: 112upx;
+			height: 113upx;
 			border-top: solid 1upx #e1e1e1;
 
 			.text {
-				font-size: 32upx;
 				padding-left: 39upx;
+				font-family:PingFang-SC-Regular;
+				font-weight:"Regular";
+				color:rgba(31,31,31,1);
+				line-height:121px;
 			}
 
 			.img {
