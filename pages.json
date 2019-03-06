@@ -56,12 +56,14 @@
         },
         {
             "path" : "pages/address/address",
-            "style" : {}
+            "style" : {
+					"navigationBarTitleText":"地址管理"
+			}
         },
         {
             "path" : "pages/address/edit",
             "style" : {
-				"navigationBarTitleText":"地址管理"
+				"navigationBarTitleText":"编辑地址"
 			}
         }
     ],
