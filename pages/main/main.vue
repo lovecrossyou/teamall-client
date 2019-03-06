@@ -10,7 +10,7 @@
 			<!-- 爆款工夫茶 -->
 			<hotTea></hotTea>
 			<!-- 限时秒杀 -->
-			<!-- <seckill></seckill> -->
+			<seckill></seckill>
 			<!-- 推荐 -->
 
 		</view>
