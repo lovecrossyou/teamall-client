@@ -1,16 +1,18 @@
 <template>
-	<view class="segment-wrapper">
+	<view class="segment-wrapper" v-bind:style="{width:halfWidth}">
 		<view class="basic" v-bind:class="[activeIndex===0?activeLeftClass:normalLeftClass]" @click="changeSegment(0)">
-			今日秒杀
+			{{datas[0]}}
 		</view>
 		<block v-for="
 		 (data,index) in list" :key="index">
-			<view class="basic" v-bind:class="[activeIndex===1? activeMidClass:normalMidClass]" @click="changeSegment(1)">
+			<view class="basic" v-bind:class="[activeIndex===1? activeMidClass:normalMidClass]" @click="changeSegment(index)">
 				{{data}}
 			</view>
 		</block>
-		<view class="basic" v-bind:class="[activeIndex===2?activeRightClass:normalRightClass]" @click="changeSegment(2)">
-			明日预告
+		<view class="basic" v-bind:class="[activeIndex===2?activeRightClass:normalRightClass]" @click="changeSegment(lastIndex)">
+			{{
+				datas[lastIndex]
+			}}
 		</view>
 	</view>
 </template>
@@ -20,7 +22,7 @@
 		data() {
 			return {
 				isActive: true,
-				datas: ["昨日干货", "今日秒杀", "明日预告"],
+				datas: ["昨日干货", "今日秒杀","今日秒杀", "明日预告"],
 				activeLeftClass: {
 					'left-active': true,
 				},
@@ -39,8 +41,13 @@
 				normalMidClass: {
 					'mid-normal': true,
 				},
-				activeIndex: 0
+				activeIndex: 0,
+				mainWidth:200
 			};
+		},
+		onReady() {
+			this.mainWidth = 200 * 3;
+			console.log('this.mainWidth ', this.mainWidth)
 		},
 		methods: {
 			changeSegment(index) {
@@ -48,6 +55,18 @@
 			}
 		},
 		computed: {
+			halfWidth() {
+                return uni.upx2px(200 * this.datas.length) + 'px';
+            },
+			firstActive() {
+				return this.activeIndex === 0
+			},
+			lastActive() {
+				return this.activeIndex === this.datas.length - 1;
+			},
+			lastIndex() {
+				return this.datas.length - 1;
+			},
 			list() {
 				var obj_data = Object.assign({}, this.datas);
 				var keys = Object.keys(obj_data);
