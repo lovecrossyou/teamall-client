@@ -27,9 +27,39 @@
 	import seckill from './components/seckill.vue';
 	
 	export default {
+<<<<<<< HEAD
 		data(){
 			return {
 				
+=======
+		computed: mapState(['forcedLogin', 'hasLogin', 'userName']),
+		onLoad() {
+			if (!this.hasLogin) {
+				uni.showModal({
+					title: '未登录',
+					content: '您未登录，需要登录后才能继续',
+					/**
+					 * 如果需要强制登录，不显示取消按钮
+					 */
+					showCancel: !this.forcedLogin,
+					success: (res) => {
+						if (res.confirm) {
+							/**
+							 * 如果需要强制登录，使用reLaunch方式
+							 */
+							if (this.forcedLogin) {
+								uni.reLaunch({
+									url: '../login/enter'
+								});
+							} else {
+								uni.navigateTo({
+									url: '../login/enter'
+								});
+							}
+						}
+					}
+				});
+>>>>>>> 16c93544038dba82e3fc0ca850a72eb031a37bd9
 			}
 		},
 		components: {
