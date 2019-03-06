@@ -1,14 +1,14 @@
 <template>
 	<view class="tea_mall_home_page">
-		<!-- <search<!-- Box></searchBox> -->
+		<searchBox></searchBox>
 		<!-- 导航栏 -->
-		<!-- <navBarList></navBarList> -->
-		<!-- <banner></banner> -->
+		<navBarList></navBarList>
+		<banner></banner>
 		<view class="tea_mall_home_page_section">
 			<!-- 免费试饮 -->
-			<!-- <freeTea></freeTea> -->
+			<freeTea></freeTea>
 			<!-- 爆款工夫茶 -->
-			<!-- <hotTea></hotTea> -->
+			<hotTea></hotTea>
 			<!-- 限时秒杀 -->
 			<!-- <seckill></seckill> -->
 			<!-- 推荐 -->
@@ -19,12 +19,14 @@
 </template>
 
 <script>
-	// import banner from './components/banner.vue';
-// 	import searchBox from './components/searchBox.vue';
-// 	import navBarList from './components/navBarList.vue';
-// 	import freeTea from './components/freeTea.vue';
-// 	import hotTea from './components/hotTea.vue';
-// 	import seckill from './components/seckill.vue';
+	
+	import {mapState} from "vuex";
+	import banner from './components/banner.vue';
+	import searchBox from './components/searchBox.vue';
+	import navBarList from './components/navBarList.vue';
+	import freeTea from './components/freeTea.vue';
+	import hotTea from './components/hotTea.vue';
+	import seckill from './components/seckill.vue';
 	export default {
 		data() {
 			return {}
@@ -59,12 +61,12 @@
 			}
 		},
 		components: {
-// 			banner,
-// 			searchBox,
-// 			navBarList,
-// 			freeTea,
-// 			hotTea,
-// 			seckill,
+			banner,
+			searchBox,
+			navBarList,
+			freeTea,
+			hotTea,
+			seckill,
 		}
 	}
 </script>
