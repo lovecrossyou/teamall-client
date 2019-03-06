@@ -62,7 +62,7 @@
 					<img src="http://qnimage.xiteng.com/center_icon_store@2x.png" class="right_icon" style="width: 40upx;height: 34upx;">
 					<listItemTemplate title="我要开店"></listItemTemplate>
 				</view>
-				<view class="bottom_list_item">
+				<view class="bottom_list_item" @click="goSetting">
 					<img src="http://qnimage.xiteng.com/center_icon_Setting@2x.png" class="right_icon" style="width: 40upx;height: 36upx;">
 					<listItemTemplate title="设置"></listItemTemplate>
 				</view>
@@ -91,6 +91,11 @@
 			
 		},
 		methods: {
+				goSetting(){
+				uni.navigateTo({
+					url:"../setting/setting"
+				})
+			}
 		}
 	}
     
