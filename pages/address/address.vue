@@ -1,5 +1,5 @@
 <template>
-	<view class="content">
+	<view class="content-wrapper">
 		<view class="addr-list">
 			<block v-for="(address, index) in addressList" :key="index">
 				<view class="addr-item">
@@ -23,12 +23,20 @@
 </template>
 
 <script>
-import { mapMutations } from 'vuex';
+import { mapMutations,mapState } from 'vuex';
 
 export default {
+	computed:{
+		...mapState({
+			addressList:state=>state.address.list,
+		})
+	},
+	
+	
 	methods: {
 		...mapMutations({
-			saveEdit: 'address/saveEdit'
+			saveEdit: 'address/saveEdit',
+			
 		}),
 		edit(address) {
 			this.saveEdit(address);
@@ -41,13 +49,7 @@ export default {
 		return {
 			modifyIcon: '../../static/addr/addr_edit_icon.png',
 			addIcon: '../../static/addr/add_icon.png',
-			addressList: [
-				{
-					name: '花花1',
-					phone: 13683574555,
-					detail: '北京市西城区粮科大厦1'
-				}
-			]
+			
 		};
 	},
 	onLoad() {
@@ -59,9 +61,9 @@ export default {
 <style lang="less">
 @footerHeight: 102upx;
 
-.content {
+.content-wrapper {
 	width: 100%;
-	padding: 0 0 0 0;
+	
 
 	.addr-list {
 		padding-bottom: @footerHeight;
