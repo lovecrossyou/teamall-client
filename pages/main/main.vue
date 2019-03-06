@@ -1,37 +1,34 @@
 <template>
 	<view class="tea_mall_home_page">
-		<searchBox></searchBox>
+		<!-- <search<!-- Box></searchBox> -->
 		<!-- 导航栏 -->
-		<navBarList></navBarList>
-		<banner></banner>
+		<!-- <navBarList></navBarList> -->
+		<!-- <banner></banner> -->
 		<view class="tea_mall_home_page_section">
 			<!-- 免费试饮 -->
-			<freeTea></freeTea>
+			<!-- <freeTea></freeTea> -->
 			<!-- 爆款工夫茶 -->
-			<hotTea ></hotTea>
+			<!-- <hotTea></hotTea> -->
 			<!-- 限时秒杀 -->
 			<!-- <seckill></seckill> -->
 			<!-- 推荐 -->
-			
+
 		</view>
 
 	</view>
 </template>
 
 <script>
-	import banner from './components/banner.vue';
-	import searchBox from './components/searchBox.vue';
-	import navBarList from './components/navBarList.vue';
-	import freeTea from './components/freeTea.vue';
-	import hotTea from './components/hotTea.vue';
-	import seckill from './components/seckill.vue';
-	
+	// import banner from './components/banner.vue';
+// 	import searchBox from './components/searchBox.vue';
+// 	import navBarList from './components/navBarList.vue';
+// 	import freeTea from './components/freeTea.vue';
+// 	import hotTea from './components/hotTea.vue';
+// 	import seckill from './components/seckill.vue';
 	export default {
-<<<<<<< HEAD
-		data(){
-			return {
-				
-=======
+		data() {
+			return {}
+		},
 		computed: mapState(['forcedLogin', 'hasLogin', 'userName']),
 		onLoad() {
 			if (!this.hasLogin) {
@@ -59,16 +56,15 @@
 						}
 					}
 				});
->>>>>>> 16c93544038dba82e3fc0ca850a72eb031a37bd9
 			}
 		},
 		components: {
-			banner,
-			searchBox,
-			navBarList,
-			freeTea,
-			hotTea,
-			seckill,
+// 			banner,
+// 			searchBox,
+// 			navBarList,
+// 			freeTea,
+// 			hotTea,
+// 			seckill,
 		}
 	}
 </script>
@@ -78,10 +74,11 @@
 		width: 100%;
 		background: #ffffff;
 		overflow-x: hidden;
-		.tea_mall_home_page_section{
-			width:100%;
-			padding-left:40upx;
-			padding-right:40upx;
+
+		.tea_mall_home_page_section {
+			width: 100%;
+			padding-left: 40upx;
+			padding-right: 40upx;
 			box-sizing: border-box;
 		}
 	}
