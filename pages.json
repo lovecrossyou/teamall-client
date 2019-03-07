@@ -113,6 +113,19 @@
         {
             "path" : "pages/message/message",
             "style" : {}
+        },
+        {
+            "path" : "pages/store/store",
+            "style" : {
+                "navigationBarTitleText" : "店铺",
+                "navigationStyle" : "custom",
+				"navigationBarBackgroundColor" : "#4A90E2",
+				"app-plus" : {
+				    "titleNView" : {
+				        "type" : "transparent" //透明渐变导航栏
+				    }
+				}
+            }
         }
     ],
     "tabBar" : {
