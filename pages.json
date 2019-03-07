@@ -106,7 +106,13 @@
 		{
 			"path" : "pages/order/order-confirm",
 			"style" : {
-				"navigationBarTitleText" : "隐私设置"
+				"navigationBarTitleText" : "确认订单"
+			}
+		},
+		{
+			"path" : "pages/order/order-pay",
+			"style" : {
+				"navigationBarTitleText" : "支付"
 			}
 		}
 	],

@@ -58,7 +58,7 @@
 				<view style="font-size: 28upx;color: #FF594B;">¥6.00</view>
 			</view>
 		</view>
-		<view class="confirm_footer">去支付</view>
+		<view class="confirm_footer" @click="goNext">去支付</view>
 	</view>
 </template>
 
@@ -66,6 +66,13 @@
 import uniNumberBox from "@dcloudio/uni-ui/lib/uni-number-box/uni-number-box.vue"
 import uniIcon from "@/components/uni-icon/uni-icon.vue"
 export default {
+	methods:{
+		goNext() {
+			uni.navigateTo({
+				url: "/pages/order/order-pay"
+			})
+		}
+	},
 	components: {uniNumberBox,uniIcon},
 	data() {
 		return {
