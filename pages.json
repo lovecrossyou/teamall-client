@@ -102,6 +102,12 @@
 					}
 				}
 			}
+		},
+		{
+			"path" : "pages/order/order-confirm",
+			"style" : {
+				"navigationBarTitleText" : "确认订单"
+			}
 		}
 	],
 	"tabBar": {
