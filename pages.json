@@ -127,6 +127,19 @@
 					}
 				}
 			}
+		},
+		{
+			"path": "pages/store/store",
+			"style": {
+				"navigationStyle": "custom",
+				"navigationBarTitleText": "店铺",
+				"navigationBarBackgroundColor": "#4A90E2",
+				"app-plus": {
+					"titleNView": {
+						"type": "transparent" //透明渐变导航栏
+					}
+				}
+			}
 		}
 	],
 	"tabBar": {
