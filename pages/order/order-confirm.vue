@@ -1,7 +1,7 @@
 <template>
 	<view class="main">
 		<view class="ordercontent">
-			<view class="addr">
+			<view class="addr" @click="selectAddress">
 				<image v-bind:src="addIcon" class="addr_icon"></image>
 				<view class="addr_info">
 					<view class="addr_info_position">北京市西城区百万庄大街粮科大厦</view>
@@ -58,7 +58,7 @@
 				<view style="font-size: 28upx;color: #FF594B;">¥6.00</view>
 			</view>
 		</view>
-		<view class="confirm_footer" @click="goNext">去支付</view>
+		<view class="confirm_footer" @click="toPay">去支付</view>
 	</view>
 </template>
 
@@ -67,9 +67,14 @@ import uniNumberBox from "@/components/uni-number-box/uni-number-box.vue"
 import uniIcon from "@/components/uni-icon/uni-icon.vue"
 export default {
 	methods:{
-		goNext() {
+		toPay() {
 			uni.navigateTo({
 				url: "/pages/order/order-pay"
+			})
+		},
+		selectAddress(){
+			uni.navigateTo({
+				url: "/pages/address/address"
 			})
 		}
 	},
