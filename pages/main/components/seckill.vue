@@ -1,21 +1,11 @@
 <template>
-<<<<<<< HEAD
-	<view>
-		<view class="home_top_selling_tit" @click="goNext">
-			<view>限时秒杀</view>
-			<view class="home_top_selling_tit_right">
-				<span>23</span>:
-				<span>23</span>:
-				<span>11.11</span>
-=======
 	<view class="seckill_wrapper">
 		<view class="seckill_tit">
-			<view class="seckill_tit_left">限时秒杀</view>
+			<view class="seckill_tit_left" @click="goNext">>限时秒杀</view>
 			<view class="seckill_tit_right">
 				<view class="seckill_tit_right_item">23</view>:
 				<view class="seckill_tit_right_item">23</view>:
 				<view class="seckill_tit_right_item">11.11</view>
->>>>>>> 50427ade1068a94421811ba30c4c4f7fd85d6148
 			</view>
 		</view>
 		<view class="seckill_content">
@@ -34,23 +24,15 @@
 
 <script>
 	export default {
-<<<<<<< HEAD
-		methods: {
-			goNext() {
-				uni.navigateTo({
-					url: "good-tea"
-				})
-			},
-			sale() {
-				uni.navigateTo({
-					url:"sale-tea"
-				})
-			}
-=======
 		methods:{
 			goList(){
 				uni.navigateTo({
 					url:"/pages/mall/good-tea"
+				})
+			},
+			sale() {
+				uni.navigateTo({
+					url:"/pages/mall/sale-tea"
 				})
 			}
 		},
@@ -78,7 +60,6 @@
 					},
 				]
 			}
->>>>>>> 50427ade1068a94421811ba30c4c4f7fd85d6148
 		}
 	}
 </script>
