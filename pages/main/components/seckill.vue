@@ -1,6 +1,6 @@
 <template>
 	<view>
-		<view class="home_top_selling_tit">
+		<view class="home_top_selling_tit" @click="goNext">
 			<view>限时秒杀</view>
 			<view class="home_top_selling_tit_right">
 				<span>23</span>:
@@ -15,6 +15,20 @@
 </template>
 
 <script>
+	export default {
+		methods: {
+			goNext() {
+				uni.navigateTo({
+					url: "good-tea"
+				})
+			},
+			sale() {
+				uni.navigateTo({
+					url:"sale-tea"
+				})
+			}
+		}
+	}
 </script>
 
 <style lang="less">

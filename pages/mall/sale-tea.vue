@@ -181,12 +181,12 @@
 					font-weight: bold;
 				}
 				.selected {
-					background-color: #FF8279,
-					color: #FFFFFF
-				},
+					background-color: #FF8279;
+					color: #FFFFFF;
+				}
 				.unselected {
-					background-color: white,
-					color: #FF8279
+					background-color: white;
+					color: #FF8279;
 				}
 			}
 			.countdown {
@@ -232,7 +232,6 @@
 						color: rgba(102, 102, 102, 1);
 						line-height: 30upx;
 					}
-
 					.p-footer-wrapper {
 						display: flex;
 						flex-direction: row;
