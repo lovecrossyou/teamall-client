@@ -106,7 +106,7 @@
 		{
 			"path" : "pages/order/order-confirm",
 			"style" : {
-				"navigationBarTitleText" : "确认订单"
+				"navigationBarTitleText" : "隐私设置"
 			}
 		}
 	],
@@ -146,3 +146,4 @@
 		"backgroundColor": "#fbf9fe"
 	}
 }
+
