@@ -6,7 +6,7 @@
 			</view>
 			<view class="title-wrapper">
 				<view class="title">
-					商品
+					商品008
 				</view>
 				<view class="title">
 					详情
