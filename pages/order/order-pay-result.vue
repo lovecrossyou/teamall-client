@@ -2,7 +2,7 @@
 	<view class="pay_load_result_container">
 		<view class="pay_load_result">
 			<view class="pay_load_result_tit">
-				<image v-bind:src=""></image>
+				<!-- <image v-bind:src=""></image> -->
 			</view>
 		</view>
 	</view>
