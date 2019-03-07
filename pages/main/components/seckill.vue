@@ -9,7 +9,7 @@
 			</view>
 		</view>
 		<view class="seckill_content">
-			<view class="seckill_content_item" v-for="item in arr">
+			<view class="seckill_content_item" v-for='(item,i) in arr' :key='i' >
 				<view class="seckill_content_item_img">
 					<image :src="item.img" alt="" />
 				</view>
