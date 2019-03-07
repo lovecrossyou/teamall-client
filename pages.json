@@ -2,8 +2,7 @@
 	"pages": [{
 			"path": "pages/home/home",
 			"style": {
-				"navigationBarTitleText": "茶模",
-				"navigationBarBackgroundColor": "#FF594B"
+				"navigationBarTitleText": "茶模"
 			}
 		},
 		//pages数组中第一项表示应用启动页,
@@ -12,11 +11,10 @@
 			"style": {
 				"navigationStyle": "custom",
 				"navigationBarTitleText": "",
-				"navigationBarBackgroundColor": "#4A90E2",
 				"app-plus": {
 					"titleNView": {
 						"type": "transparent", //透明渐变导航栏,
-						"backgroundColor": "#FFFFFF"
+						"backgroundColor": "#FF594B"
 					}
 				}
 			}
@@ -92,7 +90,6 @@
 			"style": {
 				"navigationBarTitleText": "我的",
 				"navigationStyle": "custom",
-				"navigationBarBackgroundColor": "#4A90E2",
 				"app-plus": {
 					"titleNView": {
 						"type": "transparent" //透明渐变导航栏
@@ -126,8 +123,7 @@
 				"navigationBarBackgroundColor": "#4A90E2",
 				"app-plus": {
 					"titleNView": {
-						"type": "transparent", //透明渐变导航栏,
-						"backgroundColor": "#FFFFFF"
+						"type": "transparent" //透明渐变导航栏,
 					}
 				}
 			}
@@ -197,6 +193,6 @@
 	"globalStyle": {
 		"navigationBarTextStyle": "white",
 		"navigationBarBackgroundColor": "#FF594B",
-		"backgroundColor": "#fbf9fe"
+		"backgroundColor": "#FF594B"
 	}
 }
