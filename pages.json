@@ -35,7 +35,9 @@
 		},
 		{
 			"path": "pages/mall/cart/cart",
-			"style": {}
+			"style": {
+				"navigationBarTitleText": "购物车"
+			}
 		},
 		{
 			"path": "pages/address/address",

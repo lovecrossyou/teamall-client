@@ -3,7 +3,12 @@
 		<view class="shopList">
 			<view class="dianpu" v-for="(item, index) in shopData" :key="index">
 				<view class="dianpu-name">
-					<checkBox :isselected="item.checked" @change="shopActive(item)"></checkBox>
+					<checkBox 
+					class="select"  
+					:isselected="item.checked" 
+					@change="shopActive(item)" 
+					></checkBox>
+					
 					<image v-bind:src="shopIcon"></image>
 					<view class="text">{{ item.shop_name }}</view>
 					<view class="lingquan">领券</view>
@@ -58,6 +63,7 @@
 				<view class="text">猜你喜欢</view>
 				{{ '\u2003一' }}
 			</view>
+			<recommend></recommend>
 		</view>
 
 		<!-- 底部结算 -->
@@ -81,6 +87,7 @@
 
 <script>
 import checkBox from '@/components/custom-checkbox.vue';
+import recommend from '@/pages/main/components/recommend.vue';
 var startX = 0;
 var endX = 0;
 export default {
@@ -335,7 +342,8 @@ export default {
 		deletePro(id) {}
 	},
 	components: {
-		checkBox
+		checkBox,
+		recommend,
 	},
 	// 单间商品的价格 x 数量
 	filters: {
@@ -377,6 +385,10 @@ export default {
 				padding-left: 40upx;
 				padding-right: 40upx;
 				display: flex;
+
+.select{
+margin-right: 20upx;
+}
 
 				image {
 					width: 38upx;
