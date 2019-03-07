@@ -28,7 +28,7 @@
 
 <style lang="less">
 	.segment-container{
-		width: 600upx;
+		width: 400upx;
 		height: 88upx;
 	}
 </style>

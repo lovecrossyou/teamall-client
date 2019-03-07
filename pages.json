@@ -3,7 +3,8 @@
         {
             "path" : "pages/home/home",
             "style" : {
-                "navigationBarTitleText" : "首页"
+                "navigationBarTitleText" : "首页",
+				"navigationBarBackgroundColor":"#FFFFFF"
             }
         },
         //pages数组中第一项表示应用启动页,
@@ -15,7 +16,8 @@
                 "navigationBarBackgroundColor" : "#4A90E2",
                 "app-plus" : {
                     "titleNView" : {
-                        "type" : "transparent" //透明渐变导航栏
+                        "type" : "transparent", //透明渐变导航栏,
+                        "backgroundColor" : "#FFFFFF"
                     }
                 }
             }
@@ -89,12 +91,12 @@
             "style" : {
                 "navigationBarTitleText" : "我的",
                 "navigationStyle" : "custom",
-				"navigationBarBackgroundColor" : "#4A90E2",
-				"app-plus" : {
-				    "titleNView" : {
-				        "type" : "transparent" //透明渐变导航栏
-				    }
-				}
+                "navigationBarBackgroundColor" : "#4A90E2",
+                "app-plus" : {
+                    "titleNView" : {
+                        "type" : "transparent" //透明渐变导航栏
+                    }
+                }
             }
         },
         {
@@ -113,6 +115,19 @@
         {
             "path" : "pages/message/message",
             "style" : {}
+        },
+        {
+            "path" : "pages/product/product",
+            "style" : {
+				"navigationBarTitleText" : "",
+				"navigationBarBackgroundColor" : "#4A90E2",
+				"app-plus" : {
+				    "titleNView" : {
+				        "type" : "transparent", //透明渐变导航栏,
+				        "backgroundColor" : "#FFFFFF"
+				    }
+				}
+			}
         }
     ],
     "tabBar" : {
