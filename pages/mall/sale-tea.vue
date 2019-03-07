@@ -11,8 +11,8 @@
 		
 		<view class="selectheader">
 			<view class="selectback">
-				<view class="selectleftbtn" v-bind:class="[activeSegment===0?selectedclass:unselectedclass]" @click="didselected">今日秒杀</view>
-				<view class="selectrightbtn" v-bind:class="[activeSegment===1?selectedclass:unselectedclass]" @click="didselected">明日预告</view>
+				<view class="selectleftbtn" v-bind:class="[activeSegment?unselectedclass:selectedclass]" @click="didselected">今日秒杀</view>
+				<view class="selectrightbtn" v-bind:class="[activeSegment?selectedclass:unselectedclass]" @click="didselected">明日预告</view>
 			</view>
 			<view class="countdown">23：15：24.12</view>
 		</view>
@@ -89,10 +89,12 @@
 				}],
 				activeSegment:0,
 				selectedclass : {
-					selected:true
+					selected:true,
+					unselected:false,
 				},
 				unselectedclass : {
-					unselected : true
+					selected:false,
+					unselected:true,
 				}
 			}
 		},

@@ -112,6 +112,19 @@
 			}
 		},
 		{
+			"path": "pages/mall/sale-tea",
+			"style": {
+				"navigationStyle": "custom",
+				"navigationBarTitleText": "限时秒杀",
+				"navigationBarBackgroundColor": "#4A90E2",
+				"app-plus": {
+					"titleNView": {
+						"type": "transparent" //透明渐变导航栏
+					}
+				}
+			}
+		},
+		{
 			"path": "pages/message/message",
 			"style": {}
 		},
