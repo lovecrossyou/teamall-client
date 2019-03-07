@@ -2,8 +2,8 @@
 	"pages": [{
 			"path": "pages/home/home",
 			"style": {
-				"navigationBarTitleText": "首页",
-				"navigationBarBackgroundColor": "#FFFFFF"
+				"navigationBarTitleText": "茶模",
+				"navigationBarBackgroundColor": "#FF594B"
 			}
 		},
 		//pages数组中第一项表示应用启动页,
@@ -115,7 +115,9 @@
 		},
 		{
 			"path": "pages/message/message",
-			"style": {}
+			"style": {
+				"navigationBarTitleText": "消息"
+			}
 		},
 		{
 			"path": "pages/product/product",
