@@ -1,7 +1,7 @@
 <template>
-	<view class="free_tea">
+	<view class="free_tea_wrapper">
 		<view class="free_tea_left">
-			<view class="free_tea_intro">
+			<view class="free_tea_intro" @click="freeClick">
 				<view class="free_tea_intro_tit">好茶试饮</view>
 				<view>人气好茶免费送</view>
 			</view>
@@ -36,6 +36,13 @@
 
 <script>
 	export default {
+		methods:{
+			freeClick(){
+				uni.navigateTo({
+					url:"/pages/mall/good-tea"
+				})
+			}
+		},
 		data() {
 			return {
 				mall_main_img_1: "../../static/main/mall_main_img_1.png",
@@ -47,9 +54,13 @@
 </script>
 
 <style lang="less">
-	.free_tea {
+	.free_tea_wrapper {
 		display: flex;
 		margin-top: 70upx;
+		padding-left: 40upx;
+		padding-right: 40upx;
+		box-sizing: border-box;
+
 		.free_tea_left {
 			width: 240upx;
 			height: 352upx;
@@ -57,6 +68,7 @@
 			box-shadow: 0upx 2upx 15upx 1upx rgba(230, 235, 239, 1);
 			border-radius: 4upx;
 			margin-right: 32upx;
+
 			.free_tea_intro {
 				width: 100%;
 				height: 116upx;
@@ -70,22 +82,25 @@
 				font-weight: 400;
 				color: rgba(54, 59, 66, 1);
 				box-sizing: border-box;
+
 				.free_tea_intro_tit {
 					font-size: 28upx;
 					font-weight: bold;
 					color: rgba(54, 59, 66, 1);
 				}
 			}
-			.free_tea_image{
+
+			.free_tea_image {
 				width: 240upx;
 				height: 236upx;
-				image{
+
+				image {
 					width: 240upx;
 					height: 236upx;
 				}
 			}
 		}
-		
+
 		.free_tea_right {
 			flex: 1;
 			height: 352upx;
@@ -94,11 +109,12 @@
 			display: flex;
 			flex-direction: column;
 			justify-content: space-between;
-			
+
 			.free_tea_right_item {
 				display: flex;
 				justify-content: space-between;
 				background: rgba(248, 250, 252, 1);
+
 				.free_tea_intro {
 					color: rgba(54, 59, 66, 1);
 					padding-left: 18upx;
@@ -110,27 +126,25 @@
 					font-weight: 400;
 					color: rgba(54, 59, 66, 1);
 					box-sizing: border-box;
+
 					.free_tea_intro_tit {
 						font-size: 28upx;
 						font-weight: bold;
 						color: rgba(54, 59, 66, 1);
 					}
 				}
+
 				.free_tea_image {
 					width: 220upx;
 					height: 166upx;
-					image{
+
+					image {
 						width: 220upx;
 						height: 166upx;
 					}
 				}
 			}
 		}
-		
+
 	}
-
-	
-
-	
-
 </style>
