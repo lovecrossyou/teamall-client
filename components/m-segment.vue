@@ -1,28 +1,32 @@
 <template>
-	<view class="segment-wrapper" v-bind:style="{width:halfWidth}">
-		<view class="basic" v-bind:class="[activeIndex===0?activeLeftClass:normalLeftClass]" @click="changeSegment(0)">
-			{{datas[0]}}
-		</view>
+	<view class="segment-wrapper">
 		<block v-for="
-		 (data,index) in list" :key="index">
-			<view class="basic" v-bind:class="[activeIndex===1? activeMidClass:normalMidClass]" @click="changeSegment(index)">
+		 (data,index) in datas" :key="index">
+			<view v-if="index===0" class="basic" v-bind:class="[activeIndex===index?activeLeftClass:normalLeftClass]" @click="changeSegment(index)">
+				{{data}}
+			</view>
+			<view v-else-if="index===lastIndex" class="basic" v-bind:class="[activeIndex===index?activeRightClass:normalRightClass]"
+			 @click="changeSegment(index)">
+				{{
+					data
+				}}
+			</view>
+			<view v-else class="basic" v-bind:class="[activeIndex===index? activeMidClass:normalMidClass]" @click="changeSegment(index)">
 				{{data}}
 			</view>
 		</block>
-		<view class="basic" v-bind:class="[activeIndex===2?activeRightClass:normalRightClass]" @click="changeSegment(lastIndex)">
-			{{
-				datas[lastIndex]
-			}}
-		</view>
 	</view>
 </template>
 
 <script>
 	export default {
+		props:{
+			onSegmentChange:Object
+		},
 		data() {
 			return {
 				isActive: true,
-				datas: ["昨日干货", "今日秒杀","今日秒杀", "明日预告"],
+				datas: [ "今日秒杀", "明日预告"],
 				activeLeftClass: {
 					'left-active': true,
 				},
@@ -42,22 +46,18 @@
 					'mid-normal': true,
 				},
 				activeIndex: 0,
-				mainWidth:200
 			};
-		},
-		onReady() {
-			this.mainWidth = 200 * 3;
-			console.log('this.mainWidth ', this.mainWidth)
 		},
 		methods: {
 			changeSegment(index) {
 				this.activeIndex = index;
+				this.onSegmentChange && this.onSegmentChange({
+					index,
+					name:this.datas[index]
+				})
 			}
 		},
 		computed: {
-			halfWidth() {
-                return uni.upx2px(200 * this.datas.length) + 'px';
-            },
 			firstActive() {
 				return this.activeIndex === 0
 			},
@@ -67,40 +67,31 @@
 			lastIndex() {
 				return this.datas.length - 1;
 			},
-			list() {
-				var obj_data = Object.assign({}, this.datas);
-				var keys = Object.keys(obj_data);
-				var list_data = []
-				for (var d in keys) {
-					list_data.push(obj_data[d]);
-				}
-				list_data.shift();
-				list_data.pop();
-				return list_data;
-			}
 		}
 	}
 </script>
 
 <style lang="less">
 	.segment-wrapper {
-		margin: auto;
-		width: 600upx;
-		height: 88upx;
+		padding: 0;
+		// margin: 0;
+		width: 100%;
+		height: 100%;
 		display: flex;
 		flex-direction: row;
 		align-items: center;
 
 		.basic {
-			width: 200upx;
-			height: 88upx;
+// 			height: 100%;
+// 			width: 100%;
+			display: flex;
+			flex: 1;
 			text-align: center;
 			line-height: 88upx;
+			justify-content: center;
 		}
 
 		.left-normal {
-			width: 200upx;
-			height: 88upx;
 			background: #FFFFFF;
 			border: 1upx solid rgba(255, 89, 75, 1);
 			border-radius: 44upx 0upx 0upx 44upx;
@@ -108,8 +99,6 @@
 		}
 
 		.left-active {
-			width: 200upx;
-			height: 88upx;
 			background: rgba(255, 130, 121, 1);
 			border: 1upx solid rgba(255, 89, 75, 1);
 			border-radius: 44upx 0upx 0upx 44upx;
@@ -118,24 +107,18 @@
 		}
 
 		.mid-normal {
-			width: 200upx;
-			height: 88upx;
 			background: #FFFFFF;
 			border: 1upx solid rgba(255, 89, 75, 1);
 			color: #FF594B;
 		}
 
 		.mid-active {
-			width: 200upx;
-			height: 88upx;
 			background: rgba(255, 130, 121, 1);
 			border: 1upx solid rgba(255, 89, 75, 1);
 			color: #FFFFFF;
 		}
 
 		.right-normal {
-			width: 200upx;
-			height: 88upx;
 			background: #FFFFFF;
 			border: 1upx solid rgba(255, 89, 75, 1);
 			border-radius: 0upx 44upx 44upx 0upx;
@@ -144,8 +127,6 @@
 		}
 
 		.right-active {
-			width: 200upx;
-			height: 88upx;
 			background: rgba(255, 130, 121, 1);
 			border: 1upx solid rgba(255, 89, 75, 1);
 			border-radius: 0upx 44upx 44upx 0upx;
@@ -154,7 +135,6 @@
 		}
 
 		.item {
-			width: 200upx;
 			background-color: #FF8279;
 		}
 	}
