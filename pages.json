@@ -140,6 +140,24 @@
 					}
 				}
 			}
+		},
+		{
+			"path": "pages/order/order-confirm",
+			"style": {
+				"navigationBarTitleText": "确认订单"
+			}
+		},
+		{
+			"path": "pages/order/order-pay",
+			"style": {
+				"navigationBarTitleText": "支付"
+			}
+		},
+		{
+			"path": "pages/order/order-pay-result",
+			"style": {
+				"navigationBarTitleText": "支付结果"
+			}
 		}
 	],
 	"tabBar": {

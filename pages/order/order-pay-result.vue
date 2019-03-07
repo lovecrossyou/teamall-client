@@ -14,16 +14,16 @@
 		
 		<view class="hot_recommend">
 			<view class="hot_recommend_tit">热门推荐</view>
-			<hotTea></hotTea>
+			<recommendTea></recommendTea>
 		</view>
 	</view>
 </template>
 
 <script>
-	import hotTea from '../main/components/hotTea.vue';
+	import recommendTea from '../main/components/recommend.vue';
 	export default{
 		components:{
-			hotTea
+			recommendTea
 		},
 		data() {
 			return {

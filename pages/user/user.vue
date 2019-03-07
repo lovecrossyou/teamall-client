@@ -58,7 +58,7 @@
 					<img src="http://qnimage.xiteng.com/center_icon_Coupon@2x.png" class="right_icon" style="width: 39upx;height: 33upx;">
 					<listItemTemplate title="优惠券" desc="三张优惠券"></listItemTemplate>
 				</view>
-				<view class="bottom_list_item">
+				<view class="bottom_list_item" @click="goNext">
 					<img src="http://qnimage.xiteng.com/center_icon_store@2x.png" class="right_icon" style="width: 40upx;height: 34upx;">
 					<listItemTemplate title="我要开店"></listItemTemplate>
 				</view>
@@ -94,6 +94,11 @@
 				goSetting(){
 				uni.navigateTo({
 					url:"../setting/setting"
+				})
+			},
+			goNext(){
+				uni.navigateTo({
+					url:"/pages/order/order-confirm"
 				})
 			}
 		}
