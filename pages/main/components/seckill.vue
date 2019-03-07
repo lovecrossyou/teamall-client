@@ -1,7 +1,7 @@
 <template>
 	<view class="seckill_wrapper">
 		<view class="seckill_tit">
-			<view class="seckill_tit_left">限时秒杀</view>
+			<view class="seckill_tit_left" @click="goNext">>限时秒杀</view>
 			<view class="seckill_tit_right">
 				<view class="seckill_tit_right_item">23</view>:
 				<view class="seckill_tit_right_item">23</view>:
@@ -28,6 +28,11 @@
 			goList(){
 				uni.navigateTo({
 					url:"/pages/mall/good-tea"
+				})
+			},
+			sale() {
+				uni.navigateTo({
+					url:"/pages/mall/sale-tea"
 				})
 			}
 		},

@@ -97,7 +97,7 @@
 				<view class="cart">
 					加入购物车
 				</view>
-				<view class="buy">
+				<view class="buy" @click="toPay">
 					立即购买
 				</view>
 			</view>
@@ -111,6 +111,11 @@
 			goShop(){
 				uni.navigateTo({
 					url:"/pages/storeDetails/storeDetails"
+				})
+			},
+			toPay() {
+				uni.navigateTo({
+					url: "/pages/order/order-confirm"
 				})
 			}
 		},
