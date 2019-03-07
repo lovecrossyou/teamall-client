@@ -1,5 +1,6 @@
 {
     "pages" : [
+<<<<<<< HEAD
         //pages数组中第一项表示应用启动页,
         {
             "path" : "pages/main/main",
@@ -11,6 +12,26 @@
             "path" : "pages/login/login",
             "style" : {
                 "navigationBarTitleText" : "登录"
+=======
+        {
+            "path" : "pages/home/home",
+            "style" : {
+                "navigationBarTitleText" : "首页"
+            }
+        },
+        //pages数组中第一项表示应用启动页,
+        {
+            "path" : "pages/main/main",
+            "style" : {
+                "navigationStyle" : "custom",
+                "navigationBarTitleText" : "",
+                "navigationBarBackgroundColor" : "#4A90E2",
+                "app-plus" : {
+                    "titleNView" : {
+                        "type" : "transparent" //透明渐变导航栏
+                    }
+                }
+>>>>>>> eb9d24e2dcea5f388596ed3877d7f06f2335bb7a
             }
         },
         {
@@ -26,15 +47,78 @@
             }
         },
         {
+<<<<<<< HEAD
             "path" : "pages/user/user",
             "style" : {
                 "navigationBarTitleText" : "我的"
+=======
+            "path" : "pages/mall/cart/cart",
+            "style" : {}
+        },
+        {
+            "path" : "pages/address/address",
+            "style" : {
+                "navigationBarTitleText" : "地址管理"
+            }
+        },
+        {
+            "path" : "pages/address/edit",
+            "style" : {
+                "navigationBarTitleText" : "编辑地址"
+            }
+        },
+        {
+            "path" : "pages/setting/setting",
+            "style" : {
+                "navigationBarTitleText" : "设置"
+            }
+        },
+        {
+            "path" : "pages/setting/addressManage",
+            "style" : {
+                "navigationBarTitleText" : "地址管理"
+            }
+        },
+        {
+            "path" : "pages/setting/phonenumberManage",
+            "style" : {
+                "navigationBarTitleText" : "绑定手机号"
+            }
+        },
+        {
+            "path" : "pages/setting/cacheManage",
+            "style" : {
+                "navigationBarTitleText" : "清理缓存"
+            }
+        },
+        {
+            "path" : "pages/setting/privacyManage",
+            "style" : {
+                "navigationBarTitleText" : "隐私设置"
+>>>>>>> eb9d24e2dcea5f388596ed3877d7f06f2335bb7a
             }
         },
         {
             "path" : "pages/mall/mall",
             "style" : {
+<<<<<<< HEAD
                 "navigationBarTitleText" : "我的"
+=======
+                "navigationBarTitleText" : "茶摩"
+            }
+        },
+        {
+            "path" : "pages/user/user",
+            "style" : {
+                "navigationBarTitleText" : "我的",
+                "navigationStyle" : "custom",
+				"navigationBarBackgroundColor" : "#4A90E2",
+				"app-plus" : {
+				    "titleNView" : {
+				        "type" : "transparent" //透明渐变导航栏
+				    }
+				}
+>>>>>>> eb9d24e2dcea5f388596ed3877d7f06f2335bb7a
             }
         },
         {
@@ -50,6 +134,7 @@
                 }
             }
         },
+<<<<<<< HEAD
 		{
 		    "path" : "pages/mall/sale-tea",
 		    "style" : {
@@ -65,6 +150,10 @@
 		},
         {
             "path" : "pages/mall/cart/cart",
+=======
+        {
+            "path" : "pages/message/message",
+>>>>>>> eb9d24e2dcea5f388596ed3877d7f06f2335bb7a
             "style" : {}
         }
     ],
@@ -74,19 +163,31 @@
         "backgroundColor" : "#ffffff",
         "list" : [
             {
+<<<<<<< HEAD
                 "pagePath" : "pages/main/main",
+=======
+                "pagePath" : "pages/home/home",
+>>>>>>> eb9d24e2dcea5f388596ed3877d7f06f2335bb7a
                 "text" : "茶模",
                 "iconPath" : "static/tab/mall_tab_home.png",
                 "selectedIconPath" : "static/tab/mall_tab_home_selected.png"
             },
             {
+<<<<<<< HEAD
                 "pagePath" : "pages/mall/mall",
+=======
+                "pagePath" : "pages/main/main",
+>>>>>>> eb9d24e2dcea5f388596ed3877d7f06f2335bb7a
                 "text" : "茶摩",
                 "iconPath" : "static/tab/mall_tab_mall.png",
                 "selectedIconPath" : "static/tab/mall_tab_mall_selected.png"
             },
             {
+<<<<<<< HEAD
                 "pagePath" : "pages/main/main",
+=======
+                "pagePath" : "pages/message/message",
+>>>>>>> eb9d24e2dcea5f388596ed3877d7f06f2335bb7a
                 "text" : "消息",
                 "iconPath" : "static/tab/mall_tab_message.png",
                 "selectedIconPath" : "static/tab/mall_tab_message_selected.png"
