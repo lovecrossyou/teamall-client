@@ -114,6 +114,12 @@
 			"style" : {
 				"navigationBarTitleText" : "支付"
 			}
+		},
+		{
+			"path" : "pages/order/order-pay-result",
+			"style" : {
+				"navigationBarTitleText" : "支付结果"
+			}
 		}
 	],
 	"tabBar": {

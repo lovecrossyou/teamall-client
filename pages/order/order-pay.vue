@@ -19,12 +19,19 @@
 				</block>	
 			</view>
 		</view>
-		<view class="confirm_footer">确认支付</view>
+		<view class="confirm_footer" @click="goNext">确认支付</view>
 	</view>
 </template>
 
 <script>
 	export default {
+		methods:{
+			goNext() {
+				uni.navigateTo({
+					url: "/pages/order/order-pay-result"
+				})
+			}
+		},	
 		data() {
 			return {
 				selectIndex:0,

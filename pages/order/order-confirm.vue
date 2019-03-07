@@ -63,7 +63,7 @@
 </template>
 
 <script>
-import uniNumberBox from "@dcloudio/uni-ui/lib/uni-number-box/uni-number-box.vue"
+import uniNumberBox from "@/components/uni-number-box/uni-number-box.vue"
 import uniIcon from "@/components/uni-icon/uni-icon.vue"
 export default {
 	methods:{
