@@ -5,13 +5,19 @@
                 <view class="page-section-spacing">
                     <swiper class="swiper" :indicator-dots="indicatorDots" :autoplay="autoplay" :interval="interval" :duration="duration">
                         <swiper-item>
-                            <view class="swiper-item uni-bg-red">A</view>
+                            <view class="swiper-item uni-bg-red">
+								<image :src="mall_banner"></image>
+							</view>
                         </swiper-item>
                         <swiper-item>
-                            <view class="swiper-item uni-bg-green">B</view>
+                            <view class="swiper-item uni-bg-green">
+								<image :src="mall_banner"></image>
+							</view>
                         </swiper-item>
                         <swiper-item>
-                            <view class="swiper-item uni-bg-blue">C</view>
+                            <view class="swiper-item uni-bg-blue">
+								<image :src="mall_banner"></image>
+							</view>
                         </swiper-item>
                     </swiper>
                 </view>
@@ -24,6 +30,7 @@
 	export default {
     data() {
         return {
+			mall_banner:"../../static/main/mall_banner.png",
             background: ['color1', 'color2', 'color3'],
             indicatorDots: true,
             autoplay: true,
@@ -49,4 +56,7 @@
 </script>
 
 <style>
+	.swiper-item>image{
+		width: 100%;
+	}
 </style>
