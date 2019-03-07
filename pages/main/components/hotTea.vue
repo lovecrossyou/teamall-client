@@ -1,5 +1,5 @@
 <template>
-	<view class="hot_tea">
+	<view class="hot_tea_wrapper">
 		<view class="hot_tea_tit">爆款工夫茶</view>
 		<view class="hot_tea_content">
 			<view class="hot_tea_item" v-for='item in arr'>
@@ -36,8 +36,11 @@
 </script>
 
 <style lang="less">
-	.hot_tea {
+	.hot_tea_wrapper {
 		width: 100%;
+		padding-left: 40upx;
+		padding-right: 40upx;
+		box-sizing: border-box;
 
 		.hot_tea_tit {
 			margin-top: 86upx;
