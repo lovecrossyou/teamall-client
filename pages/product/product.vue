@@ -73,7 +73,7 @@
 				<view class="cart">
 					加入购物车
 				</view>
-				<view class="buy">
+				<view class="buy" @click="toPay">
 					立即购买
 				</view>
 			</view>
@@ -83,6 +83,13 @@
 
 <script>
 	export default {
+		methods:{
+			toPay() {
+				uni.navigateTo({
+					url: "/pages/order/order-confirm"
+				})
+			}
+		},
 		data() {
 			return {
 				returnIcon: "../../static/product/icon_return.png",
