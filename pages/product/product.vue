@@ -37,7 +37,22 @@
 
 		<!-- 价格 倒计时 -->
 		<view class="price-section">
+			<view class="left">
+				<view class="price">
 
+				</view>
+				<view class="number">
+
+				</view>
+			</view>
+			<view class="right">
+				<view class="price">
+
+				</view>
+				<view class="number">
+
+				</view>
+			</view>
 		</view>
 
 		<!-- 底部菜单 -->
@@ -141,6 +156,8 @@
 				}
 			}
 		}
+
+		.price-section {}
 
 		.footer {
 			height: 102upx;

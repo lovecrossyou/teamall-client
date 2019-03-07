@@ -9,7 +9,7 @@
 		methods: {
 			goNext() {
 				uni.navigateTo({
-					url: "good-tea"
+					url: "/pages/order/order-confirm"
 				})
 			}
 		}
