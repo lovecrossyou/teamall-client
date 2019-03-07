@@ -1,5 +1,11 @@
 {
-	"pages": [
+	"pages": [{
+			"path": "pages/home/home",
+			"style": {
+				"navigationBarTitleText": "首页",
+				"navigationBarBackgroundColor": "#FFFFFF"
+			}
+		},
 		//pages数组中第一项表示应用启动页,
 		{
 			"path": "pages/main/main",
@@ -9,103 +15,10 @@
 				"navigationBarBackgroundColor": "#4A90E2",
 				"app-plus": {
 					"titleNView": {
-						"type": "transparent" //透明渐变导航栏
+						"type": "transparent", //透明渐变导航栏,
+						"backgroundColor": "#FFFFFF"
 					}
 				}
-			}
-		},
-		{
-			"path": "pages/home/home",
-			"style": {
-				"navigationBarTitleText": "首页"
-			}
-		},
-
-
-		{
-			"path": "pages/reg/reg",
-			"style": {
-				"navigationBarTitleText": "注册"
-			}
-		},
-		{
-			"path": "pages/pwd/pwd",
-			"style": {
-				"navigationBarTitleText": "找回密码"
-			}
-		},
-		{
-			"path": "pages/mall/cart/cart",
-			"style": {
-				"navigationBarTitleText": "购物车"
-			}
-		},
-		{
-			"path": "pages/address/address",
-			"style": {
-				"navigationBarTitleText": "地址管理"
-			}
-		},
-		{
-			"path": "pages/address/edit",
-			"style": {
-				"navigationBarTitleText": "编辑地址"
-			}
-		},
-		{
-			"path": "pages/setting/setting",
-			"style": {
-				"navigationBarTitleText": "设置"
-			}
-		},
-		{
-			"path": "pages/setting/addressManage",
-			"style": {
-				"navigationBarTitleText": "地址管理"
-			}
-		},
-		{
-			"path": "pages/setting/phonenumberManage",
-			"style": {
-				"navigationBarTitleText": "绑定手机号"
-			}
-		},
-		{
-			"path": "pages/setting/cacheManage",
-			"style": {
-				"navigationBarTitleText": "清理缓存"
-			}
-		},
-		{
-			"path": "pages/setting/privacyManage",
-			"style": {
-				"navigationBarTitleText": "隐私设置"
-			}
-		},
-		{
-			"path": "pages/mall/mall",
-			"style": {
-				"navigationBarTitleText": "茶摩"
-			}
-		},
-		{
-			"path": "pages/user/user",
-			"style": {
-				"navigationBarTitleText": "我的",
-				"navigationStyle": "custom",
-				"navigationBarBackgroundColor": "#4A90E2",
-				"app-plus": {
-					"titleNView": {
-						"type": "transparent" //透明渐变导航栏
-					}
-
-				}
-			}
-		},
-		{
-			"path": "pages/login/login",
-			"style": {
-				"navigationBarTitleText": "登录"
 			}
 		},
 		{
@@ -171,11 +84,18 @@
 			"style": {
 				"navigationBarTitleText": "茶摩"
 			}
-		}, {
+		},
+		{
 			"path": "pages/user/user",
 			"style": {
 				"navigationBarTitleText": "我的",
-				"navigationStyle": "custom"
+				"navigationStyle": "custom",
+				"navigationBarBackgroundColor": "#4A90E2",
+				"app-plus": {
+					"titleNView": {
+						"type": "transparent" //透明渐变导航栏
+					}
+				}
 			}
 		},
 		{
@@ -183,6 +103,36 @@
 			"style": {
 				"navigationStyle": "custom",
 				"navigationBarTitleText": "好茶试饮",
+				"navigationBarBackgroundColor": "#4A90E2",
+				"app-plus": {
+					"titleNView": {
+						"type": "transparent" //透明渐变导航栏
+					}
+				}
+			}
+		},
+		{
+			"path": "pages/message/message",
+			"style": {}
+		},
+		{
+			"path": "pages/product/product",
+			"style": {
+				"navigationBarTitleText": "",
+				"navigationBarBackgroundColor": "#4A90E2",
+				"app-plus": {
+					"titleNView": {
+						"type": "transparent", //透明渐变导航栏,
+						"backgroundColor": "#FFFFFF"
+					}
+				}
+			}
+		},
+		{
+			"path": "pages/storeDetails/storeDetails",
+			"style": {
+				"navigationStyle": "custom",
+				"navigationBarTitleText": "店铺",
 				"navigationBarBackgroundColor": "#4A90E2",
 				"app-plus": {
 					"titleNView": {
@@ -215,19 +165,19 @@
 		"selectedColor": "#FE594B",
 		"backgroundColor": "#ffffff",
 		"list": [{
-				"pagePath": "pages/main/main",
+				"pagePath": "pages/home/home",
 				"text": "茶模",
 				"iconPath": "static/tab/mall_tab_home.png",
 				"selectedIconPath": "static/tab/mall_tab_home_selected.png"
 			},
 			{
-				"pagePath": "pages/mall/mall",
+				"pagePath": "pages/main/main",
 				"text": "茶摩",
 				"iconPath": "static/tab/mall_tab_mall.png",
 				"selectedIconPath": "static/tab/mall_tab_mall_selected.png"
 			},
 			{
-				"pagePath": "pages/main/main",
+				"pagePath": "pages/message/message",
 				"text": "消息",
 				"iconPath": "static/tab/mall_tab_message.png",
 				"selectedIconPath": "static/tab/mall_tab_message_selected.png"
