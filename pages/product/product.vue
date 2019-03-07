@@ -55,6 +55,30 @@
 			</view>
 		</view>
 
+		<!-- 店铺 -->
+		<view class="shop-wrapper">
+			<view class="shop_info">
+				<view class="left">
+					<image :src="shop_icon"></image>
+					<view class="name-wrapper">
+						<view class="name">
+							张一元旗舰店
+						</view>
+						<view class="number">
+							全部宝贝：98
+						</view>
+					</view>
+				</view>
+				<view class="right">
+					<view class="all">全部宝贝</view>
+					<view class="shop" @click="goShop">进店逛逛</view>
+				</view>
+			</view>
+			<view class="des_info">
+
+			</view>
+		</view>
+
 		<!-- 底部菜单 -->
 		<view class="footer">
 			<view class="shop">
@@ -84,6 +108,11 @@
 <script>
 	export default {
 		methods:{
+			goShop(){
+				uni.navigateTo({
+					url:"/pages/storeDetails/storeDetails"
+				})
+			},
 			toPay() {
 				uni.navigateTo({
 					url: "/pages/order/order-confirm"
@@ -100,7 +129,8 @@
 				interval: 2000,
 				duration: 500,
 				mall_icon: "../../static/product/bottom_icon_mall.png",
-				service_icon: "../../static/product/bottom_icon_service.png"
+				service_icon: "../../static/product/bottom_icon_service.png",
+				shop_icon: "../../static/product/store_logo.png"
 			};
 		}
 	}
@@ -109,6 +139,7 @@
 <style lang="less">
 	.main {
 		width: 100%;
+		background-color: #F4F8FB;
 
 		.header {
 			padding: 0 24upx;
@@ -118,6 +149,7 @@
 			flex-direction: row;
 			justify-content: space-between;
 			align-items: center;
+			background: #fff;
 
 			.left-arrow {
 				image {
@@ -165,6 +197,89 @@
 		}
 
 		.price-section {}
+
+		.shop-wrapper {
+			padding: 30upx 24upx;
+			box-sizing: border-box;
+			height: 188upx;
+			display: flex;
+			flex-direction: column;
+			// align-items: center;
+
+			.shop_info {
+				display: flex;
+				flex-direction: row;
+				align-items: center;
+
+				.left {
+					display: flex;
+					flex-direction: row;
+					align-items: center;
+
+					image {
+						width: 76upx;
+						height: 74upx;
+					}
+
+					.name-wrapper {
+						margin-left: 12upx;
+						display: flex;
+						flex-direction: column;
+
+						.name {
+							font-size: 32upx;
+							font-family: PingFang-SC-Medium;
+							font-weight: 500;
+							color: rgba(51, 51, 51, 1);
+						}
+
+						.number {
+							font-size: 24upx;
+							font-family: PingFang-SC-Medium;
+							font-weight: 500;
+							color: rgba(153, 153, 153, 1);
+						}
+					}
+				}
+
+				.right {
+					display: flex;
+					flex: 1;
+					justify-content: flex-end;
+
+					.shop {
+						width: 140upx;
+						height: 48upx;
+						background: rgba(255, 89, 75, 1);
+						border-radius: 24upx;
+						color: #fff;
+						font-size: 24upx;
+						text-align: center;
+						line-height: 48upx;
+					}
+
+					.all {
+						margin-right: 20upx;
+						width: 140upx;
+						height: 48upx;
+						background: rgba(188, 188, 188, 0);
+						border: 1upx solid rgba(255, 89, 75, 1);
+						border-radius: 24upx;
+						color: #FF594B;
+						font-size: 24upx;
+						text-align: center;
+						line-height: 48upx;
+					}
+				}
+			}
+
+			.des_info {
+				background: #333;
+				height: 40upx;
+				width: 100%;
+			}
+
+		}
 
 		.footer {
 			height: 102upx;
