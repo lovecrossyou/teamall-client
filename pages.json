@@ -129,7 +129,7 @@
 			}
 		},
 		{
-			"path": "pages/store/store",
+			"path": "pages/storeDetails/storeDetails",
 			"style": {
 				"navigationStyle": "custom",
 				"navigationBarTitleText": "店铺",

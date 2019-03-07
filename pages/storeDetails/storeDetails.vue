@@ -102,6 +102,17 @@
 				</view>
 			</block>
 		</view>
+		<!-- 底部 -->
+		<view class="footer_option_wrapper">
+		  <view class="footer_option">
+			<view class="imsg_icon">
+			  <img src="http://qnimage.xiteng.com/store_bottom_service@2x.png" alt="" />
+			</view>
+			<view>客服</view>
+		  </view>
+		  <view class="footer_option">宝贝分类</view>
+		  <view class="footer_option">热销商品</view>
+		</view>
 	</view>
 </template>
 
@@ -395,7 +406,7 @@
     justify-content: space-between;
     flex-wrap: wrap;
     margin-top: 15upx;
-    padding: 0 25upx;
+    padding: 0 25upx 70upx 25upx;
     box-sizing: border-box;
 }
 .home_top_selling_tea_item{
