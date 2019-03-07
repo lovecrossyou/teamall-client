@@ -11,8 +11,8 @@
 		
 		<view class="selectheader">
 			<view class="selectback">
-				<view class="selectleftbtn" v-bind:class="[activeSegment?unselected:selected]" @click="didselected">今日秒杀</view>
-				<view class="selectrightbtn" v-bind:class="[activeSegment?selected:unselected]" @click="didselected">明日预告</view>
+				<view class="selectleftbtn" v-bind:class="[activeSegment===0?selectedclass:unselectedclass]" @click="didselected">今日秒杀</view>
+				<view class="selectrightbtn" v-bind:class="[activeSegment===1?selectedclass:unselectedclass]" @click="didselected">明日预告</view>
 			</view>
 			<view class="countdown">23：15：24.12</view>
 		</view>
@@ -88,25 +88,15 @@
 					desc: '热泡、冷泡随心泡买二送一 ',
 				}],
 				activeSegment:0,
-				selected:{
-					'background-color': '#FF8279',
-					'color': '#FFFFFF'
+				selectedclass : {
+					selected:true
 				},
-				unselected:{
-					'background-color': 'white',
-					'color': '#FF8279'
+				unselectedclass : {
+					unselected : true
 				}
-				
 			}
 		},
 		computed: {
-// 			btnselected() {
-// 				return this.activeSegment?'selected':'unselected';
-// 			},
-			// rightSelected() {
-				// activeSegment=1;
-				// return this.activeSegment?0:1;
-			// }
 		}
 		,
 		methods: {
@@ -189,6 +179,14 @@
 					border-width: 1upx;
 					font-size: 26upx;
 					font-weight: bold;
+				}
+				.selected {
+					background-color: #FF8279,
+					color: #FFFFFF
+				},
+				.unselected {
+					background-color: white,
+					color: #FF8279
 				}
 			}
 			.countdown {
