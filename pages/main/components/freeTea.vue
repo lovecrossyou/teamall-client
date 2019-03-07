@@ -1,7 +1,7 @@
 <template>
 	<view class="free_tea_wrapper">
 		<view class="free_tea_left">
-			<view class="free_tea_intro">
+			<view class="free_tea_intro" @click="freeClick">
 				<view class="free_tea_intro_tit">好茶试饮</view>
 				<view>人气好茶免费送</view>
 			</view>
@@ -36,6 +36,13 @@
 
 <script>
 	export default {
+		methods:{
+			freeClick(){
+				uni.navigateTo({
+					url:"/pages/mall/good-tea"
+				})
+			}
+		},
 		data() {
 			return {
 				mall_main_img_1: "../../static/main/mall_main_img_1.png",

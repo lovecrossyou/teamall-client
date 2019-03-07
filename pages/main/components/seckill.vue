@@ -9,7 +9,7 @@
 			</view>
 		</view>
 		<view class="seckill_content">
-			<view class="seckill_content_item" v-for='(item,i) in arr' :key='i' >
+			<view class="seckill_content_item" v-for='(item,i) in arr' :key='i' @click="goList">
 				<view class="seckill_content_item_img">
 					<image :src="item.img" alt="" />
 				</view>
@@ -24,6 +24,13 @@
 
 <script>
 	export default {
+		methods:{
+			goList(){
+				uni.navigateTo({
+					url:"/pages/mall/good-tea"
+				})
+			}
+		},
 		data() {
 			return {
 				arr: [{
