@@ -108,7 +108,7 @@ export default {
 					checkedCount: 0,
 					data: [
 						{
-							pro_id: 1,
+							pro_id: 122,
 							pro_name: ' 香奈儿可可小姐淡香水 50ml',
 							pro_name2: ' (又名：香奈儿 可可小姐淡香水（瓶装）50ml)',
 							reduce_price: 16,
@@ -120,7 +120,7 @@ export default {
 							scrollLeft: 0
 						},
 						{
-							pro_id: 2,
+							pro_id: 225,
 							pro_name: ' 香奈儿可可小姐淡香水 50ml',
 							pro_name2: ' (又名：香奈儿 可可小姐淡香水（瓶装）50ml)',
 							reduce_price: 16,
@@ -141,7 +141,7 @@ export default {
 					checkedCount: 0,
 					data: [
 						{
-							pro_id: 1,
+							pro_id: 19,
 							pro_name: ' 香奈儿可可小姐淡香水 50ml',
 							pro_name2: ' (又名：香奈儿 可可小姐淡香水（瓶装）50ml)',
 							reduce_price: 16,
@@ -153,7 +153,7 @@ export default {
 							scrollLeft: 0
 						},
 						{
-							pro_id: 2,
+							pro_id: 20,
 							pro_name: ' 香奈儿可可小姐淡香水 50ml',
 							pro_name2: ' (又名：香奈儿 可可小姐淡香水（瓶装）50ml)',
 							reduce_price: 16,
@@ -174,7 +174,7 @@ export default {
 					checkedCount: 0,
 					data: [
 						{
-							pro_id: 1,
+							pro_id: 21,
 							pro_name: ' 香奈儿可可小姐淡香水 50ml',
 							pro_name2: ' (又名：香奈儿 可可小姐淡香水（瓶装）50ml)',
 							reduce_price: 16,
@@ -186,7 +186,7 @@ export default {
 							scrollLeft: 0
 						},
 						{
-							pro_id: 2,
+							pro_id: 22,
 							pro_name: ' 香奈儿可可小姐淡香水 50ml',
 							pro_name2: ' (又名：香奈儿 可可小姐淡香水（瓶装）50ml)',
 							reduce_price: 16,
