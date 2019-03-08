@@ -160,6 +160,12 @@
 			"style": {
 				"navigationBarTitleText": "支付结果"
 			}
+		},
+		{
+			"path": "pages/order/order-list",
+			"style": {
+				"navigationBarTitleText": "我的订单"
+			}
 		}
 	],
 	"tabBar": {
