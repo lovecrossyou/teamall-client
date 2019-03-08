@@ -37,6 +37,10 @@
 			}
 		},
 		{
+			"path": "pages/home/attention",
+			"style": {}
+		},
+		{
 			"path": "pages/address/address",
 			"style": {
 				"navigationBarTitleText": "地址管理"
