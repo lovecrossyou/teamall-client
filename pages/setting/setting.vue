@@ -31,6 +31,10 @@
 						url: "privacyManage"
 					},
 					{
+						txt: "购物车",
+						url: "../mall/cart/cart"
+					},
+					{
 						txt: "退出登录",
 						url: "../login/login"
 					}

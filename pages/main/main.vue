@@ -3,7 +3,9 @@
 		<searchBox></searchBox>
 		<!-- 导航栏 -->
 		<navBarList></navBarList>
-		<banner></banner>
+		<view class="banner-wrapper">
+			<banner></banner>
+		</view>
 		<view class="tea_mall_home_page_section">
 			<!-- 免费试饮 -->
 			<freeTea></freeTea>
@@ -79,6 +81,13 @@
 		width: 100%;
 		background: #ffffff;
 		overflow-x: hidden;
+
+		// 		padding: 54upx 30upx;
+		// 		box-sizing: border-box;
+		.banner-wrapper {
+			width: 100%;
+			height: 240upx;
+		}
 
 		.tea_mall_home_page_section {
 			width: 100%;

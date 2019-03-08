@@ -1,7 +1,7 @@
 <template>
 	<view class="seckill_wrapper">
 		<view class="seckill_tit">
-			<view class="seckill_tit_left">限时秒杀</view>
+			<view class="seckill_tit_left" @click="sale">>限时秒杀</view>
 			<view class="seckill_tit_right">
 				<view class="seckill_tit_right_item">23</view>:
 				<view class="seckill_tit_right_item">23</view>:
@@ -9,7 +9,7 @@
 			</view>
 		</view>
 		<view class="seckill_content">
-			<view class="seckill_content_item" v-for='(item,i) in arr' :key='i' >
+			<view class="seckill_content_item" v-for='(item,i) in arr' :key='i' @click="goList">
 				<view class="seckill_content_item_img">
 					<image :src="item.img" alt="" />
 				</view>
@@ -24,6 +24,18 @@
 
 <script>
 	export default {
+		methods:{
+			goList(){
+				uni.navigateTo({
+					url:"/pages/mall/good-tea"
+				})
+			},
+			sale() {
+				uni.navigateTo({
+					url:"/pages/mall/sale-tea"
+				})
+			}
+		},
 		data() {
 			return {
 				arr: [{

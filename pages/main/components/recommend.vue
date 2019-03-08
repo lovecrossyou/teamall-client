@@ -1,6 +1,6 @@
 <template>
 	<view class="recommend_wrapper">
-		<view class="recommend_item" v-for='(item,i) in arr' :key='i' >
+		<view class="recommend_item" v-for='(item,i) in arr' :key='i' @click="goProduct(item)">
 			<view class="recommend_item_img">
 				<image :src="item.img" alt="" />
 			</view>
@@ -14,6 +14,13 @@
 
 <script>
 	export default {
+		methods:{
+			goProduct(item){
+				uni.navigateTo({
+					url:"/pages/product/product"
+				})
+			}
+		},
 		data() {
 			return {
 				arr: [{
@@ -60,32 +67,35 @@
 			height: 508upx;
 			background: rgba(255, 255, 255, 1);
 			border-radius: 10upx;
-			overflow:hidden;
+			overflow: hidden;
 			margin-bottom: 30upx;
-			.recommend_item_img{
-				width:100%;
+
+			.recommend_item_img {
+				width: 100%;
 				height: 344upx;
-				image{
-					width:100%;
+
+				image {
+					width: 100%;
 					height: 344upx;
 				}
 			}
+
 			.recommend_item_intro {
 				width: 100%;
 				font-size: 28upx;
 				font-family: PingFang-SC-Bold;
 				font-weight: bold;
 				color: rgba(31, 31, 31, 1);
-				padding:20upx 14upx;
+				padding: 20upx 14upx;
 				box-sizing: border-box;
-			
+
 				.recommend_item_intro_content {
-					width:100%;
-					height:42px;
+					width: 100%;
+					height: 42px;
 					overflow: hidden;
 					text-overflow: ellipsis;
 				}
-			
+
 				.recommend_item_intro_price {
 					color: rgba(255, 89, 75, 1);
 					margin-top: 10upx;
