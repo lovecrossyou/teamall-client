@@ -1,7 +1,7 @@
 <template>
 	<view class="seckill_wrapper">
 		<view class="seckill_tit">
-			<view class="seckill_tit_left">限时秒杀</view>
+			<view class="seckill_tit_left" @click="sale">限时秒杀</view>
 			<view class="seckill_tit_right">
 				<view class="seckill_tit_right_item">23</view>:
 				<view class="seckill_tit_right_item">23</view>:
@@ -28,6 +28,11 @@
 			goList(){
 				uni.navigateTo({
 					url:"/pages/mall/good-tea"
+				})
+			},
+			sale() {
+				uni.navigateTo({
+					url:"/pages/mall/sale-tea"
 				})
 			}
 		},
@@ -74,7 +79,7 @@
 			padding-right: 40upx;
 			box-sizing: border-box;
 
-			.seckill_left {
+			.seckill_tit_left {
 				font-size: 44upx;
 				font-family: PingFang-SC-Bold;
 				color: rgba(31, 31, 31, 1);
@@ -135,8 +140,7 @@
 
 					.seckill_content_item_intro_price {
 						color: rgba(255, 89, 75, 1);
-						margin-top: 26upx;
-						margin-bottom: 20upx;
+						margin-top: 20upx;
 					}
 				}
 			}

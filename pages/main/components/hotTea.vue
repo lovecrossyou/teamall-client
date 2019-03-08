@@ -59,8 +59,6 @@
 			.hot_tea_item {
 				width: 48%;
 				background-color: #fff;
-				margin-bottom: 20upx;
-
 				.hot_tea_item_img {
 					width: 100%;
 					height: 220upx;
@@ -88,8 +86,7 @@
 
 					.hot_tea_item_intro_price {
 						color: rgba(255, 89, 75, 1);
-						margin-top: 26upx;
-						margin-bottom: 20upx;
+						margin-top: 20upx;
 					}
 				}
 			}
