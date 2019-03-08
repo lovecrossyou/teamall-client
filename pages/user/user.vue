@@ -37,7 +37,7 @@
 		</view>
 		
 		<view class="white_bg">
-			<view>
+			<view @click="toOrderList">
 				<listItemTemplate title="我的订单"  desc="全部订单"></listItemTemplate>
 			</view>
 			
@@ -99,6 +99,11 @@
 			goNext(){
 				uni.navigateTo({
 					url:"/pages/order/order-confirm"
+				})
+			},
+			toOrderList(){
+				uni.navigateTo({
+					url:"/pages/order/order-list"
 				})
 			}
 		}
