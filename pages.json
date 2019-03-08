@@ -10,11 +10,10 @@
 			"path": "pages/main/main",
 			"style": {
 				"navigationStyle": "custom",
-				"navigationBarTitleText": "",
+				"navigationBarTitleText": "茶摩",
 				"app-plus": {
 					"titleNView": {
-						"type": "transparent", //透明渐变导航栏,
-						"backgroundColor": "#FF594B"
+						"type": "transparent" //透明渐变导航栏,
 					}
 				}
 			}
@@ -102,7 +101,6 @@
 			"style": {
 				"navigationStyle": "custom",
 				"navigationBarTitleText": "好茶试饮",
-				"navigationBarBackgroundColor": "#4A90E2",
 				"app-plus": {
 					"titleNView": {
 						"type": "transparent" //透明渐变导航栏
@@ -119,11 +117,10 @@
 		{
 			"path": "pages/product/product",
 			"style": {
-				"navigationBarTitleText": "",
-				"navigationBarBackgroundColor": "#4A90E2",
+				"navigationBarTitleText": "商品详情",
 				"app-plus": {
 					"titleNView": {
-						"type": "transparent" //透明渐变导航栏,
+						"type": "transparent" //透明渐变导航栏
 					}
 				}
 			}
@@ -133,7 +130,6 @@
 			"style": {
 				"navigationStyle": "custom",
 				"navigationBarTitleText": "店铺",
-				"navigationBarBackgroundColor": "#4A90E2",
 				"app-plus": {
 					"titleNView": {
 						"type": "transparent" //透明渐变导航栏
