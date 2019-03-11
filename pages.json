@@ -200,6 +200,18 @@
 					}
 				}
 			}
+		},
+		{
+			"path": "pages/represent/introduce",
+			"style": {
+				"navigationStyle": "custom",
+					"navigationBarTitleText": "代言介绍页",
+				"app-plus": {
+					"titleNView": {
+						"type": "transparent"
+					}
+				}
+			}
 		}
 		
 	],
