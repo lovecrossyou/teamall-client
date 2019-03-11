@@ -241,8 +241,8 @@
 			}
 
 			.momentsBanner {
-				width:100%;
-				height:576upx;
+				width: 100%;
+				height: 576upx;
 			}
 
 			.momentsTitle {
@@ -364,7 +364,7 @@
 					margin-right: 28upx;
 					box-sizing: border-box;
 					display: inline-block;
-					
+
 					.likeuserIcon {
 						position: absolute;
 						top: -37upx;
@@ -374,12 +374,12 @@
 						margin-left: 50upx;
 					}
 
-					.likeusertxt{
+					.likeusertxt {
 						display: flex;
 						flex-direction: column;
 						align-items: center;
 						margin-top: 85upx;
-						
+
 						.likeuserName {
 							height: 26upx;
 							font-size: 28upx;
@@ -387,7 +387,7 @@
 							font-weight: bold;
 							color: rgba(24, 24, 24, 1);
 						}
-						
+
 						.likeuserFans {
 							height: 23upx;
 							font-size: 24upx;
