@@ -252,7 +252,7 @@
 				font-family: PingFang-SC-Bold;
 				font-weight: bold;
 				color: rgba(24, 24, 24, 1);
-				padding: 32upx 41upx 48upx 40upx;
+				padding: 5upx 41upx 47upx 40upx;
 				box-sizing: border-box;
 
 			}
