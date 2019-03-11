@@ -42,6 +42,10 @@
 					<view class="maybeLiketitle">
 						你或许喜欢TA们
 					</view>
+					
+					<view class="like-user">
+						<view class="avatar"></view>
+					</view>
 				</view>
 			</block>
 		</block>
@@ -281,6 +285,27 @@
 						color: rgba(102, 102, 102, 1);
 						margin-left: 9upx;
 					}
+				}
+			}
+		}
+	    .maybeLike{
+			.maybeLiketitle{
+				
+			}
+			.like-user{
+				height: 196upx;
+				width: 196upx;
+				background-color: #ffffff;
+				position: relative;
+				.avatar{
+					position: absolute;
+					margin-left: 50upx;
+					margin-right: 50upx;
+					top: -37upx;
+					width: 96upx;
+					height: 96upx;
+					border-radius: 50%;
+					background: #333;
 				}
 			}
 		}
