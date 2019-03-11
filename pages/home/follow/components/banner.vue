@@ -1,19 +1,20 @@
 <template>
 	<view class="bannerView">
 		<view class="uni-padding-wrap">
-		    <view class="page-section swiper">
-		        <view class="page-section-spacing">
-		            <swiper class="swiper" :indicator-dots="indicatorDots" :indicator-active-color="indicatoractivecolor" :autoplay="autoplay" :interval="interval" :duration="duration">
+			<view class="page-section swiper">
+				<view class="page-section-spacing">
+					<swiper class="swiper" :indicator-dots="indicatorDots" :indicator-active-color="indicatoractivecolor" :autoplay="autoplay"
+					 :interval="interval" :duration="duration">
 						<block v-for="(item,index) in moments_banner" :key="index">
-							 <swiper-item class="swiper-item">
-							    <view class="swiper-item uni-bg-red">
+							<swiper-item class="swiper-item">
+								<view class="swiper-item uni-bg-red">
 									<image class="img" :src="item"></image>
 								</view>
 							</swiper-item>
 						</block>
-		            </swiper>
-		        </view>
-		    </view>
+					</swiper>
+				</view>
+			</view>
 		</view>
 	</view>
 </template>
@@ -26,7 +27,7 @@
 				autoplay: true,
 				interval: 2000,
 				duration: 500,
-				indicatoractivecolor:"#FF594B",
+				indicatoractivecolor: "#FF594B",
 				moments_banner: [
 					"/static/moments/moments1.jpg",
 					"/static/moments/moments2.jpg",
@@ -54,13 +55,13 @@
 </script>
 
 <style scoped>
-	.swiper{
+	.swiper {
 		width: 100%;
 		height: 576upx;
 	}
-	.img{
+
+	.img {
 		width: 100%;
 		height: 520upx;
 	}
-
 </style>
