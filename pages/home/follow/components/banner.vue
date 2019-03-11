@@ -3,14 +3,14 @@
 		<view class="uni-padding-wrap">
 		    <view class="page-section swiper">
 		        <view class="page-section-spacing">
-		            <swiper class="swiper" :indicator-dots="indicatorDots" :autoplay="autoplay" :interval="interval" :duration="duration">
-						
-		                <swiper-item>
-		                    <view class="swiper-item uni-bg-red">
-								<image src="/static/moments/moments1.jpg"></image>
-							</view>
-		                </swiper-item>
-		           
+		            <swiper class="swiper" :indicator-dots="indicatorDots" :indicator-active-color="indicatoractivecolor" :autoplay="autoplay" :interval="interval" :duration="duration">
+						<block v-for="(item,index) in moments_banner" :key="index">
+							 <swiper-item>
+							    <view class="swiper-item uni-bg-red">
+									<image class="img" :src="item"></image>
+								</view>
+							</swiper-item>
+						</block>
 		            </swiper>
 		        </view>
 		    </view>
@@ -23,9 +23,10 @@
 		data() {
 			return {
 				indicatorDots: true,
-				autoplay: false,
+				autoplay: true,
 				interval: 2000,
 				duration: 500,
+				indicatoractivecolor:"#FF594B",
 				moments_banner: [
 					"/static/moments/moments1.jpg",
 					"/static/moments/moments2.jpg",
@@ -53,8 +54,10 @@
 </script>
 
 <style scoped>
+	
 	.swiper-item>image{
 		width: 100%;
-		height: 240upx;
+		height: 520upx;
 	}
+	
 </style>

@@ -42,10 +42,15 @@
 					<view class="maybeLiketitle">
 						你或许喜欢TA们
 					</view>
-					
-					<view class="like-user">
-						<view class="avatar"></view>
-					</view>
+					<scroll-view class="like-users" scroll-x="true" @scroll="scroll" scroll-left="120">
+						<block v-for="(item,index) in likeuserlist" :key="index">
+							<view class="like-user">
+								<image class="likeuserIcon" :src="item.likeusericon"></image>
+								<view class="likeuserName">{{item.likeusername}}</view>
+								<view class="likeuserFans">粉丝：{{item.likeuserfans}}w</view>
+							</view>
+						</block>
+					</scroll-view>
 				</view>
 			</block>
 		</block>
@@ -55,8 +60,14 @@
 <script>
 	import banner from './components/banner.vue';
 	export default {
-		components:{
+		components: {
 			banner
+		},
+		methods: {
+			scroll: function(e) {
+				console.log(e)
+				this.old.scrollTop = e.detail.scrollTop
+			}
 		},
 		data() {
 			return {
@@ -113,6 +124,32 @@
 						momentscomment: 224
 					}
 
+				],
+				likeuserlist: [{
+						likeusericon: "/static/user/user_herd.png",
+						likeusername: "猪猪侠",
+						likeuserfans: 1.7
+					},
+					{
+						likeusericon: "/static/user/user_herd.png",
+						likeusername: "喜娃",
+						likeuserfans: 3.1
+					},
+					{
+						likeusericon: "/static/user/user_herd.png",
+						likeusername: "波哥",
+						likeuserfans: 0.1
+					},
+					{
+						likeusericon: "/static/user/user_herd.png",
+						likeusername: "阳哥",
+						likeuserfans: 4.7
+					},
+					{
+						likeusericon: "/static/user/user_herd.png",
+						likeusername: "强哥",
+						likeuserfans: 0.1
+					}
 				],
 				likeicon: "../../../static/moments/doucha_btn_like.png",
 				forwardingicon: "../../../static/moments/doucha_btn_forwarding.png",
@@ -212,7 +249,7 @@
 				color: rgba(24, 24, 24, 1);
 				padding: 32upx 41upx 48upx 40upx;
 				box-sizing: border-box;
-				
+
 			}
 
 			.momentsNum {
@@ -220,7 +257,7 @@
 				flex-direction: row;
 				padding-left: 44upx;
 				padding-bottom: 31upx;
-				
+
 
 				.like {
 					display: flex;
@@ -248,12 +285,12 @@
 					flex-direction: row;
 					margin-left: 40upx;
 					align-items: baseline;
-					
+
 					.fIcon {
 						width: 29upx;
 						height: 24upx;
 					}
-					
+
 					.fNum {
 						width: 56upx;
 						height: 19upx;
@@ -270,12 +307,12 @@
 					flex-direction: row;
 					margin-left: 40upx;
 					align-items: baseline;
-					
+
 					.cIcon {
 						width: 29upx;
 						height: 24upx;
 					}
-					
+
 					.cNum {
 						width: 56upx;
 						height: 19upx;
@@ -288,24 +325,61 @@
 				}
 			}
 		}
-	    .maybeLike{
-			.maybeLiketitle{
-				
+
+		.maybeLike {
+			.maybeLiketitle {
+				width: 308upx;
+				height: 39upx;
+				font-size: 40upx;
+				font-family: PingFang-SC-Bold;
+				font-weight: bold;
+				color: rgba(24, 24, 24, 1);
+				margin-left: 39upx;
 			}
-			.like-user{
-				height: 196upx;
-				width: 196upx;
-				background-color: #ffffff;
-				position: relative;
-				.avatar{
-					position: absolute;
-					margin-left: 50upx;
-					margin-right: 50upx;
-					top: -37upx;
-					width: 96upx;
-					height: 96upx;
-					border-radius: 50%;
-					background: #333;
+
+			.like-users {
+				display: flex;
+				flex-direction: row;
+				padding-left: 40upx;
+
+				.like-user {
+					display: flex;
+					flex-direction: column;
+					height: 196upx;
+					width: 196upx;
+					background: rgba(255, 255, 255, 1);
+					position: relative;
+					margin-top: 74upx;
+					margin-right: 28upx;
+
+					.likeuserIcon {
+						position: absolute;
+						top: -37upx;
+						width: 96upx;
+						height: 96upx;
+						border-radius: 50%;
+						margin-left: 50upx;
+					}
+
+					.likeuserName {
+						height: 26upx;
+						font-size: 28upx;
+						font-family: PingFang-SC-Bold;
+						font-weight: bold;
+						color: rgba(24, 24, 24, 1);
+						margin-top: 85upx;
+						margin-left: 57upx;
+					}
+
+					.likeuserFans {
+						height: 23upx;
+						font-size: 24upx;
+						font-family: PingFang-SC-Medium;
+						font-weight: 500;
+						color: rgba(102, 102, 102, 1);
+						margin-top: 22upx;
+						margin-left: 50upx;
+					}
 				}
 			}
 		}
