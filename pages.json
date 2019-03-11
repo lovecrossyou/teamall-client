@@ -41,6 +41,10 @@
 			"style": {}
 		},
 		{
+			"path": "pages/home/follow/followmoments",
+			"style": {}
+		},
+		{
 			"path": "pages/address/address",
 			"style": {
 				"navigationBarTitleText": "地址管理"
