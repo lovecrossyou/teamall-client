@@ -181,7 +181,43 @@
 			"style": {
 				"navigationBarTitleText": "我的订单"
 			}
+		},
+		{
+			"path": "pages/represent/represent",
+			"style": {
+				"navigationBarTitleText": "代言人",
+				"app-plus": {
+					"titleNView": {
+						"type": "transparent" 
+					}
+				}
+			}
+		},
+		{
+			"path": "pages/represent/representInfo",
+			"style": {
+				"navigationStyle": "custom",
+					"navigationBarTitleText": "代言人",
+				"app-plus": {
+					"titleNView": {
+						"type": "transparent"
+					}
+				}
+			}
+		},
+		{
+			"path": "pages/represent/introduce",
+			"style": {
+				"navigationStyle": "custom",
+					"navigationBarTitleText": "代言介绍页",
+				"app-plus": {
+					"titleNView": {
+						"type": "transparent"
+					}
+				}
+			}
 		}
+		
 	],
 	"tabBar": {
 		"color": "#7a7e83",
