@@ -35,6 +35,10 @@
 						url: "../mall/cart/cart"
 					},
 					{
+						txt: "发布",
+						url: "../publish/publish"
+					},
+					{
 						txt: "退出登录",
 						url: "../login/login"
 					}
