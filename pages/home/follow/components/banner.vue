@@ -1,56 +1,56 @@
 <template>
 	<view>
-		  <view class="uni-padding-wrap">
-            <view class="page-section swiper">
-                <view class="page-section-spacing">
-                    <swiper class="swiper" :indicator-dots="indicatorDots" :autoplay="autoplay" :interval="interval" :duration="duration">
-                        <block v-for="(item,index) in moments_banner" :key="index">
-							<swiper-item>
+		<view class="uni-padding-wrap">
+		    <view class="page-section swiper">
+		        <view class="page-section-spacing">
+		            <swiper class="swiper" :indicator-dots="indicatorDots" :indicator-active-color="indicatoractivecolor" :autoplay="autoplay" :interval="interval" :duration="duration">
+						<block v-for="(item,index) in moments_banner" :key="index">
+							 <swiper-item>
 							    <view class="swiper-item uni-bg-red">
-									<image :src="item"></image>
+									<image class="img" :src="item"></image>
 								</view>
 							</swiper-item>
 						</block>
-                    </swiper>
-                </view>
-            </view>
-        </view>
+		            </swiper>
+		        </view>
+		    </view>
+		</view>
 	</view>
 </template>
 
 <script>
 	export default {
-    data() {
-        return {
-            background: ['color1', 'color2', 'color3'],
-            indicatorDots: true,
-            autoplay: true,
-            interval: 2000,
-            duration: 500,
-			moments_banner:[
-				"../../../../static/moments/moments1.jpg",
-				"../../../../static/moments/moments2.jpg",
-				"../../../../static/moments/moments3.jpg",
-				"../../../../static/moments/moments4.jpg",
-				"../../../../static/moments/moments5.jpg"
-			]
-        }
-    },
-    methods: {
-        changeIndicatorDots(e) {
-            this.indicatorDots = !this.indicatorDots
-        },
-        changeAutoplay(e) {
-            this.autoplay = !this.autoplay
-        },
-        intervalChange(e) {
-            this.interval = e.target.value
-        },
-        durationChange(e) {
-            this.duration = e.target.value
-        }
-    }
-}
+		data() {
+			return {
+				indicatorDots: true,
+				autoplay: true,
+				interval: 2000,
+				duration: 500,
+				indicatoractivecolor:"#FF594B",
+				moments_banner: [
+					"/static/moments/moments1.jpg",
+					"/static/moments/moments2.jpg",
+					"/static/moments/moments3.jpg",
+					"/static/moments/moments4.jpg",
+					"/static/moments/moments5.jpg"
+				]
+			}
+		},
+		methods: {
+			changeIndicatorDots(e) {
+				this.indicatorDots = !this.indicatorDots
+			},
+			changeAutoplay(e) {
+				this.autoplay = !this.autoplay
+			},
+			intervalChange(e) {
+				this.interval = e.target.value
+			},
+			durationChange(e) {
+				this.duration = e.target.value
+			}
+		}
+	}
 </script>
 
 <style scoped>

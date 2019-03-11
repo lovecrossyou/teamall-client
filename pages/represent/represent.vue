@@ -1,6 +1,7 @@
 <template>
-	<view>
-		<button @click="goNext">好可爱，我想</button>
+	<view class="wrapper">
+		<button @click="goProduct">代言商品</button>
+		<button @click="goIntroduce">代言介绍页</button>
 	</view>
 </template>
 
@@ -12,9 +13,14 @@
 			};
 		},
 		methods:{
-			goNext(){
+			goProduct(){
 				uni.navigateTo({
 					url:"/pages/represent/representInfo"
+				})
+			},
+			goIntroduce(){
+				uni.navigateTo({
+					url:"/pages/represent/introduce"
 				})
 			}
 		}
@@ -22,7 +28,7 @@
 </script>
 
 <style lang="less">
-	button{
-		margin:100upx;
+	.wrapper{
+		margin:100upx auto;
 	}
 </style>
