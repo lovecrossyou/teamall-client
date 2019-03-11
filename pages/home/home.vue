@@ -1,7 +1,7 @@
 <template>
   <div class="about">
     <p>瀑布流，实现瀑布流布局，当删除瀑布流中的一个数据时，剩余的自动重新布局</p>
-    <div class="page">
+		<div class="page">
       <div class="content" v-for="(item, index) in list" :key="item.id" :style="{width: waterfallW + 'px', height: item.imgH + 'px', left: item.left + 'px', top: item.top + 'px'}" ref="col" @click="clickMe(index)">
         <img :src="item.image" alt="">
       </div>

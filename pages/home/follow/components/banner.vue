@@ -1,11 +1,11 @@
 <template>
-	<view>
+	<view class="bannerView">
 		<view class="uni-padding-wrap">
 		    <view class="page-section swiper">
 		        <view class="page-section-spacing">
 		            <swiper class="swiper" :indicator-dots="indicatorDots" :indicator-active-color="indicatoractivecolor" :autoplay="autoplay" :interval="interval" :duration="duration">
 						<block v-for="(item,index) in moments_banner" :key="index">
-							 <swiper-item>
+							 <swiper-item class="swiper-item">
 							    <view class="swiper-item uni-bg-red">
 									<image class="img" :src="item"></image>
 								</view>
@@ -54,10 +54,13 @@
 </script>
 
 <style scoped>
-	
-	.swiper-item>image{
+	.swiper{
+		width: 100%;
+		height: 576upx;
+	}
+	.img{
 		width: 100%;
 		height: 520upx;
 	}
-	
+
 </style>
