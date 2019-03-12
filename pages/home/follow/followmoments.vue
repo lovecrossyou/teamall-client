@@ -263,16 +263,14 @@
 				.like {
 					display: flex;
 					flex-direction: row;
-					align-items: baseline;
 
 					.lIcon {
 						width: 29upx;
 						height: 24upx;
+						margin-top: 7upx;
 					}
 
 					.lNum {
-						width: 56upx;
-						height: 19upx;
 						font-size: 24upx;
 						font-family: PingFang-SC-Medium;
 						font-weight: 500;
@@ -285,16 +283,14 @@
 					display: flex;
 					flex-direction: row;
 					margin-left: 40upx;
-					align-items: baseline;
 
 					.fIcon {
 						width: 29upx;
 						height: 24upx;
+						margin-top: 7upx;
 					}
 
 					.fNum {
-						width: 56upx;
-						height: 19upx;
 						font-size: 24upx;
 						font-family: PingFang-SC-Medium;
 						font-weight: 500;
@@ -307,16 +303,14 @@
 					display: flex;
 					flex-direction: row;
 					margin-left: 40upx;
-					align-items: baseline;
 
 					.cIcon {
 						width: 29upx;
 						height: 24upx;
+						margin-top: 7upx;
 					}
 
 					.cNum {
-						width: 56upx;
-						height: 19upx;
 						font-size: 24upx;
 						font-family: PingFang-SC-Medium;
 						font-weight: 500;
