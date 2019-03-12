@@ -40,15 +40,7 @@
 					},
 					{
 						txt: "退出登录",
-<<<<<<< HEAD
 						url: "../login/login"
-					},
-					{
-						txt: "退关注",
-						url: "../follow/followmoments"
-=======
-						url: "../login/enter"
->>>>>>> fbf113997b2d31c06d85d8314c6347a73ef7ed15
 					}
 				]
 			}
@@ -74,22 +66,21 @@
 			align-items: center;
 			background: #fff;
 			height: 113upx;
-			.img {
-				width: 14upx;
-				height: 24upx;
-			}
-		}
-
-
-	}
-</style>
 			border-top: solid 1upx #e1e1e1;
-
+			
 			.text {
 				padding-left: 39upx;
 				font-family:PingFang-SC-Regular;
 				font-weight:"Regular";
 				color:rgba(31,31,31,1);
-				line-height:121px;
+				line-height:121upx;
 			}
+			.img {
+				width: 14upx;
+				height: 24upx;
+			}
+		}
+	}
+</style>
+			
 
