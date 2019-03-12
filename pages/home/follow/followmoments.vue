@@ -154,14 +154,10 @@
 				],
 				likeicon: "../../../static/moments/doucha_btn_like.png",
 				forwardingicon: "../../../static/moments/doucha_btn_forwarding.png",
-				commentsicon: "../../../static/moments/doucha_btn_comments.png",
-				scrollTop: 0,
-				old: {
-					scrollTop: 0
+				commentsicon: "../../../static/moments/doucha_btn_comments.png"
 				}
 			}
-		}
-	}
+}
 </script>
 
 <style lang="scss">
