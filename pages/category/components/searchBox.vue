@@ -1,13 +1,12 @@
 <template>
 	<view class="search_box">
-		<view class="search_box_left" @click="goCategory">
-			<image :src="mall_classification" alt="" />
-			<view>分类</view>
+		<view class="search_box_left" @click="goMain">
+			<image :src="icon_return"></image>
 		</view>
 		<view class="search_box_right">
 			<view class="search_box_right_input">
-				<image :src="mall_icon_search" alt="" />
-				<view>大家正在搜：喝茶时间表</view>
+				<image :src="icon_search"></image>
+				<view>搜索商品或品牌</view>
 			</view>
 		</view>
 	</view>
@@ -17,14 +16,14 @@
 	export default {
 		data() {
 			return {
-				mall_classification: "../../static/main/mall_icon_classification.png",
-				mall_icon_search: "../../static/main/mall_icon_search.png",
+				icon_return: "/static/img/icon_return.png",
+				icon_search: "/static/main/mall_icon_search.png",
 			}
 		},
 		methods:{
-			goCategory(){
+			goMain(){
 				uni.navigateTo({
-					url:"../category/category"
+					url:"../../main/main"
 				})
 			}
 		}
@@ -35,22 +34,24 @@
 <style lang="less">
 	.search_box {
 		height: 90upx;
+		width: 100%;
 		display: flex;
+		flex-direction: row;
 		align-items: center;
 		justify-content: center;
 		box-shadow: 0upx 0upx 22upx 2upx rgba(201, 201, 201, 0.42);
 
 		.search_box_left {
-			flex-basis: 15%;
-			font-size: 20upx;
-			font-family: PingFang-SC-Medium;
-			font-weight: 500;
-			color: rgba(102, 102, 102, 1);
-			text-align: center;
-
+			width: 76upx;
+			height: 60upx;
+			box-sizing: border-box;
+			display: flex;
+			align-items: center;
+			
 			image {
-				width: 32upx;
-				height: 25upx;
+				width: 19upx;
+				height: 36upx;
+				box-sizing: border-box;
 			}
 		}
 

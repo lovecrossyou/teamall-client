@@ -13,7 +13,7 @@
 	export default {
 		data() {
 			return {
-				arrowIcon: "../../static/setting/set_icon_next.png",
+				arrowIcon: "../../static/img/icon_next.png",
 				settingList: [{
 						txt: "地址管理",
 						url: "../address/address"
@@ -41,6 +41,10 @@
 					{
 						txt: "退出登录",
 						url: "../login/login"
+					},
+					{
+						txt: "退关注",
+						url: "../follow/followmoments"
 					}
 				]
 			}
@@ -66,6 +70,15 @@
 			align-items: center;
 			background: #fff;
 			height: 113upx;
+			.img {
+				width: 14upx;
+				height: 24upx;
+			}
+		}
+
+
+	}
+</style>
 			border-top: solid 1upx #e1e1e1;
 
 			.text {
@@ -76,12 +89,3 @@
 				line-height:121px;
 			}
 
-			.img {
-				width: 14upx;
-				height: 24upx;
-			}
-		}
-
-
-	}
-</style>
