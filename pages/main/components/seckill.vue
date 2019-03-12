@@ -24,15 +24,15 @@
 
 <script>
 	export default {
-		methods:{
-			goList(){
+		methods: {
+			goList() {
 				uni.navigateTo({
-					url:"/pages/mall/good-tea"
+					url: "/pages/mall/good-tea"
 				})
 			},
 			sale() {
 				uni.navigateTo({
-					url:"/pages/mall/sale-tea"
+					url: "/pages/mall/sale-tea"
 				})
 			}
 		},
@@ -103,7 +103,6 @@
 
 		.seckill_content {
 			display: flex;
-			justify-content: space-between;
 			align-items: center;
 			margin-top: 45upx;
 			background: #fff;

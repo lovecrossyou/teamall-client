@@ -43,11 +43,13 @@
 						你或许喜欢TA们
 					</view>
 					<scroll-view class="like-users" scroll-x="true" @scroll="scroll" scroll-left="120">
-						<block v-for="(item,index) in likeuserlist" :key="index">
+						<block v-for="(item,userindex) in likeuserlist" :key="userindex">
 							<view class="like-user">
 								<image class="likeuserIcon" :src="item.likeusericon"></image>
-								<view class="likeuserName">{{item.likeusername}}</view>
-								<view class="likeuserFans">粉丝：{{item.likeuserfans}}w</view>
+								<view class="likeusertxt">
+									<view class="likeuserName">{{item.likeusername}}</view>
+									<view class="likeuserFans">粉丝：{{item.likeuserfans}}w</view>
+								</view>
 							</view>
 						</block>
 					</scroll-view>
@@ -65,7 +67,6 @@
 		},
 		methods: {
 			scroll: function(e) {
-				console.log(e)
 				this.old.scrollTop = e.detail.scrollTop
 			}
 		},
@@ -74,9 +75,9 @@
 				momentslist: [{
 						userid: 1,
 						username: "富腾",
-						usericon: "../../../static/user/user_herd.png",
+						usericon: "/static/user/user_herd.png",
 						weather: "雨",
-						weathericon: "../../../static/moments/weather.png",
+						weathericon: "/static/moments/weather.png",
 						weathertemperature: 22,
 						heart: 55,
 						momentstitle: "喜腾山泉，一桶天下",
@@ -87,9 +88,9 @@
 					{
 						userid: 2,
 						username: "猪猪侠",
-						usericon: "../../../static/user/user_herd.png",
+						usericon: "/static/user/user_herd.png",
 						weather: "霾",
-						weathericon: "../../../static/moments/weather.png",
+						weathericon: "/static/moments/weather.png",
 						weathertemperature: 3,
 						heart: -100,
 						momentstitle: "一张蓝图绘到底",
@@ -100,9 +101,9 @@
 					{
 						userid: 3,
 						username: "喜娃",
-						usericon: "../../../static/user/user_herd.png",
+						usericon: "/static/user/user_herd.png",
 						weather: "雷阵雨",
-						weathericon: "../../../static/moments/weather.png",
+						weathericon: "/static/moments/weather.png",
 						weathertemperature: 14,
 						heart: 1,
 						momentstitle: "自强不息，厚德载物",
@@ -113,9 +114,9 @@
 					{
 						userid: 4,
 						username: "黄金大佬",
-						usericon: "../../../static/user/user_herd.png",
+						usericon: "/static/user/user_herd.png",
 						weather: "雪",
-						weathericon: "../../../static/moments/weather.png",
+						weathericon: "/static/moments/weather.png",
 						weathertemperature: -22,
 						heart: 38,
 						momentstitle: "2019年上市",
@@ -148,15 +149,15 @@
 					{
 						likeusericon: "/static/user/user_herd.png",
 						likeusername: "强哥",
-						likeuserfans: 0.1
+						likeuserfans: 0.9
 					}
 				],
-				likeicon: "../../../static/moments/doucha_btn_like.png",
-				forwardingicon: "../../../static/moments/doucha_btn_forwarding.png",
-				commentsicon: "../../../static/moments/doucha_btn_comments.png"
+				likeicon: "/static/moments/doucha_btn_like.png",
+				forwardingicon: "/static/moments/doucha_btn_forwarding.png",
+				commentsicon: "/static/moments/doucha_btn_comments.png"
+				}
 			}
-		}
-	}
+}
 </script>
 
 <style lang="scss">
@@ -211,11 +212,11 @@
 					}
 
 					.weather {
-						font-size: 24px;
+						font-size: 24upx;
 						font-family: PingFang-SC-Regular;
 						font-weight: 400;
 						color: rgba(51, 51, 51, 1);
-						line-height: 31px;
+						line-height: 31upx;
 						margin-top: 5upx;
 						margin-left: 15upx;
 					}
@@ -226,18 +227,18 @@
 					margin-right: 39upx;
 
 					.heart {
-						font-size: 24px;
+						font-size: 24upx;
 						font-family: PingFang-SC-Regular;
 						font-weight: 400;
 						color: rgba(51, 51, 51, 1);
-						line-height: 31px;
+						line-height: 31upx;
 					}
 				}
 			}
 
 			.momentsBanner {
 				width: 100%;
-				height: 520upx;
+				height: 576upx;
 			}
 
 			.momentsTitle {
@@ -247,7 +248,7 @@
 				font-family: PingFang-SC-Bold;
 				font-weight: bold;
 				color: rgba(24, 24, 24, 1);
-				padding: 32upx 41upx 48upx 40upx;
+				padding: 5upx 41upx 47upx 40upx;
 				box-sizing: border-box;
 
 			}
@@ -262,16 +263,14 @@
 				.like {
 					display: flex;
 					flex-direction: row;
-					align-items: baseline;
 
 					.lIcon {
 						width: 29upx;
 						height: 24upx;
+						margin-top: 7upx;
 					}
 
 					.lNum {
-						width: 56upx;
-						height: 19upx;
 						font-size: 24upx;
 						font-family: PingFang-SC-Medium;
 						font-weight: 500;
@@ -284,16 +283,14 @@
 					display: flex;
 					flex-direction: row;
 					margin-left: 40upx;
-					align-items: baseline;
 
 					.fIcon {
 						width: 29upx;
 						height: 24upx;
+						margin-top: 7upx;
 					}
 
 					.fNum {
-						width: 56upx;
-						height: 19upx;
 						font-size: 24upx;
 						font-family: PingFang-SC-Medium;
 						font-weight: 500;
@@ -306,16 +303,14 @@
 					display: flex;
 					flex-direction: row;
 					margin-left: 40upx;
-					align-items: baseline;
 
 					.cIcon {
 						width: 29upx;
 						height: 24upx;
+						margin-top: 7upx;
 					}
 
 					.cNum {
-						width: 56upx;
-						height: 19upx;
 						font-size: 24upx;
 						font-family: PingFang-SC-Medium;
 						font-weight: 500;
@@ -327,6 +322,10 @@
 		}
 
 		.maybeLike {
+			width: 100%;
+			margin-top: 47upx;
+			margin-bottom: 48upx;
+
 			.maybeLiketitle {
 				width: 308upx;
 				height: 39upx;
@@ -340,17 +339,21 @@
 			.like-users {
 				display: flex;
 				flex-direction: row;
+				width: 750upx;
 				padding-left: 40upx;
+				white-space: nowrap;
+				box-sizing: border-box;
+
 
 				.like-user {
-					display: flex;
-					flex-direction: column;
 					height: 196upx;
 					width: 196upx;
 					background: rgba(255, 255, 255, 1);
 					position: relative;
 					margin-top: 74upx;
 					margin-right: 28upx;
+					box-sizing: border-box;
+					display: inline-block;
 
 					.likeuserIcon {
 						position: absolute;
@@ -361,24 +364,28 @@
 						margin-left: 50upx;
 					}
 
-					.likeuserName {
-						height: 26upx;
-						font-size: 28upx;
-						font-family: PingFang-SC-Bold;
-						font-weight: bold;
-						color: rgba(24, 24, 24, 1);
+					.likeusertxt {
+						display: flex;
+						flex-direction: column;
+						align-items: center;
 						margin-top: 85upx;
-						margin-left: 57upx;
-					}
 
-					.likeuserFans {
-						height: 23upx;
-						font-size: 24upx;
-						font-family: PingFang-SC-Medium;
-						font-weight: 500;
-						color: rgba(102, 102, 102, 1);
-						margin-top: 22upx;
-						margin-left: 50upx;
+						.likeuserName {
+							height: 26upx;
+							font-size: 28upx;
+							font-family: PingFang-SC-Bold;
+							font-weight: bold;
+							color: rgba(24, 24, 24, 1);
+						}
+
+						.likeuserFans {
+							height: 23upx;
+							font-size: 24upx;
+							font-family: PingFang-SC-Medium;
+							font-weight: 500;
+							color: rgba(102, 102, 102, 1);
+							margin-top: 22upx;
+						}
 					}
 				}
 			}
