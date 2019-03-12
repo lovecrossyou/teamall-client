@@ -5,11 +5,7 @@
 			<image class="video-play" v-bind:src="playIcon"></image>
 		</view>
 		<view class="title-content">
-			<input   placeholder="添加标题" placeholder-style="
-			font-size:28upx;
-			font-family:PingFang-SC-Regular;
-			font-weight:400;
-			color:rgba(153,153,153,1);">
+			<input   placeholder="添加标题" placeholder-class="title-style">
 							
 						</input>
 			<text>28</text></view>
@@ -17,12 +13,7 @@
 		<textarea
 			value=""
 			placeholder="说说你的心得，可能会帮助更多人哦~"
-			placeholder-style="
-
-font-size:28upx;
-font-family:PingFang-SC-Regular;
-font-weight:400;
-color:rgba(153,153,153,1);"
+			placeholder-class="content-style"
 		/>
 		<view class="position-content" ho>
 			<image v-bind:src="loctionIcon"></image>
@@ -149,6 +140,12 @@ export default {
 		input {
 			flex: 1;
 		}
+		.title-style{
+			font-size:28upx;
+			font-family:PingFang-SC-Regular;
+			font-weight:400;
+			color:rgba(153,153,153,1);
+		}
 		text {
 			font-size: 28upx;
 			font-family: PingFang-SC-Regular;
@@ -169,6 +166,12 @@ export default {
 
 		margin-left: 32upx;
 		margin-right: 32upx;
+	}
+	.content-style{
+		font-size:28upx;
+		font-family:PingFang-SC-Regular;
+		font-weight:400;
+		color:rgba(153,153,153,1);
 	}
 	.position-content {
 		display: flex;

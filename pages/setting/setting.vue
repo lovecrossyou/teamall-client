@@ -1,7 +1,7 @@
 <template>
 	<view class="settingMain">
 		<block v-for="(item,index) in settingList" v-bind:key="index">
-			<view class="content" @click="gonext(item.url)">
+			<view class="content" @click.stop="gonext(item.url)">
 				<view class="text">{{item.txt}}</view>
 				<image class="img" :src="arrowIcon"></image>
 			</view>
@@ -40,7 +40,7 @@
 					},
 					{
 						txt: "退出登录",
-						url: "../login/login"
+						url: "../login/enter"
 					}
 				]
 			}
