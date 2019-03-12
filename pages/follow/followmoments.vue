@@ -75,9 +75,9 @@
 				momentslist: [{
 						userid: 1,
 						username: "富腾",
-						usericon: "../../../static/user/user_herd.png",
+						usericon: "/static/user/user_herd.png",
 						weather: "雨",
-						weathericon: "../../../static/moments/weather.png",
+						weathericon: "/static/moments/weather.png",
 						weathertemperature: 22,
 						heart: 55,
 						momentstitle: "喜腾山泉，一桶天下",
@@ -88,9 +88,9 @@
 					{
 						userid: 2,
 						username: "猪猪侠",
-						usericon: "../../../static/user/user_herd.png",
+						usericon: "/static/user/user_herd.png",
 						weather: "霾",
-						weathericon: "../../../static/moments/weather.png",
+						weathericon: "/static/moments/weather.png",
 						weathertemperature: 3,
 						heart: -100,
 						momentstitle: "一张蓝图绘到底",
@@ -101,9 +101,9 @@
 					{
 						userid: 3,
 						username: "喜娃",
-						usericon: "../../../static/user/user_herd.png",
+						usericon: "/static/user/user_herd.png",
 						weather: "雷阵雨",
-						weathericon: "../../../static/moments/weather.png",
+						weathericon: "/static/moments/weather.png",
 						weathertemperature: 14,
 						heart: 1,
 						momentstitle: "自强不息，厚德载物",
@@ -114,9 +114,9 @@
 					{
 						userid: 4,
 						username: "黄金大佬",
-						usericon: "../../../static/user/user_herd.png",
+						usericon: "/static/user/user_herd.png",
 						weather: "雪",
-						weathericon: "../../../static/moments/weather.png",
+						weathericon: "/static/moments/weather.png",
 						weathertemperature: -22,
 						heart: 38,
 						momentstitle: "2019年上市",
@@ -152,9 +152,9 @@
 						likeuserfans: 0.9
 					}
 				],
-				likeicon: "../../../static/moments/doucha_btn_like.png",
-				forwardingicon: "../../../static/moments/doucha_btn_forwarding.png",
-				commentsicon: "../../../static/moments/doucha_btn_comments.png"
+				likeicon: "/static/moments/doucha_btn_like.png",
+				forwardingicon: "/static/moments/doucha_btn_forwarding.png",
+				commentsicon: "/static/moments/doucha_btn_comments.png"
 				}
 			}
 }

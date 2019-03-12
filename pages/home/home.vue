@@ -11,7 +11,7 @@
 					<view class="water_fail_product_personal_data">
 						<view class="water_fail_product_personal_data_img">
 							<img src="http://qnimage.xiteng.com/zhulizhe.jpg" alt="" />
-							<text>高阳</text>
+							<text>猪猪侠</text>
 						</view>
 						<view class="water_fail_product_personal_data_love">
 							<img src="http://qnimage.xiteng.com/found_btn_nolike@2x.png" alt="" />

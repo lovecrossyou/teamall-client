@@ -28,31 +28,31 @@
 			return {
 				attentionlist: [{
 						state: false,
-						icon: "../../../static/user/user_herd.png",
+						icon: "/static/user/user_herd.png",
 						name: "程咬金",
 						desc: "上单"
 					},
 					{
 						state: false,
-						icon: "../../../static/user/user_herd.png",
+						icon: "/static/user/user_herd.png",
 						name: "司马懿",
 						desc: "打野"
 					},
 					{
 						state: false,
-						icon: "../../../static/user/user_herd.png",
+						icon: "/static/user/user_herd.png",
 						name: "妲己",
 						desc: "中单"
 					},
 					{
 						state: false,
-						icon: "../../../static/user/user_herd.png",
+						icon: "/static/user/user_herd.png",
 						name: "伽罗",
 						desc: "射手"
 					},
 					{
 						state: false,
-						icon: "../../../static/user/user_herd.png",
+						icon: "/static/user/user_herd.png",
 						name: "明世隐",
 						desc: "辅助"
 					}
