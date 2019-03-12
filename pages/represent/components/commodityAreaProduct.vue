@@ -2,10 +2,10 @@
 	<view class="commodity_area_product_wrapper">
 		<view class="product_item" v-for="(item,i) in arr" :key='i'>
 			<view class="product_item_img">
-				<!-- <image :src="item.img"></image> -->
+				<image :src="item.img"></image>
 			</view>
 			<view class="product_item_sale">销量 {{item.sale}}</view>
-			<view class="product_item_price">代言：￥{{item.sale}}</view>
+			<view class="product_item_price">代言：￥{{item.price}}</view>
 		</view>
 	</view>
 </template>
@@ -15,23 +15,23 @@
 		data() {
 			return {
 				arr: [{
-					img: "../../static/represent/shop_area.png",
+					img: "../../static/represent/idol.jpg",
 					sale: 8998,
 					price: 22
 				}, {
-					img: "../../static/represent/shop_area.png",
+					img: "../../static/represent/idol.jpg",
 					sale: 8998,
 					price: 22
 				}, {
-					img: "../../static/represent/shop_area.png",
+					img: "../../static/represent/idol.jpg",
 					sale: 8998,
 					price: 22
 				}, {
-					img: "../../static/represent/shop_area.png",
+					img: "../../static/represent/idol.jpg",
 					sale: 8998,
 					price: 22
 				}, {
-					img: "../../static/represent/shop_area.png",
+					img: "../../static/represent/idol.jpg",
 					sale: 8998,
 					price: 22
 				}, ]
@@ -42,9 +42,10 @@
 
 <style lang="less">
 	.commodity_area_product_wrapper {
-		width:100%;
+		width: 100%;
 		height: 296upx;
-		padding-left:10upx;
+		padding-left: 10upx;
+		padding-right: 10upx;
 		box-sizing: border-box;
 		display: flex;
 		align-items: center;
@@ -61,18 +62,21 @@
 			.product_item_img {
 				width: 186upx;
 				height: 172upx;
-				image{
-					width: 186upx;
+
+				image {
+					width: 100%;
 					height: 172upx;
 				}
 			}
+
 			.product_item_sale {
 				font-size: 24upx;
 				color: #999999;
 				margin-top: 18upx;
+				margin-bottom: 8upx;
 				padding-left: 10upx;
 			}
-			
+
 			.product_item_price {
 				font-size: 28upx;
 				color: #FF594B;
@@ -80,6 +84,6 @@
 			}
 		}
 
-		
+
 	}
 </style>
