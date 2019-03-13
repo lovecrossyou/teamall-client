@@ -22,8 +22,8 @@
 		},
 		methods:{
 			goMain(){
-				uni.navigateTo({
-					url:"../../main/main"
+				uni.switchTab({
+					url:"../main/main"
 				})
 			}
 		}
