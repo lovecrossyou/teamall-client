@@ -28,17 +28,29 @@
 <script>
 	import recommendTea from '../main/components/recommend.vue';
 	import shareDialog from '../main/components/shareDialog.vue';
-
+    import share from '../../util/apis/share.js';
 	export default{
 		methods:{
 			sendFrients(){
 				this.$refs.unikModal.show()
 			},
 			leftModal(){
-				console.log('朋友')
+				console.log('朋友');
+				share.wxSceneSession({
+					href:"http://uniapp.dcloud.io/",
+					title:"uni-app分享",
+					summary:"我正在使用HBuilderX开发uni-app，赶紧跟我一起来体验！",
+					imageUrl:"https://img-cdn-qiniu.dcloud.net.cn/uniapp/images/uni@2x.png"
+					});
 			},
 			rightModal(){
 				console.log('朋友圈')
+				share.wxSenceTimeline({
+					href:"http://uniapp.dcloud.io/",
+					title:"uni-app分享",
+					summary:"我正在使用HBuilderX开发uni-app，赶紧跟我一起来体验！",
+					imageUrl:"https://img-cdn-qiniu.dcloud.net.cn/uniapp/images/uni@2x.png"
+					});
 			}
 		},
 		components:{
