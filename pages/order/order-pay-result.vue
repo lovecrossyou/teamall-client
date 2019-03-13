@@ -8,7 +8,7 @@
 			</view>
 			<view class="pay_load_result_share">
 				<view class="pay_load_result_share_tip" >自己喝</view>
-				<view class="pay_load_result_share_tip" >送好友</view>
+				<view class="pay_load_result_share_tip" @click="sendFrients">送好友</view>
 			</view>
 		</view>
 		
@@ -16,18 +16,38 @@
 			<view class="hot_recommend_tit">热门推荐</view>
 			<recommendTea></recommendTea>
 		</view>
+		<shareDialog
+			ref="unikModal"
+			@leftModal="leftModal"
+			@rightModal="rightModal"
+			>
+		</shareDialog>
 	</view>
 </template>
 
 <script>
 	import recommendTea from '../main/components/recommend.vue';
+	import shareDialog from '../main/components/shareDialog.vue';
+
 	export default{
+		methods:{
+			sendFrients(){
+				this.$refs.unikModal.show()
+			},
+			leftModal(){
+				console.log('朋友')
+			},
+			rightModal(){
+				console.log('朋友圈')
+			}
+		},
 		components:{
-			recommendTea
+			recommendTea,
+			shareDialog,
 		},
 		data() {
 			return {
-				 paySuccess:'../../static/order/pay_icon_success@2x.png'
+				paySuccess:'../../static/order/pay_icon_success@2x.png'
 			};
 		}
 	}
