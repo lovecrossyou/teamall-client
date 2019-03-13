@@ -7,7 +7,9 @@
     "transformPx" : false,
     "app-plus" : {
         /* 5+App特有相关 */
-        "modules" : {},
+        "modules" : {
+            "Share" : {}
+        },
         /* 模块配置 */
         "distribute" : {
             /* 应用发布信息 */
@@ -40,7 +42,14 @@
             },
             "ios" : {},
             /* ios打包配置 */
-            "sdkConfigs" : {}
+            "sdkConfigs" : {
+                "share" : {
+                    "weixin" : {
+                        "appid" : "wx703a610b9f69b44e",
+                        "appsecret" : "2df5dbb69584"
+                    }
+                }
+            }
         }
     },
     /* SDK配置 */
