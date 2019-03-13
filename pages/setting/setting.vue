@@ -65,15 +65,15 @@
 			justify-content: space-between;
 			align-items: center;
 			background: #fff;
-			height: 113upx;
+			height:80upx;
 			border-top: solid 1upx #e1e1e1;
 			
 			.text {
-				padding-left: 39upx;
 				font-family:PingFang-SC-Regular;
 				font-weight:"Regular";
+				font-size:32upx;
 				color:rgba(31,31,31,1);
-				line-height:121upx;
+				padding-left: 39upx;
 			}
 			.img {
 				width: 14upx;
