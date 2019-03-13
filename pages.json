@@ -25,6 +25,23 @@
 			}
 		},
 		{
+			"path": "pages/follow/followmoments",
+			"style": {
+			}
+		},
+		{
+			"path": "pages/category/category",
+			"style": {
+				"navigationStyle": "custom",
+				"navigationBarTitleText": "分类",
+				"app-plus": {
+					"titleNView": {
+						"type": "transparent" //透明渐变导航栏,
+						}
+				}
+			}
+		},
+		{
 			"path": "pages/pwd/pwd",
 			"style": {
 				"navigationBarTitleText": "找回密码"
@@ -35,10 +52,6 @@
 			"style": {
 				"navigationBarTitleText": "购物车"
 			}
-		},
-		{
-			"path": "pages/home/follow/follow",
-			"style": {}
 		},
 		{
 			"path": "pages/address/address",
@@ -177,6 +190,47 @@
 			"style": {
 				"navigationBarTitleText": "我的订单"
 			}
+		},
+		{
+			"path": "pages/publish/publish",
+			"style": {
+				"navigationBarTitleText": "发布"
+			}
+		},
+		{
+			"path": "pages/represent/represent",
+			"style": {
+				"navigationBarTitleText": "代言人",
+				"app-plus": {
+					"titleNView": {
+						"type": "transparent"
+					}
+				}
+			}
+		},
+		{
+			"path": "pages/represent/representInfo",
+			"style": {
+				"navigationStyle": "custom",
+				"navigationBarTitleText": "代言人",
+				"app-plus": {
+					"titleNView": {
+						"type": "transparent"
+					}
+				}
+			}
+		},
+		{
+			"path": "pages/represent/introduce",
+			"style": {
+				"navigationStyle": "custom",
+				"navigationBarTitleText": "代言介绍页",
+				"app-plus": {
+					"titleNView": {
+						"type": "transparent"
+					}
+				}
+			}
 		}
 	],
 	"tabBar": {
@@ -214,4 +268,5 @@
 		"navigationBarBackgroundColor": "#FF594B",
 		"backgroundColor": "#FF594B"
 	}
+
 }

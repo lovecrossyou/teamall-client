@@ -1,7 +1,7 @@
 <template>
 	<view class="settingMain">
 		<block v-for="(item,index) in settingList" v-bind:key="index">
-			<view class="content" @click="gonext(item.url)">
+			<view class="content" @click.stop="gonext(item.url)">
 				<view class="text">{{item.txt}}</view>
 				<image class="img" :src="arrowIcon"></image>
 			</view>
@@ -13,7 +13,7 @@
 	export default {
 		data() {
 			return {
-				arrowIcon: "../../static/setting/set_icon_next.png",
+				arrowIcon: "../../static/img/icon_next.png",
 				settingList: [{
 						txt: "地址管理",
 						url: "../address/address"
@@ -33,6 +33,10 @@
 					{
 						txt: "购物车",
 						url: "../mall/cart/cart"
+					},
+					{
+						txt: "发布",
+						url: "../publish/publish"
 					},
 					{
 						txt: "退出登录",
@@ -63,21 +67,20 @@
 			background: #fff;
 			height: 113upx;
 			border-top: solid 1upx #e1e1e1;
-
+			
 			.text {
 				padding-left: 39upx;
 				font-family:PingFang-SC-Regular;
 				font-weight:"Regular";
 				color:rgba(31,31,31,1);
-				line-height:121px;
+				line-height:121upx;
 			}
-
 			.img {
 				width: 14upx;
 				height: 24upx;
 			}
 		}
-
-
 	}
 </style>
+			
+
