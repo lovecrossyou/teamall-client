@@ -33,7 +33,7 @@
 		},
 		data() {
 			return {
-				isclick: '',
+				isclick: 0,
 				tealist: [],
 				categorylist: [{
 						categoryitem: "热卖",

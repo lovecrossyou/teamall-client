@@ -110,7 +110,7 @@ export default {
 						{
 							pro_id: 122,
 							pro_name: ' 香奈儿可可小姐淡香水 50ml',
-							pro_name2: ' (又名：香奈儿 可可小姐淡香水（瓶装）50ml)',
+							pro_name2: ' (又名：香奈儿',
 							reduce_price: 16,
 							now_price: 100,
 							pro_count: 1,
@@ -143,7 +143,7 @@ export default {
 						{
 							pro_id: 19,
 							pro_name: ' 香奈儿可可小姐淡香水 50ml',
-							pro_name2: ' (又名：香奈儿 可可小姐淡香水（瓶装）50ml)',
+							pro_name2: ' (又名：香奈儿',
 							reduce_price: 16,
 							now_price: 100,
 							pro_count: 1,
