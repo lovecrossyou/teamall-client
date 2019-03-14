@@ -237,6 +237,14 @@
 					}
 				}
 			}
+		},
+		{
+			"path": "pages/order/orderDeatils",
+			"style": {
+				"navigationBarTitleText": "订单详情页",
+				"navigationBarBackgroundColor":"#fff",
+				"navigationBarTextStyle":"black"
+			}
 		}
 	],
 	"tabBar": {
