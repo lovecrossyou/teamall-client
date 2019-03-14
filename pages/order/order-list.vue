@@ -4,7 +4,7 @@
 			<view v-for="(tab, index) in tabBars" :key="index" :class="['swiper-tab-list',tabIndex==index ? 'active' : '']"
 			:data-current="index" @click="tapTab(index)">{{tab.name}}</view>
 		</scroll-view>
-		<scroll-view class="list">
+		<scroll-view class="list" style="listHeight;">
 		      <block v-for="(tabItem, idx) in orderList" :key="idx">
 				  <view class="item">
 					  <view class="item-top">
@@ -37,8 +37,16 @@
 
 <script>
 	export default{
+		computed:{
+			listHeight(){
+				return {
+					height:(412*this.listNum)
+				}
+			}
+		},
 		data(){
 			return{
+				listNum:4,
 				scrollLeft: 0,
 				tabIndex: 0,
 				tabBars:[
@@ -85,7 +93,7 @@
 		}
 		.list {
 			width: 750upx;
-			height: calc(100% - 100upx);
+			//height: (412*4)upx;
 			margin-top: 100upx;
 			.item{
 				width:750upx;

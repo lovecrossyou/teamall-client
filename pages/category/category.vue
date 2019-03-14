@@ -13,8 +13,13 @@
 					</view>
 				</block>
 			</view>
-			<view class="tealist">
-				1111
+			<view class="tealistView">
+				<block v-for="(item,index) in tealist" :key="index">
+					<view class="teaItem">
+						<image class="teaIcon" :src="item.icon"></image>
+						<view class="teaTxt">{{item.name}}</view>
+					</view>
+				</block>
 			</view>
 		</view>
 	</view>
@@ -28,10 +33,11 @@
 		},
 		data() {
 			return {
-				isclick:'',
+				isclick: 0,
+				tealist: [],
 				categorylist: [{
 						categoryitem: "热卖",
-						tealist: [{
+						list: [{
 								icon: "/static/category/tea.jpg",
 								name: "1.1"
 							},
@@ -51,7 +57,7 @@
 					},
 					{
 						categoryitem: "绿茶",
-						tealist: [{
+						list: [{
 								icon: "/static/category/tea.jpg",
 								name: "2.1"
 							},
@@ -71,7 +77,7 @@
 					},
 					{
 						categoryitem: "红茶",
-						tealist: [{
+						list: [{
 								icon: "/static/category/tea.jpg",
 								name: "3.1"
 							},
@@ -91,7 +97,7 @@
 					},
 					{
 						categoryitem: "乌龙茶",
-						tealist: [{
+						list: [{
 								icon: "/static/category/tea.jpg",
 								name: "4.1"
 							},
@@ -111,7 +117,7 @@
 					},
 					{
 						categoryitem: "黑茶",
-						tealist: [{
+						list: [{
 								icon: "/static/category/tea.jpg",
 								name: "5.1"
 							},
@@ -131,7 +137,7 @@
 					},
 					{
 						categoryitem: "白茶",
-						tealist: [{
+						list: [{
 								icon: "/static/category/tea.jpg",
 								name: "6.1"
 							},
@@ -151,7 +157,7 @@
 					},
 					{
 						categoryitem: "黄茶",
-						tealist: [{
+						list: [{
 								icon: "/static/category/tea.jpg",
 								name: "7.1"
 							},
@@ -171,7 +177,7 @@
 					},
 					{
 						categoryitem: "花草茶",
-						tealist: [{
+						list: [{
 								icon: "/static/category/tea.jpg",
 								name: "8.1"
 							},
@@ -191,7 +197,7 @@
 					},
 					{
 						categoryitem: "茶具",
-						tealist: [{
+						list: [{
 								icon: "/static/category/tea.jpg",
 								name: "9.1"
 							},
@@ -213,9 +219,16 @@
 			}
 		},
 		methods: {
-			changeStyle(index){
-				this.isclick = index
-				}
+			changeStyle(index) {
+				this.isclick = index;
+				this.tealist = this.categorylist[index].list;
+			},
+			getteaList() {
+				this.tealist = this.categorylist[0].list
+			}
+		},
+		created() {
+			this.getteaList()
 		}
 	}
 </script>
@@ -243,27 +256,27 @@
 					align-items: center;
 					width: 100%;
 					height: 120upx;
-					background-color: rgba(247,247,247,1);
-					border-bottom: solid 1upx rgba(255,255,255,1);
-					
-					.categoryTxt{
+					background-color: rgba(247, 247, 247, 1);
+					border-bottom: solid 1upx rgba(255, 255, 255, 1);
+
+					.categoryTxt {
 						font-size: 28upx;
 						font-family: PingFang-SC-Regular;
 						font-weight: 400;
 						color: rgba(42, 42, 43, 1);
 					}
 				}
-				
+
 				.categoryclickItem {
 					display: flex;
 					justify-content: center;
 					align-items: center;
 					width: 100%;
 					height: 120upx;
-					background-color: rgba(255,255,255,1);
-					border-left: solid 4upx rgba(255,89,75,1);
-					
-					.categoryTxt{
+					background-color: rgba(255, 255, 255, 1);
+					border-left: solid 4upx rgba(255, 89, 75, 1);
+
+					.categoryTxt {
 						font-size: 28upx;
 						font-family: PingFang-SC-Regular;
 						font-weight: 400;
@@ -272,7 +285,31 @@
 				}
 			}
 
-			.tealist {}
+			.tealistView {
+				width: 100%;
+				box-sizing: border-box;
+
+				.teaItem {
+					display: inline-block;
+					box-sizing: border-box;
+					margin: 32upx 14upx 29upx 52upx;
+
+					.teaIcon {
+						width: 120upx;
+						height: 120upx;
+					}
+
+					.teaTxt {
+						display: flex;
+						justify-content: center;
+						font-size: 28upx;
+						font-family: PingFang-SC-Medium;
+						font-weight: 500;
+						color: rgba(51, 51, 51, 1);
+						margin-top: 26upx;
+					}
+				}
+			}
 		}
 	}
 </style>
