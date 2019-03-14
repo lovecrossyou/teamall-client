@@ -8,7 +8,8 @@
     "app-plus" : {
         /* 5+App特有相关 */
         "modules" : {
-            "Share" : {}
+            "Share" : {},
+            "Payment" : {}
         },
         /* 模块配置 */
         "distribute" : {
@@ -47,6 +48,11 @@
                     "weixin" : {
                         "appid" : "wx703a610b9f69b44e",
                         "appsecret" : "2df5dbb69584"
+                    }
+                },
+                "payment" : {
+                    "weixin" : {
+                        "appid" : "wx703a610b9f69b44e"
                     }
                 }
             }
