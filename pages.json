@@ -245,6 +245,18 @@
 				"navigationBarBackgroundColor":"#fff",
 				"navigationBarTextStyle":"black"
 			}
+		},
+		{
+			"path": "pages/teaFight/teaFight",
+			"style": {
+				"navigationStyle": "custom",
+				"navigationBarTitleText": "斗茶",
+				"app-plus": {
+					"titleNView": {
+						"type": "transparent" //透明渐变导航栏
+					}
+				}
+			}
 		}
 	],
 	"tabBar": {
