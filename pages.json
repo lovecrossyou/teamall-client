@@ -204,6 +204,18 @@
 			}
 		},
 		{
+			"path": "pages/login/login",
+			"style": {
+				"navigationBarTitleText": "登录",
+				"navigationStyle": "custom",
+				"app-plus": {
+					"titleNView": {
+						"type": "transparent" //透明渐变导航栏
+					}
+				}
+			}
+		},
+		{
 			"path": "pages/represent/represent",
 			"style": {
 				"navigationBarTitleText": "代言人",
@@ -258,7 +270,15 @@
 				}
 			}
 		}
-	],
+	    ,{
+            "path" : "pages/register/register",
+            "style" : {}
+        },
+		{
+		    "path" : "pages/register/chooseLocation",
+		    "style" : {}
+		}
+    ],
 	"tabBar": {
 		"color": "#7a7e83",
 		"selectedColor": "#FE594B",
