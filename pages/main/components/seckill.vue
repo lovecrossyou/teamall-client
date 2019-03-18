@@ -26,11 +26,13 @@
 	export default {
 		methods:{
 			goList(){
+				console.log('good-tea');
 				uni.navigateTo({
-					url:"/pages/mall/good-tea"
+					url:"/pages/mall/sale-tea"
 				})
 			},
 			sale() {
+				console.log('sale-tea');
 				uni.navigateTo({
 					url:"/pages/mall/sale-tea"
 				})
