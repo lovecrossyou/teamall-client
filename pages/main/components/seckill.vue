@@ -31,6 +31,7 @@
 				})
 			},
 			sale() {
+				console.log('sale-tea');
 				uni.navigateTo({
 					url: "/pages/mall/sale-tea"
 				})

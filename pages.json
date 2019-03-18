@@ -139,6 +139,32 @@
 			}
 		},
 		{
+			"path": "pages/mall/spokes-show",
+			"style": {
+				"navigationStyle": "custom",
+				"navigationBarTitleText": "代言人橱窗",
+				"navigationBarBackgroundColor": "#4A90E2",
+				"app-plus": {
+					"titleNView": {
+						"type": "transparent" //透明渐变导航栏
+					}
+				}
+			}
+		},
+		{
+			"path": "pages/mall/logistics-info",
+			"style": {
+				"navigationStyle": "custom",
+				"navigationBarTitleText": "物流信息",
+				"navigationBarBackgroundColor": "#4A90E2",
+				"app-plus": {
+					"titleNView": {
+						"type": "transparent" //透明渐变导航栏
+					}
+				}
+			}
+		},
+		{
 			"path": "pages/message/message",
 			"style": {
 				"navigationBarTitleText": "消息"
@@ -244,6 +270,18 @@
 				"navigationBarTitleText": "订单详情页",
 				"navigationBarBackgroundColor":"#fff",
 				"navigationBarTextStyle":"black"
+			}
+		},
+		{
+			"path": "pages/teaFight/teaFight",
+			"style": {
+				"navigationStyle": "custom",
+				"navigationBarTitleText": "斗茶",
+				"app-plus": {
+					"titleNView": {
+						"type": "transparent" //透明渐变导航栏
+					}
+				}
 			}
 		}
 	],

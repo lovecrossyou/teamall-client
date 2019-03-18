@@ -3,12 +3,12 @@
 		<view class="shopList">
 			<view class="dianpu" v-for="(item, index) in shopData" :key="index">
 				<view class="dianpu-name">
-					<checkBox 
-					class="select"  
-					:isselected="item.checked" 
-					@change="shopActive(item)" 
+					<checkBox
+						class="select"
+						:isselected="item.checked"
+						@change="shopActive(item)"
 					></checkBox>
-					
+
 					<image v-bind:src="shopIcon"></image>
 					<view class="text">{{ item.shop_name }}</view>
 					<view class="lingquan">领券</view>
@@ -343,7 +343,7 @@ export default {
 	},
 	components: {
 		checkBox,
-		recommend,
+		recommend
 	},
 	// 单间商品的价格 x 数量
 	filters: {
@@ -386,9 +386,9 @@ export default {
 				padding-right: 40upx;
 				display: flex;
 
-.select{
-margin-right: 20upx;
-}
+				.select {
+					margin-right: 20upx;
+				}
 
 				image {
 					width: 38upx;
@@ -527,6 +527,7 @@ margin-right: 20upx;
 		padding-left: 23upx;
 		justify-content: flex-end;
 		background: #ffffffff;
+		z-index: 100;
 		.bottom-all-icon {
 			align-self: center;
 			margin-right: 11upx;
