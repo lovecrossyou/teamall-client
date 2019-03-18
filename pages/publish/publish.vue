@@ -308,6 +308,7 @@ export default {
 		height:100%;
 		background-color:rgba(0,0,0,0.5);
 		padding-top: 100upx;
+		z-index: 100;
 		.close-content{
 		
 			display: flex;
