@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 {
 	"pages": [{
 			"path": "pages/home/home",
@@ -397,4 +398,323 @@
 	"navigationBarBackgroundColor": "#FF594B",
 	"backgroundColor": "#FF594B"
 }
+=======
+{
+	"pages": [{
+			"path": "pages/home/home",
+			"style": {
+				"navigationBarTitleText": "茶模"
+			}
+		},
+		//pages数组中第一项表示应用启动页,
+		{
+			"path": "pages/main/main",
+			"style": {
+				"navigationStyle": "custom",
+				"navigationBarTitleText": "茶摩",
+				"app-plus": {
+					"titleNView": {
+						"type": "transparent" //透明渐变导航栏,
+					}
+				}
+			}
+		},
+		{
+			"path": "pages/reg/reg",
+			"style": {
+				"navigationBarTitleText": "注册"
+			}
+		},
+		{
+			"path": "pages/follow/followmoments",
+			"style": {
+			}
+		},
+		{
+			"path": "pages/category/category",
+			"style": {
+				"navigationStyle": "custom",
+				"navigationBarTitleText": "分类",
+				"app-plus": {
+					"titleNView": {
+						"type": "transparent" //透明渐变导航栏,
+						}
+				}
+			}
+		},
+		{
+			"path": "pages/pwd/pwd",
+			"style": {
+				"navigationBarTitleText": "找回密码"
+			}
+		},
+		{
+			"path": "pages/mall/cart/cart",
+			"style": {
+				"navigationBarTitleText": "购物车"
+			}
+		},
+		{
+			"path": "pages/address/address",
+			"style": {
+				"navigationBarTitleText": "地址管理"
+			}
+		},
+		{
+			"path": "pages/address/edit",
+			"style": {
+				"navigationBarTitleText": "编辑地址"
+			}
+		},
+		{
+			"path": "pages/setting/setting",
+			"style": {
+				"navigationBarTitleText": "设置"
+			}
+		},
+		{
+			"path": "pages/setting/addressManage",
+			"style": {
+				"navigationBarTitleText": "地址管理"
+			}
+		},
+		{
+			"path": "pages/setting/phonenumberManage",
+			"style": {
+				"navigationBarTitleText": "绑定手机号"
+			}
+		},
+		{
+			"path": "pages/setting/cacheManage",
+			"style": {
+				"navigationBarTitleText": "清理缓存"
+			}
+		},
+		{
+			"path": "pages/setting/privacyManage",
+			"style": {
+				"navigationBarTitleText": "隐私设置"
+			}
+		},
+		{
+			"path": "pages/mall/mall",
+			"style": {
+				"navigationBarTitleText": "茶摩"
+			}
+		},
+		{
+			"path": "pages/user/user",
+			"style": {
+				"navigationBarTitleText": "我的",
+				"navigationStyle": "custom",
+				"app-plus": {
+					"titleNView": {
+						"type": "transparent" //透明渐变导航栏
+					}
+				}
+			}
+		},
+		{
+			"path": "pages/mall/good-tea",
+			"style": {
+				"navigationStyle": "custom",
+				"navigationBarTitleText": "好茶试饮",
+				"app-plus": {
+					"titleNView": {
+						"type": "transparent" //透明渐变导航栏
+					}
+				}
+			}
+		},
+		{
+			"path": "pages/mall/sale-tea",
+			"style": {
+				"navigationStyle": "custom",
+				"navigationBarTitleText": "限时秒杀",
+				"navigationBarBackgroundColor": "#4A90E2",
+				"app-plus": {
+					"titleNView": {
+						"type": "transparent" //透明渐变导航栏
+					}
+				}
+			}
+		},
+		{
+			"path": "pages/message/message",
+			"style": {
+				"navigationBarTitleText": "消息"
+			}
+		},
+		{
+			"path": "pages/main/components/searchProduct",
+			"style": {
+				"navigationBarTitleText": "消息"
+			}
+		},
+		{
+			"path": "pages/product/product",
+			"style": {
+				"navigationBarTitleText": "商品详情",
+				"app-plus": {
+					"titleNView": {
+						"type": "transparent" //透明渐变导航栏
+					}
+				}
+			}
+		},
+		{
+			"path": "pages/storeDetails/storeDetails",
+			"style": {
+				"navigationStyle": "custom",
+				"navigationBarTitleText": "店铺",
+				"app-plus": {
+					"titleNView": {
+						"type": "transparent" //透明渐变导航栏
+					}
+				}
+			}
+		},
+		{
+			"path": "pages/order/order-confirm",
+			"style": {
+				"navigationBarTitleText": "确认订单"
+			}
+		},
+		{
+			"path": "pages/order/order-pay",
+			"style": {
+				"navigationBarTitleText": "支付"
+			}
+		},
+		{
+			"path": "pages/order/order-pay-result",
+			"style": {
+				"navigationBarTitleText": "支付结果"
+			}
+		},
+		{
+			"path": "pages/order/order-list",
+			"style": {
+				"navigationBarTitleText": "我的订单"
+			}
+		},
+		{
+			"path": "pages/publish/publish",
+			"style": {
+				"navigationBarTitleText": "发布"
+			}
+		},
+		{
+			"path": "pages/login/login",
+			"style": {
+				"navigationBarTitleText": "登录",
+				"navigationStyle": "custom",
+				"app-plus": {
+					"titleNView": {
+						"type": "transparent" //透明渐变导航栏
+					}
+				}
+			}
+		},
+		{
+			"path": "pages/represent/represent",
+			"style": {
+				"navigationBarTitleText": "代言人",
+				"app-plus": {
+					"titleNView": {
+						"type": "transparent"
+					}
+				}
+			}
+		},
+		{
+			"path": "pages/represent/representInfo",
+			"style": {
+				"navigationStyle": "custom",
+				"navigationBarTitleText": "代言人",
+				"app-plus": {
+					"titleNView": {
+						"type": "transparent"
+					}
+				}
+			}
+		},
+		{
+			"path": "pages/represent/introduce",
+			"style": {
+				"navigationStyle": "custom",
+				"navigationBarTitleText": "代言介绍页",
+				"app-plus": {
+					"titleNView": {
+						"type": "transparent"
+					}
+				}
+			}
+		},
+		{
+			"path": "pages/order/orderDeatils",
+			"style": {
+				"navigationBarTitleText": "订单详情页",
+				"navigationBarBackgroundColor":"#fff",
+				"navigationBarTextStyle":"black"
+			}
+		},
+		{
+			"path": "pages/teaFight/teaFight",
+			"style": {
+				"navigationStyle": "custom",
+				"navigationBarTitleText": "斗茶",
+				"app-plus": {
+					"titleNView": {
+						"type": "transparent" //透明渐变导航栏
+					}
+				}
+			}
+		}
+	    ,{
+            "path" : "pages/register/register",
+            "style" : {}
+        },
+		{
+		    "path" : "pages/register/chooseLocation",
+		    "style" : {}
+		}
+    ],
+	"tabBar": {
+		"color": "#7a7e83",
+		"selectedColor": "#FE594B",
+		"backgroundColor": "#ffffff",
+		"list": [{
+				"pagePath": "pages/home/home",
+				"text": "茶模",
+				"iconPath": "static/tab/mall_tab_home.png",
+				"selectedIconPath": "static/tab/mall_tab_home_selected.png"
+			},
+			{
+				"pagePath": "pages/main/main",
+				"text": "茶摩",
+				"iconPath": "static/tab/mall_tab_mall.png",
+				"selectedIconPath": "static/tab/mall_tab_mall_selected.png"
+			},
+			{
+				"pagePath": "pages/message/message",
+				"text": "消息",
+				"iconPath": "static/tab/mall_tab_message.png",
+				"selectedIconPath": "static/tab/mall_tab_message_selected.png"
+			},
+			{
+				"pagePath": "pages/user/user",
+				"text": "我的",
+				"iconPath": "static/tab/mall_tab_i.png",
+				"selectedIconPath": "static/tab/mall_tab_i _selected.png"
+			}
+		]
+	},
+	"globalStyle": {
+		"navigationBarTextStyle": "white",
+		"navigationBarBackgroundColor": "#FF594B",
+		"backgroundColor": "#FF594B"
+	}
+
+>>>>>>> eb8c7d743868d37aaa69afb90102cbefc3fc4cc1
 }

@@ -17,7 +17,7 @@
 		/>
 		<view class="position-content" ho>
 			<image v-bind:src="loctionIcon"></image>
-			<text @click="goAa">选择位置</text>
+			<text>选择位置</text>
 			<uni-icon type="arrowright" color="#bbb" size="20"></uni-icon>
 		</view>
 
@@ -93,11 +93,7 @@ export default {
 		uniIcon
 	},
 	methods: {
-		goAa() {
-			uni.navigateTo({
-				url: './aa'
-			});
-		},
+		
 		closeWindow(){
 			this.$data.windowOpened = false;
 		}
