@@ -8,7 +8,7 @@
 			</view>
 			<view class="pay_load_result_share">
 				<view class="pay_load_result_share_tip" >自己喝</view>
-				<view class="pay_load_result_share_tip" >送好友</view>
+				<view class="pay_load_result_share_tip" @click="sendFrients">送好友</view>
 			</view>
 		</view>
 		
@@ -16,18 +16,50 @@
 			<view class="hot_recommend_tit">热门推荐</view>
 			<recommendTea></recommendTea>
 		</view>
+		<shareDialog
+			ref="unikModal"
+			@leftModal="leftModal"
+			@rightModal="rightModal"
+			>
+		</shareDialog>
 	</view>
 </template>
 
 <script>
 	import recommendTea from '../main/components/recommend.vue';
+	import shareDialog from '../main/components/shareDialog.vue';
+    import share from '../../util/apis/share.js';
 	export default{
+		methods:{
+			sendFrients(){
+				this.$refs.unikModal.show()
+			},
+			leftModal(){
+				console.log('朋友');
+				share.wxSceneSession({
+					href:"http://uniapp.dcloud.io/",
+					title:"uni-app分享",
+					summary:"我正在使用HBuilderX开发uni-app，赶紧跟我一起来体验！",
+					imageUrl:"https://img-cdn-qiniu.dcloud.net.cn/uniapp/images/uni@2x.png"
+					});
+			},
+			rightModal(){
+				console.log('朋友圈')
+				share.wxSenceTimeline({
+					href:"http://uniapp.dcloud.io/",
+					title:"uni-app分享",
+					summary:"我正在使用HBuilderX开发uni-app，赶紧跟我一起来体验！",
+					imageUrl:"https://img-cdn-qiniu.dcloud.net.cn/uniapp/images/uni@2x.png"
+					});
+			}
+		},
 		components:{
-			recommendTea
+			recommendTea,
+			shareDialog,
 		},
 		data() {
 			return {
-				 paySuccess:'../../static/order/pay_icon_success@2x.png'
+				paySuccess:'../../static/order/pay_icon_success@2x.png'
 			};
 		}
 	}

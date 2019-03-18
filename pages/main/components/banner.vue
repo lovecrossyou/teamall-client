@@ -55,8 +55,11 @@
 }
 </script>
 
-<style>
+<style scoped>
+	
 	.swiper-item>image{
 		width: 100%;
+		height: 240upx;
 	}
+	
 </style>

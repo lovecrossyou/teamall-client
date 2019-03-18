@@ -19,14 +19,22 @@
 				</block>	
 			</view>
 		</view>
-		<view class="confirm_footer" @click="goNext">确认支付</view>
+		<view class="confirm_footer" @click="toPay(payResult)">确认支付</view>
 	</view>
 </template>
 
 <script>
+	import pay from '../../util/apis/pay.js';
 	export default {
 		methods:{
-			goNext() {
+			toPay(callback) {
+				pay.pay({
+					provider:'wxpay',
+					orderInfo:'orderInfo'
+				},callback)
+			},
+			payResult(msg){
+				console.log('支付结果:' + JSON.stringify(msg));
 				uni.navigateTo({
 					url: "/pages/order/order-pay-result"
 				})

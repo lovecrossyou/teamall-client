@@ -10,11 +10,10 @@
 			"path": "pages/main/main",
 			"style": {
 				"navigationStyle": "custom",
-				"navigationBarTitleText": "",
+				"navigationBarTitleText": "茶摩",
 				"app-plus": {
 					"titleNView": {
-						"type": "transparent", //透明渐变导航栏,
-						"backgroundColor": "#FF594B"
+						"type": "transparent" //透明渐变导航栏,
 					}
 				}
 			}
@@ -23,6 +22,23 @@
 			"path": "pages/reg/reg",
 			"style": {
 				"navigationBarTitleText": "注册"
+			}
+		},
+		{
+			"path": "pages/follow/followmoments",
+			"style": {
+			}
+		},
+		{
+			"path": "pages/category/category",
+			"style": {
+				"navigationStyle": "custom",
+				"navigationBarTitleText": "分类",
+				"app-plus": {
+					"titleNView": {
+						"type": "transparent" //透明渐变导航栏,
+						}
+				}
 			}
 		},
 		{
@@ -102,7 +118,6 @@
 			"style": {
 				"navigationStyle": "custom",
 				"navigationBarTitleText": "好茶试饮",
-				"navigationBarBackgroundColor": "#4A90E2",
 				"app-plus": {
 					"titleNView": {
 						"type": "transparent" //透明渐变导航栏
@@ -122,12 +137,31 @@
 					}
 				}
 			}
+<<<<<<< HEAD
 		},{
 			"path": "pages/mall/logistics-info",
 			"style": {
 				"navigationStyle": "custom",
 				"navigationBarTitleText": "物流信息",
 				"navigationBarBackgroundColor": "#4A90E2",
+=======
+		},
+		{
+			"path": "pages/message/message",
+			"style": {
+				"navigationBarTitleText": "消息"
+			}
+		},
+		{
+			"path": "pages/main/components/searchProduct",
+			"style": {
+				"navigationBarTitleText": "消息"
+			}
+		},
+		{
+			"path": "pages/product/product",
+			"style": {
+				"navigationBarTitleText": "商品详情",
 				"app-plus": {
 					"titleNView": {
 						"type": "transparent" //透明渐变导航栏
@@ -136,17 +170,111 @@
 			}
 		},
 		{
-			"path": "pages/mall/spokes-show",
+			"path": "pages/storeDetails/storeDetails",
 			"style": {
 				"navigationStyle": "custom",
-				"navigationBarTitleText": "代言人橱窗",
-				"navigationBarBackgroundColor": "#4A90E2",
+				"navigationBarTitleText": "店铺",
+>>>>>>> a0b068087c3e8f4edb89e6a3059ad2ca84a7abf1
 				"app-plus": {
 					"titleNView": {
 						"type": "transparent" //透明渐变导航栏
 					}
 				}
 			}
+		},
+		{
+<<<<<<< HEAD
+			"path": "pages/mall/spokes-show",
+			"style": {
+				"navigationStyle": "custom",
+				"navigationBarTitleText": "代言人橱窗",
+				"navigationBarBackgroundColor": "#4A90E2",
+=======
+			"path": "pages/order/order-confirm",
+			"style": {
+				"navigationBarTitleText": "确认订单"
+			}
+		},
+		{
+			"path": "pages/order/order-pay",
+			"style": {
+				"navigationBarTitleText": "支付"
+			}
+		},
+		{
+			"path": "pages/order/order-pay-result",
+			"style": {
+				"navigationBarTitleText": "支付结果"
+			}
+		},
+		{
+			"path": "pages/order/order-list",
+			"style": {
+				"navigationBarTitleText": "我的订单"
+			}
+		},
+		{
+			"path": "pages/publish/publish",
+			"style": {
+				"navigationBarTitleText": "发布"
+			}
+		},
+		{
+			"path": "pages/represent/represent",
+			"style": {
+				"navigationBarTitleText": "代言人",
+				"app-plus": {
+					"titleNView": {
+						"type": "transparent"
+					}
+				}
+			}
+		},
+		{
+			"path": "pages/represent/representInfo",
+			"style": {
+				"navigationStyle": "custom",
+				"navigationBarTitleText": "代言人",
+				"app-plus": {
+					"titleNView": {
+						"type": "transparent"
+					}
+				}
+			}
+		},
+		{
+			"path": "pages/represent/introduce",
+			"style": {
+				"navigationStyle": "custom",
+				"navigationBarTitleText": "代言介绍页",
+				"app-plus": {
+					"titleNView": {
+						"type": "transparent"
+					}
+				}
+			}
+		},
+		{
+			"path": "pages/order/orderDeatils",
+			"style": {
+				"navigationBarTitleText": "订单详情页",
+				"navigationBarBackgroundColor":"#fff",
+				"navigationBarTextStyle":"black"
+			}
+		},
+		{
+			"path": "pages/teaFight/teaFight",
+			"style": {
+				"navigationStyle": "custom",
+				"navigationBarTitleText": "斗茶",
+>>>>>>> a0b068087c3e8f4edb89e6a3059ad2ca84a7abf1
+				"app-plus": {
+					"titleNView": {
+						"type": "transparent" //透明渐变导航栏
+					}
+				}
+			}
+<<<<<<< HEAD
 		},
 		{
 			"path": "pages/message/message",
@@ -233,4 +361,44 @@
 		"navigationBarBackgroundColor": "#FF594B",
 		"backgroundColor": "#FF594B"
 	}
+=======
+		}
+	],
+	"tabBar": {
+		"color": "#7a7e83",
+		"selectedColor": "#FE594B",
+		"backgroundColor": "#ffffff",
+		"list": [{
+				"pagePath": "pages/home/home",
+				"text": "茶模",
+				"iconPath": "static/tab/mall_tab_home.png",
+				"selectedIconPath": "static/tab/mall_tab_home_selected.png"
+			},
+			{
+				"pagePath": "pages/main/main",
+				"text": "茶摩",
+				"iconPath": "static/tab/mall_tab_mall.png",
+				"selectedIconPath": "static/tab/mall_tab_mall_selected.png"
+			},
+			{
+				"pagePath": "pages/message/message",
+				"text": "消息",
+				"iconPath": "static/tab/mall_tab_message.png",
+				"selectedIconPath": "static/tab/mall_tab_message_selected.png"
+			},
+			{
+				"pagePath": "pages/user/user",
+				"text": "我的",
+				"iconPath": "static/tab/mall_tab_i.png",
+				"selectedIconPath": "static/tab/mall_tab_i _selected.png"
+			}
+		]
+	},
+	"globalStyle": {
+		"navigationBarTextStyle": "white",
+		"navigationBarBackgroundColor": "#FF594B",
+		"backgroundColor": "#FF594B"
+	}
+
+>>>>>>> a0b068087c3e8f4edb89e6a3059ad2ca84a7abf1
 }

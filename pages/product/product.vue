@@ -142,15 +142,14 @@
 		background-color: #F4F8FB;
 
 		.header {
-			padding: 0 24upx;
+			padding: 44upx 24upx;
 			box-sizing: border-box;
-			height: 96upx;
+			// height: 96upx;
 			display: flex;
 			flex-direction: row;
 			justify-content: space-between;
 			align-items: center;
 			background: #fff;
-
 			.left-arrow {
 				image {
 					width: 19upx;

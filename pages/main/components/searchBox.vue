@@ -1,6 +1,6 @@
 <template>
 	<view class="search_box">
-		<view class="search_box_left">
+		<view class="search_box_left" @click="goCategory">
 			<image :src="mall_classification" alt="" />
 			<view>分类</view>
 		</view>
@@ -19,6 +19,13 @@
 			return {
 				mall_classification: "../../static/main/mall_icon_classification.png",
 				mall_icon_search: "../../static/main/mall_icon_search.png",
+			}
+		},
+		methods:{
+			goCategory(){
+				uni.navigateTo({
+					url:"../category/category"
+				})
 			}
 		}
 	}

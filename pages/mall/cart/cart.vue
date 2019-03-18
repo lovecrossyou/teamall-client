@@ -3,12 +3,12 @@
 		<view class="shopList">
 			<view class="dianpu" v-for="(item, index) in shopData" :key="index">
 				<view class="dianpu-name">
-					<checkBox 
-					class="select"  
-					:isselected="item.checked" 
-					@change="shopActive(item)" 
+					<checkBox
+						class="select"
+						:isselected="item.checked"
+						@change="shopActive(item)"
 					></checkBox>
-					
+
 					<image v-bind:src="shopIcon"></image>
 					<view class="text">{{ item.shop_name }}</view>
 					<view class="lingquan">领券</view>
@@ -108,9 +108,9 @@ export default {
 					checkedCount: 0,
 					data: [
 						{
-							pro_id: 1,
+							pro_id: 122,
 							pro_name: ' 香奈儿可可小姐淡香水 50ml',
-							pro_name2: ' (又名：香奈儿 可可小姐淡香水（瓶装）50ml)',
+							pro_name2: ' (又名：香奈儿',
 							reduce_price: 16,
 							now_price: 100,
 							pro_count: 1,
@@ -120,7 +120,7 @@ export default {
 							scrollLeft: 0
 						},
 						{
-							pro_id: 2,
+							pro_id: 225,
 							pro_name: ' 香奈儿可可小姐淡香水 50ml',
 							pro_name2: ' (又名：香奈儿 可可小姐淡香水（瓶装）50ml)',
 							reduce_price: 16,
@@ -141,9 +141,9 @@ export default {
 					checkedCount: 0,
 					data: [
 						{
-							pro_id: 1,
+							pro_id: 19,
 							pro_name: ' 香奈儿可可小姐淡香水 50ml',
-							pro_name2: ' (又名：香奈儿 可可小姐淡香水（瓶装）50ml)',
+							pro_name2: ' (又名：香奈儿',
 							reduce_price: 16,
 							now_price: 100,
 							pro_count: 1,
@@ -153,7 +153,7 @@ export default {
 							scrollLeft: 0
 						},
 						{
-							pro_id: 2,
+							pro_id: 20,
 							pro_name: ' 香奈儿可可小姐淡香水 50ml',
 							pro_name2: ' (又名：香奈儿 可可小姐淡香水（瓶装）50ml)',
 							reduce_price: 16,
@@ -174,7 +174,7 @@ export default {
 					checkedCount: 0,
 					data: [
 						{
-							pro_id: 1,
+							pro_id: 21,
 							pro_name: ' 香奈儿可可小姐淡香水 50ml',
 							pro_name2: ' (又名：香奈儿 可可小姐淡香水（瓶装）50ml)',
 							reduce_price: 16,
@@ -186,7 +186,7 @@ export default {
 							scrollLeft: 0
 						},
 						{
-							pro_id: 2,
+							pro_id: 22,
 							pro_name: ' 香奈儿可可小姐淡香水 50ml',
 							pro_name2: ' (又名：香奈儿 可可小姐淡香水（瓶装）50ml)',
 							reduce_price: 16,
@@ -343,7 +343,7 @@ export default {
 	},
 	components: {
 		checkBox,
-		recommend,
+		recommend
 	},
 	// 单间商品的价格 x 数量
 	filters: {
@@ -386,9 +386,9 @@ export default {
 				padding-right: 40upx;
 				display: flex;
 
-.select{
-margin-right: 20upx;
-}
+				.select {
+					margin-right: 20upx;
+				}
 
 				image {
 					width: 38upx;
@@ -527,6 +527,7 @@ margin-right: 20upx;
 		padding-left: 23upx;
 		justify-content: flex-end;
 		background: #ffffffff;
+		z-index: 100;
 		.bottom-all-icon {
 			align-self: center;
 			margin-right: 11upx;
