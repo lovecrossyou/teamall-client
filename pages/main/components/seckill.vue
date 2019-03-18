@@ -24,18 +24,10 @@
 
 <script>
 	export default {
-<<<<<<< HEAD
-		methods:{
-			goList(){
-				console.log('good-tea');
-				uni.navigateTo({
-					url:"/pages/mall/sale-tea"
-=======
 		methods: {
 			goList() {
 				uni.navigateTo({
 					url: "/pages/mall/good-tea"
->>>>>>> a0b068087c3e8f4edb89e6a3059ad2ca84a7abf1
 				})
 			},
 			sale() {
