@@ -1,7 +1,7 @@
 <template>
 	<view class="searchproductMain">
 		<searchBox></searchBox>
-		<drawer :visible="openDrawer" mask="true" mode="right">
+		<drawer :visible="openDrawer" mask="true" mode="right" ref="close">
 			<view class="drawerMain">
 				<view class="brandList">
 					<view class="title">
@@ -13,7 +13,7 @@
 					</view>
 					<view class="nameList">
 						<block v-for="(item,index) in brandlist" :key="index">
-							<view class="nameItem">
+							<view class="nameItem" @click="filterBybrand(item.brandnum)">
 								<view class="nameTxt"> {{item.name}}</view>
 							</view>
 						</block>
@@ -23,7 +23,7 @@
 					<view class="titleTxt">分类</view>
 					<view class="nameList">
 						<block v-for="(item,index) in categorylist" :key="index">
-							<view class="nameItem">
+							<view class="nameItem" @click="filterBycategory(item.categorynum)">
 								<view class="nameTxt"> {{item.name}}</view>
 							</view>
 						</block>
@@ -34,19 +34,19 @@
 					<view class="price">
 						<view class="priceTxt">价格区间</view>
 						<view class="minPrice">
-							<input class="min" placeholder="最低价" />
+							<input class="min" placeholder="最低价" v-model.number="minnum"/>
 						</view>
 						<view class="line"></view>
 						<view class="maxPrice">
-							<input class="max" placeholder="最高价" />
+							<input class="max" placeholder="最高价" v-model.number="maxnum"/>
 						</view>
 					</view>
 				</view>
 				<view class="drawerBtn">
-					<button class="leftBtn">
+					<button class="leftBtn" @click="closeDrawer">
 						<view class="btnTxt">取消</view>
 					</button>
-					<button class="rightBtn">
+					<button class="rightBtn" @click="filterByprice(minnum,maxnum)">
 						<view class="btnTxt">完成</view>
 					</button>
 				</view>
@@ -60,7 +60,7 @@
 			</block>
 		</view>
 		<view class="productList">
-			<block v-for="(item,index) in productlist" :key="index">
+			<block v-for="(item,index) in list" :key="index">
 				<view class="productItem">
 					<image class="productIcon" :src="item.icon"></image>
 					<view class="productName">{{item.name}}</view>
@@ -85,37 +85,57 @@
 				this.isClick = index;
 				switch (index) {
 					case 0:
-						this.productlist = this.productlist;
+						this.list = this.productlist;
 						break;
 					case 1:
 						this.sorttype = "volume";
 						this.sortkey = this.sortkey == 0 ? 1 : 0;
-						this.productlist.sort(this.productSort(this.sorttype, this.sortkey));
+						this.list.sort(this.productSort(this.sorttype, this.sortkey));
 						break;
 					case 2:
 						this.sorttype = "price";
 						this.sortkey = this.sortkey == 0 ? 1 : 0;
-						this.productlist.sort(this.productSort(this.sorttype, this.sortkey));
+						this.list.sort(this.productSort(this.sorttype, this.sortkey));
 						break;
 					case 3:
 						this.openDrawer = true;
 						break;
 				}
 			},
-			productSort(list, key) {
+			productSort(type, key) {
 				if (key === 0) {
-					return function(a, b) {
-						var val1 = a[list];
-						var val2 = b[list];
-						return val2 - val1;
-					};
-				} else {
-					return function(a, b) {
-						var val1 = a[list];
-						var val2 = b[list];
-						return val1 - val2;
-					};
+					return (a,b)=>b[type] - a[type];
+					}
+				else {
+					return (a,b)=>a[type] - b[type];
 				}
+			},
+			filterBybrand(key){
+				this.list=this.productlist;
+				this.list=this.list.filter(product=>product.brandnum===key);
+				this.$refs.close.close();
+				this.openDrawer=false;
+			},
+			filterBycategory(key){
+				this.list=this.productlist;
+				this.list=this.list.filter(product=>product.categorynum===key);
+				this.$refs.close.close();
+				this.openDrawer=false;
+			},
+			filterByprice(minnum,maxnum){
+				this.list=this.productlist;
+				if(minnum<maxnum){
+				this.list=this.list.filter(product=>minnum<product.price&&product.price<maxnum);	
+				this.$refs.close.close();
+				this.openDrawer=false;
+				}
+				else{
+					alert("请输入正确的价格！")
+				}
+			},
+			closeDrawer(){
+				this.$refs.close.close();
+				this.openDrawer=false;
 			}
 		},
 		data() {
@@ -124,6 +144,7 @@
 				sortkey: 0,
 				sorttype: "",
 				openDrawer: false,
+				list:[],
 				bannerlist: ["综合", "销量", "价格", "筛选"],
 				productlist: [{
 						name: "张一元福建铁观音福建福建铁观音",
@@ -226,6 +247,9 @@
 
 				]
 			}
+		},
+		created() {
+			this.list=this.productlist
 		}
 	}
 </script>
