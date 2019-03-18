@@ -71,13 +71,17 @@
 		},
 		methods: {
 			close() {
+				console.log("close---------------------s")
+				this.openDrawer = false
 				this.showDrawer = false
 				this.$emit('close')
 				this.closeTimer = setTimeout(() => {
 					this.visibleSync = false
 				}, 200)
 			},
-			moveHandle(){}
+			moveHandle(){
+				console.log("moveHandle---------------------s")
+			}
 		}
 	}
 </script>
