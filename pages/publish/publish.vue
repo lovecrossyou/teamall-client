@@ -15,7 +15,7 @@
 			placeholder="说说你的心得，可能会帮助更多人哦~"
 			placeholder-class="content-style"
 		/>
-		<view class="position-content" ho>
+		<view class="position-content" @click="goSearch">
 			<image v-bind:src="loctionIcon"></image>
 			<text>选择位置</text>
 			<uni-icon type="arrowright" color="#bbb" size="20"></uni-icon>
@@ -93,7 +93,11 @@ export default {
 		uniIcon
 	},
 	methods: {
-		
+		goSearch(){
+			uni.navigateTo({
+				url:'/pages/searchAddress/search'
+			})
+		},
 		closeWindow(){
 			this.$data.windowOpened = false;
 		}
