@@ -26,8 +26,7 @@
 		},
 		{
 			"path": "pages/follow/followmoments",
-			"style": {
-			}
+			"style": {}
 		},
 		{
 			"path": "pages/category/category",
@@ -37,7 +36,7 @@
 				"app-plus": {
 					"titleNView": {
 						"type": "transparent" //透明渐变导航栏,
-						}
+					}
 				}
 			}
 		},
@@ -268,8 +267,8 @@
 			"path": "pages/order/orderDeatils",
 			"style": {
 				"navigationBarTitleText": "订单详情页",
-				"navigationBarBackgroundColor":"#fff",
-				"navigationBarTextStyle":"black"
+				"navigationBarBackgroundColor": "#fff",
+				"navigationBarTextStyle": "black"
 			}
 		},
 		{
@@ -283,7 +282,32 @@
 					}
 				}
 			}
+		},
+		{
+			"path": "pages/login/login",
+			"style": {
+				"navigationBarTitleText": "登录",
+				"navigationStyle": "custom",
+				"app-plus": {
+					"titleNView": {
+						"type": "transparent" //透明渐变导航栏
+					}
+				}
+			}
+		},
+		{
+			"path": "pages/register/register",
+			"style": {
+				"navigationBarTitleText": "注册"
+			}
+		},
+		{
+			"path": "pages/register/chooseLocation",
+			"style": {
+				"navigationBarTitleText": "选择地址"
+			}
 		}
+
 	],
 	"tabBar": {
 		"color": "#7a7e83",
