@@ -1,9 +1,26 @@
 <template>
 	<div>
 		<uni-tabs @change="changeTab" :index="tabIndex">
-			<uni-tab-bar :drag="false" :tab-bars="tabBars" :tab-index="tabIndex"></uni-tab-bar>
+			<uni-tab-bar :drag="false" :tab-bars="mainTabBars" :tab-index="tabIndex"></uni-tab-bar>
 			<uni-tab-content>
-				<list class="list" @loadmore="loadMore(index1)" loadmoreoffset="10" v-for="(tab,index1) in newsitems" :key="index1">
+				<uni-tabs @change="changeTab" :index="tabIndex">
+					<uni-tab-bar :drag="false" :tab-bars="tabBars" :tab-index="tabIndex"></uni-tab-bar>
+					<uni-tab-content>
+						<list class="list" @loadmore="loadMore(index1)" loadmoreoffset="10" v-for="(tab,index1) in newsitems" :key="index1">
+							<refresh class="refresh" @refresh="onrefresh" @pullingdown="onpullingdown" :display="refreshing ? 'show' : 'hide'">
+								<text class="refresh-text">{{refreshText}}</text>
+							</refresh>
+							<cell v-for="(newsitem,index2) in tab.data" :key="index2">
+								<uni-media-list :data="newsitem" @close="close(index1,index2)" @click="goDetail(newsitem)"></uni-media-list>
+							</cell>
+							<cell class="loadmore">
+								<text class="loadmore-text">{{tab.loadingText}}</text>
+							</cell>
+						</list>
+					</uni-tab-content>
+				</uni-tabs>
+				<div class="xx">xxxxxx</div>
+				<!-- <list class="list" @loadmore="loadMore(index1)" loadmoreoffset="10" v-for="(tab,index1) in newsitems" :key="index1">
 					<refresh class="refresh" @refresh="onrefresh" @pullingdown="onpullingdown" :display="refreshing ? 'show' : 'hide'">
 						<text class="refresh-text">{{refreshText}}</text>
 					</refresh>
@@ -13,9 +30,11 @@
 					<cell class="loadmore">
 						<text class="loadmore-text">{{tab.loadingText}}</text>
 					</cell>
-				</list>
+				</list> -->
 			</uni-tab-content>
 		</uni-tabs>
+		
+	
 	</div>
 </template>
 
@@ -89,6 +108,13 @@
 					"source": "DCloud",
 					"comment_count": 11
 				},
+				mainTabBars: [{
+					name: '发现',
+					id: 'guanzhu'
+				}, {
+					name: '关注',
+					id: 'tuijian'
+				}],
 				tabBars: [{
 					name: '推荐',
 					id: 'guanzhu'

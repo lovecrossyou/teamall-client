@@ -1,5 +1,10 @@
 <template>
 	<view class="main">
+		<view class='endorsement_nav' @click="goBack">
+			<image class="endorsement_nav_arrow" :src="nav_right" ></image>
+			<view class='endorsement_nav_title'>好茶试饮</view>
+			<view class='endorsement_nav_right' />
+		</view>
 		<view class="header">
 			<view class="title">
 				好茶试饮
@@ -38,11 +43,33 @@
 
 <script>
 	export default {
+		methods:{
+			goBack(){
+				uni.navigateBack();
+			}
+		},
 		data() {
 			return {
+				nav_right: "../../static/represent/nav_right.png",
 				pIcon: '../../static/mall/goodtea_p.png',
 				cartIcon: '../../static/mall/goodtea_btn_shopping.png',
 				list: [{
+					name: '蜜桃乌龙茶花果茶买2送1白桃乌龙茶15包组',
+					price: '￥9.9',
+					desc: '热泡、冷泡随心泡买二送一 ',
+				}, {
+					name: '蜜桃乌龙茶花果茶买2送1白桃乌龙茶15包组',
+					price: '￥10',
+					desc: '热泡、冷泡随心泡买二送一 ',
+				},{
+					name: '蜜桃乌龙茶花果茶买2送1白桃乌龙茶15包组',
+					price: '￥9.9',
+					desc: '热泡、冷泡随心泡买二送一 ',
+				}, {
+					name: '蜜桃乌龙茶花果茶买2送1白桃乌龙茶15包组',
+					price: '￥10',
+					desc: '热泡、冷泡随心泡买二送一 ',
+				},{
 					name: '蜜桃乌龙茶花果茶买2送1白桃乌龙茶15包组',
 					price: '￥9.9',
 					desc: '热泡、冷泡随心泡买二送一 ',
@@ -59,6 +86,38 @@
 <style lang="scss">
 	.main {
 		width: 100%;
+		
+		.endorsement_nav {
+			width: 100%;
+			position: fixed;
+			display: flex;
+			flex-direction: row;
+			justify-content: space-between;
+			height: 120upx;
+			background-color: transparent;
+			padding: 44upx 19upx;
+			box-sizing: border-box;
+			z-index: 999;
+		
+			.endorsement_nav_arrow {
+				width: 19upx;
+				height: 36upx;
+			}
+		
+			.endorsement_nav_title {
+				height: 100%;
+				line-height: 36upx;
+				font-size: 36upx;
+				font-family: PingFang-SC-Bold;
+				font-weight: bold;
+				color: white;
+			}
+		
+			.endorsement_nav_right {
+				width: 19upx;
+				height: 36upx;
+			}
+		}
 
 		.header {
 			height: 372upx;
