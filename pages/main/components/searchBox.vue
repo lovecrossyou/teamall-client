@@ -4,7 +4,7 @@
 			<image :src="mall_classification" alt="" />
 			<view class="cate-title">分类</view>
 		</view>
-		<view class="search_box_right">
+		<view class="search_box_right" @click="goSearchproduct">
 			<view class="search_box_right_input">
 				<image :src="mall_icon_search" alt="" />
 				<view>大家正在搜：喝茶时间表</view>
@@ -24,7 +24,12 @@
 		methods:{
 			goCategory(){
 				uni.navigateTo({
-					url:"../category/category"
+					url:"/pages/category/category"
+				})
+			},
+			goSearchproduct(){
+				uni.navigateTo({
+					url:"/pages/main/components/searchProduct"
 				})
 			}
 		}

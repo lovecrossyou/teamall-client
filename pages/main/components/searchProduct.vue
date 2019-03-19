@@ -1,7 +1,7 @@
 <template>
 	<view class="searchproductMain">
-		<searchBox></searchBox>
-		<drawer :visible="openDrawer" mask="true" mode="right" ref="close">
+		<search></search>
+		<drawer mask="true" mode="right" ref="drawer">
 			<view class="drawerMain">
 				<view class="brandList">
 					<view class="title">
@@ -72,12 +72,12 @@
 </template>
 
 <script>
-	import searchBox from "../../category/components/searchBox.vue";
+	import search from "./search.vue";
 	import drawer from "../../../components/drawer.vue";
 
 	export default {
 		components: {
-			searchBox,
+			search,
 			drawer
 		},
 		methods: {
@@ -98,7 +98,7 @@
 						this.list.sort(this.productSort(this.sorttype, this.sortkey));
 						break;
 					case 3:
-						this.openDrawer = true;
+						this.$refs.drawer.open();
 						break;
 				}
 			},
@@ -113,29 +113,25 @@
 			filterBybrand(key){
 				this.list=this.productlist;
 				this.list=this.list.filter(product=>product.brandnum===key);
-				this.$refs.close.close();
-				this.openDrawer=false;
+				this.$refs.drawer.close();
 			},
 			filterBycategory(key){
 				this.list=this.productlist;
 				this.list=this.list.filter(product=>product.categorynum===key);
-				this.$refs.close.close();
-				this.openDrawer=false;
+				this.$refs.drawer.close();
 			},
 			filterByprice(minnum,maxnum){
 				this.list=this.productlist;
 				if(minnum<maxnum){
 				this.list=this.list.filter(product=>minnum<product.price&&product.price<maxnum);	
-				this.$refs.close.close();
-				this.openDrawer=false;
+				this.$refs.drawer.close();
 				}
 				else{
 					alert("请输入正确的价格！")
 				}
 			},
 			closeDrawer(){
-				this.$refs.close.close();
-				this.openDrawer=false;
+				this.$refs.drawer.close();
 			}
 		},
 		data() {
@@ -143,7 +139,6 @@
 				isClick: 0,
 				sortkey: 0,
 				sorttype: "",
-				openDrawer: false,
 				list:[],
 				bannerlist: ["综合", "销量", "价格", "筛选"],
 				productlist: [{
