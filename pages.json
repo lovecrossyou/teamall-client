@@ -33,7 +33,6 @@
 			"path": "pages/category/category",
 			"style": {
 				"navigationStyle": "custom",
-				"navigationBarTitleText": "分类",
 				"app-plus": {
 					"titleNView": {
 						"type": "transparent" //透明渐变导航栏,
@@ -147,7 +146,12 @@
 		{
 			"path": "pages/main/components/searchProduct",
 			"style": {
-				"navigationBarTitleText": "消息"
+				"navigationStyle": "custom",
+				"app-plus": {
+					"titleNView": {
+						"type": "transparent" //透明渐变导航栏
+					}
+				}
 			}
 		},
 		{

@@ -1,7 +1,7 @@
 <template>
 	<view class="categoryMain">
 		<view class="searchbox">
-			<search-box></search-box>
+			<search></search>
 		</view>
 		<view class="categoryView">
 			<view class="categoryList">
@@ -26,10 +26,10 @@
 </template>
 
 <script>
-	import searchBox from './components/searchBox.vue'
+	import search from '../main/components/search.vue'
 	export default {
 		components: {
-			searchBox
+			search
 		},
 		data() {
 			return {
