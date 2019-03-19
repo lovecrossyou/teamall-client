@@ -16,6 +16,10 @@
 			<!-- 推荐 -->
 			<recommend></recommend>
 		</view>
+		
+		<view class="cart-wrapper">
+			<floatShoppingCart/>
+		</view>
 
 	</view>
 </template>
@@ -31,6 +35,7 @@
 	import hotTea from './components/hotTea.vue';
 	import seckill from './components/seckill.vue';
 	import recommend from './components/recommend.vue';
+	import floatShoppingCart from './components/floatShoppingCart'
 	export default {
 		data() {
 			return {}
@@ -72,6 +77,7 @@
 			hotTea,
 			seckill,
 			recommend,
+			floatShoppingCart
 		}
 	}
 </script>
@@ -91,6 +97,16 @@
 
 		.tea_mall_home_page_section {
 			width: 100%;
+		}
+		
+		.cart-wrapper{
+			position: fixed;
+			right: 30upx;
+			top: 50%;
+			width: 120upx;
+			height: 120upx;
+			background: #FF594B;
+			border-radius: 50%;
 		}
 	}
 </style>

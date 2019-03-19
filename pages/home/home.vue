@@ -1,7 +1,7 @@
 <template>
 	<view class="water_fail_view">
 		<block v-for="(product, index) in recommendList" :key="index">
-			<view class="water_fail_product_item">
+			<view class="water_fail_product_item" @click="goDetail">
 				<view class="water_fail_product_img">
 					<img src="http://qnimage.xiteng.com/zhulizhe.jpg" alt="" />
 				</view>
@@ -33,7 +33,13 @@ export default {
 	},
 	components: {},
 	computed: {},
-	methods: {}
+	methods: {
+		goDetail(){
+			uni.navigateTo({
+				url:"/pages/represent/representInfo"
+			})
+		}
+	}
 };
 </script>
 

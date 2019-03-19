@@ -2,7 +2,7 @@
 	<view class="hot_tea_wrapper">
 		<view class="hot_tea_tit">爆款工夫茶</view>
 		<view class="hot_tea_content">
-			<view class="hot_tea_item" v-for='(item,i) in arr' :key='i' >
+			<view class="hot_tea_item" v-for='(item,i) in arr' :key='i' @click="goDetail">
 				<view class="hot_tea_item_img">
 					<image :src="hot_tea" alt="" />
 				</view>
@@ -18,6 +18,13 @@
 
 <script>
 	export default {
+		methods:{
+			goDetail(){
+				uni.navigateTo({
+					url:"/pages/product/product"
+				})
+			}
+		},
 		data() {
 			return {
 				hot_tea: "../../static/main/hot_tea.png",

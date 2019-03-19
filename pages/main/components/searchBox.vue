@@ -2,7 +2,7 @@
 	<view class="search_box">
 		<view class="search_box_left" @click="goCategory">
 			<image :src="mall_classification" alt="" />
-			<view>分类</view>
+			<view class="cate-title">分类</view>
 		</view>
 		<view class="search_box_right">
 			<view class="search_box_right_input">
@@ -47,7 +47,10 @@
 			font-weight: 500;
 			color: rgba(102, 102, 102, 1);
 			text-align: center;
-
+			margin-left: 20upx;
+			.cate-title{
+				margin-left: 10upx;
+			}
 			image {
 				width: 32upx;
 				height: 25upx;

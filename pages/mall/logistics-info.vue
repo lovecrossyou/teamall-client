@@ -37,7 +37,7 @@
 					<view class="end-add-detail">{{shipAdd}}</view>
 				</view>
 			</view>
-			<block v-for="(process,index) in processList" :key="index">
+			<block v-for="(process,index_p) in processList" :key="index_p">
 				<view class="log-item">
 					<view class="node-time">
 						<view class="date">{{process.date}}</view>

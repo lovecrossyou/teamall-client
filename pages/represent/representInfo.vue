@@ -1,7 +1,7 @@
 <template>
 	<view class="represent_info_wrapper">
 		<view class='endorsement_nav'>
-			<image class="endorsement_nav_arrow" :src="nav_right"></image>
+			<image class="endorsement_nav_arrow" :src="nav_right" @click="goBack"></image>
 			<view class='endorsement_nav_title'>代言商品</view>
 			<view class='endorsement_nav_right' />
 		</view>
@@ -33,6 +33,11 @@
 			talk,
 			shop,
 			maybeLike,
+		},
+		methods:{
+			goBack(){
+				uni.navigateBack();
+			}
 		}
 	}
 </script>
