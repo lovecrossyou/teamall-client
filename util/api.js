@@ -2,7 +2,7 @@ import request from './request'
 const uploadBaseUrl = "";
 
 const api = {
-	searchNearby: (params) => request.post("map/search",params)
+	searchNearby: (params) => request.post("map/search", params)
 	//上传
 	uploader: (file, callback) => {
 		uni.uploadFile({

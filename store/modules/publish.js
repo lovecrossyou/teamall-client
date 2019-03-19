@@ -3,8 +3,8 @@ const state = {
 		title: 'hello',
 		desc: '',
 		address: '选择位置',
-		addrSearchResult: []
-	}
+	},
+	addrSearchResult: []
 }
 
 const gettter = {
