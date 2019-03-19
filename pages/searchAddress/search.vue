@@ -5,7 +5,7 @@
 				<input class="uni-input" @input="onKeyInput" placeholder="请输入地址" />
 			</view>
 			<block v-for="(addr,index) in results" :key="index">
-				<view class="addr-wrapper">
+				<view class="addr-wrapper" @click="itemClick(addr)">
 					<view class="addr">
 						{{addr.name}}
 					</view>
@@ -16,18 +16,42 @@
 </template>
 
 <script>
+	// import api from "../../util/api.js"
+	import {
+		mapMutations
+	} from "vuex"
+
 	export default {
 		data() {
 			return {
 				inputValue: '',
-				results: []
+				results: [{
+						name: '车公庄001'
+					},
+					{
+						name: '车公庄002'
+					}
+				]
 			}
 		},
 		methods: {
-			onKeyInput: function(event) {
+			...mapMutations({
+				'setAddr': "publish/setAddr"
+			}),
+			itemClick(data) {
+				// this.$store.commit('publish/setAddr', data.name);
+				this.setAddr(data.name);
+				uni.navigateBack({})
+			},
+			onKeyInput: async function(event) {
 				const val = event.target.value;
-				this.inputValue = event.target.value;
-				console.log('val ',val)
+				// 				const res = await api.searchNearby({
+				// 					keywords:val
+				// 				});
+				// 				return;
+				// this.results = res.data;
+				// this.inputValue = event.target.value;
+				// console.log('val ',val)
 			}
 		}
 	}
