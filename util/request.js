@@ -1,14 +1,13 @@
 import Fly from 'flyio/dist/npm/wx'
 import service from "../service"
 const request = new Fly()
-// const baseURL = 'https://api.kuaimayoupin.com/'
-const baseURL = 'http://47.94.169.143:8004/'
+const baseURL = 'http://192.168.1.226:9334/'
 request.config.baseURL = baseURL
-request.config.headers = {
-	"content-type": "application/json",
-	"accessToken": service.getToken()
-}
-
+// request.config.headers = {
+// 	"content-type": "application/json",
+// 	"accessToken": service.getToken()
+// }
+	
 const errorPrompt = (err) => {
 	uni.showToast({
 		title: err.data.message || 'fetch data error.',

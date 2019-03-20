@@ -3,7 +3,7 @@
 		<view>
 			<view class="home_find_list">
 				<view class="home_find_list_left">
-					<view class="home_find_list_item" v-for="(item,i) in homeFindList" :key="i" @click='key=i' v-bind:class="[key==i?'activeClass':'initialClass']">
+					<view class="home_find_list_item" v-for="(item,i) in homeFindList" :key="i" @click='selectedIndex=i' v-bind:class="[selectedIndex==i?'activeClass':'initialClass']">
 						{{item}}
 					</view>
 				</view>
@@ -12,12 +12,12 @@
 					<view>搜索</view>
 				</view>
 			</view>
-			<navBarList v-if="key==0" :data="homeFindListSecond" :IndexChange="IndexChange"  ></navBarList>
+			<navBarList v-if="selectedIndex==0" :data="homeFindListSecond" :IndexChange="IndexChange"  ></navBarList>
 			
 		</view>
 
 
-		<view class="water_fail_view" v-if="key==0" >
+		<view class="water_fail_view" v-if="selectedIndex==0" >
 			<view v-if="subPageIndex==2">
 				<teaFight></teaFight>
 			</view>
@@ -62,7 +62,7 @@
 				icon_search:'../../static/home/icon_search.png',
 				homeFindList:["发现","关注"],
 				homeFindListSecond:["推荐","视频","斗茶","约茶","茶具","生活"],
-				key:0,
+				selectedIndex:0,
 				subPageIndex:0
 			};
 		},

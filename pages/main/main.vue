@@ -36,6 +36,9 @@
 	import seckill from './components/seckill.vue';
 	import recommend from './components/recommend.vue';
 	import floatShoppingCart from './components/floatShoppingCart'
+	
+	import api  from "../../util/api.js"
+	
 	export default {
 		data() {
 			return {
@@ -48,7 +51,16 @@
 				navBarListArr:state=>state.main.arr
 			})
 		},
-		onLoad() {
+		
+		methods:{
+			async fetchCategory(){
+				const res =  api.homeCategoryList({
+					accessInfo:{}	
+				});
+			}
+		},
+		onLoad(opt) {
+			this.fetchCategory();
 			if (!this.hasLogin) {
 				uni.showModal({
 					title: '未登录',
