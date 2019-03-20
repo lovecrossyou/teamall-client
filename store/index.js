@@ -2,13 +2,15 @@ import Vue from 'vue'
 import Vuex from 'vuex'
 import address from "./modules/address"
 import publish from "./modules/publish"
+import main from "./modules/main"
 
 Vue.use(Vuex)
 
 const store = new Vuex.Store({
 	modules:{
 		address,
-		publish
+		publish,
+		main
 	},
 	
     state: {

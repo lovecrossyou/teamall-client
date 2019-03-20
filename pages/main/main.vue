@@ -2,7 +2,7 @@
 	<view class="tea_mall_home_page">
 		<searchBox></searchBox>
 		<!-- 导航栏 -->
-		<navBarList></navBarList>
+		<navBarList :data="navBarListArr" ></navBarList>
 		<view class="banner-wrapper">
 			<banner></banner>
 		</view>
@@ -38,9 +38,16 @@
 	import floatShoppingCart from './components/floatShoppingCart'
 	export default {
 		data() {
-			return {}
+			return {
+				
+			}
 		},
-		computed: mapState(['forcedLogin', 'hasLogin', 'userName']),
+		// computed: mapState(['forcedLogin', 'hasLogin', 'userName']),
+		computed:{
+			...mapState({
+				navBarListArr:state=>state.main.arr
+			})
+		},
 		onLoad() {
 			if (!this.hasLogin) {
 				uni.showModal({
