@@ -8,20 +8,22 @@
 					</view>
 				</view>
 				<view class="home_find_list_right">
-					<image :src="icon_search" ></image>
+					<image :src="icon_search"></image>
 					<view>搜索</view>
 				</view>
 			</view>
-			<navBarList v-if="selectedIndex==0" :data="homeFindListSecond" :IndexChange="IndexChange"  ></navBarList>
-			
+			<navBarList v-if="selectedIndex==0" :data="homeFindListSecond" :IndexChange="IndexChange"></navBarList>
+
 		</view>
 
 
-		<view class="water_fail_view" v-if="selectedIndex==0" >
+		<view v-if="selectedIndex==0" class="water_fail_view">
 			<view v-if="subPageIndex==2">
 				<teaFight></teaFight>
 			</view>
-			<block v-for="(product, index) in recommendList" :key="index" v-else>
+			
+			<view v-else style="width: 100%;">
+				<block v-for="(product, index) in recommendList" :key="index">
 				<view class="water_fail_product_item" @click="goDetail">
 					<view class="water_fail_product_img">
 						<img src="http://qnimage.xiteng.com/zhulizhe.jpg" alt="" />
@@ -41,13 +43,15 @@
 						</view>
 					</view>
 				</view>
-			</block>
+		        </block>	
+			</view>
+		
 		</view>
-		<view v-else>
+		<view v-else-if="selectedIndex==1">
 			<follow></follow>
 		</view>
-		
-		
+
+
 	</view>
 </template>
 
@@ -59,11 +63,11 @@
 		data() {
 			return {
 				recommendList: [1, 2, 3, 4, 5, 6, 7],
-				icon_search:'../../static/home/icon_search.png',
-				homeFindList:["发现","关注"],
-				homeFindListSecond:["推荐","视频","斗茶","约茶","茶具","生活"],
-				selectedIndex:0,
-				subPageIndex:0
+				icon_search: '../../static/home/icon_search.png',
+				homeFindList: ["发现", "关注"],
+				homeFindListSecond: ["推荐", "视频", "斗茶", "约茶", "茶具", "生活"],
+				selectedIndex: 0,
+				subPageIndex: 0
 			};
 		},
 		components: {
@@ -73,9 +77,9 @@
 		},
 		computed: {},
 		methods: {
-			IndexChange(index){
-				console.log('index',index);
-				this.subPageIndex=index
+			IndexChange(index) {
+				console.log('index', index);
+				this.subPageIndex = index
 			},
 			goDetail() {
 				uni.navigateTo({
@@ -86,43 +90,51 @@
 	};
 </script>
 
-<style lang="less" >
-	.home_wrapper{
-		width:100%;
+<style lang="less">
+	.home_wrapper {
+		width: 100%;
 	}
-	.home_find_list{
+
+	.home_find_list {
 		display: flex;
 		justify-content: space-between;
 		align-items: center;
 		padding: 40upx 40upx 0;
-		.home_find_list_left{
-			font-size:44upx;
-			font-weight:bold;
+
+		.home_find_list_left {
+			font-size: 44upx;
+			font-weight: bold;
 			display: flex;
-			.home_find_list_item{
-				padding-bottom:10upx;	
-				margin-right:56upx;
-				
+
+			.home_find_list_item {
+				padding-bottom: 10upx;
+				margin-right: 56upx;
+
 			}
 		}
-		.home_find_list_right{
-			font-size:20upx;
-			font-family:PingFang-SC-Bold;
-			color:rgba(37,37,37,1);
-			image{
-				width:40upx;
-				height:40upx;
+
+		.home_find_list_right {
+			font-size: 20upx;
+			font-family: PingFang-SC-Bold;
+			color: rgba(37, 37, 37, 1);
+
+			image {
+				width: 40upx;
+				height: 40upx;
 			}
 		}
 	}
-	.initialClass{
-		border:none;
-		color:#CCCCCC;
+
+	.initialClass {
+		border: none;
+		color: #CCCCCC;
 	}
-	.activeClass{
-		border-bottom:6upx solid #FF594B;
-		color:#333333;
+
+	.activeClass {
+		border-bottom: 6upx solid #FF594B;
+		color: #333333;
 	}
+
 	.water_fail_view {
 		width: 100%;
 		padding: 40upx 20upx;
