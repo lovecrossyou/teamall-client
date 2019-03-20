@@ -73,7 +73,7 @@ export default {
 			closeIcon: '../../static/publish/btn_shutdown.png',
 			windowImg: '../../static/publish/bg_pop_up.png',
 			positionList: [
-				'方桌咖啡',
+				'方桌咖啡33',
 				'北京市西城区体育',
 				'传统北京家常菜',
 				'方桌咖啡',

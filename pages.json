@@ -265,7 +265,7 @@
 		{
 			"path": "pages/searchAddress/search",
 			"style": {
-				"navigationBarTitleText": "地址搜索"
+				"navigationBarTitleText": "添加地址"
 			}
 		}
 	],
