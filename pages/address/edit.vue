@@ -26,8 +26,8 @@
 			<uni-icon type="arrowright" color="#bbb" size="20"></uni-icon>
 		</view>
 		<view class="defult-addr" @click="changeDefult">
-			<image v-bind:src="defultIcon"></image>
-
+			<image  :src="defultIcon"></image>
+			<!-- <image v-else :src="defultIcon"></image> -->
 			<view class="defult-text">设为默认地址</view>
 		</view>
 
@@ -45,12 +45,12 @@ export default {
 	computed: {
 		...mapState({
 			addrM: state => state.address.editAddress
-		})
+		}),
+		// isDefult:this.addrM.isDefult
 	},
 	data() {
 		return {
-			defultIcon: '../../static/addr/defult_addr.png',
-			isDefult:addrM.isDefault,
+			defultIcon: addrM.isDefault ?'../../static/addr/defult_addr.png' : '../../static/addr/defult_addr.png',
 			themeColor: '#007AFF',
 			cityPickerValueDefault: [0, 0, 1],
 		};
@@ -67,8 +67,8 @@ export default {
 			this.$refs.mpvueCityPicker.show();
 		},
 		changeDefult(){
-			this.isDefult = !this.isDefult;
-			if(this.isDefult){
+			this.addrM.isDefult = !this.addrM.isDefult;
+			if(this.addrM.isDefult){
 				this.defultIcon = '../../static/addr/defult_addr.png';
 			}else{
 				this.defultIcon = '../../static/addr/defult_addr_selected.png';
