@@ -60,7 +60,8 @@
 			}
 		},
 		onLoad(opt) {
-			this.fetchCategory();
+			// this.fetchCategory();
+			return;
 			if (!this.hasLogin) {
 				uni.showModal({
 					title: '未登录',

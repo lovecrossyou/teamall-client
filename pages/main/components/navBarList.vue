@@ -11,7 +11,7 @@
 	export default {
 		props:{
 			data:Array,
-			IndexChange:Function
+			indexChange:Function
 		},
 		data() {
 			return {
@@ -21,7 +21,7 @@
 		methods:{
 			changeActive(i){
 				this.selectedIndex=i;
-				this.IndexChange(i);
+				this.indexChange(i);
 			}
 			
 		}
