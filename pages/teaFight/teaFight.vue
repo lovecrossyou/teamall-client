@@ -246,7 +246,7 @@ export default {
 
 .attention_icon {
 	position: absolute;
-	left: 68upx;
+	left: 60upx;
 	bottom: -10upx;
 }
 
@@ -259,7 +259,7 @@ export default {
 	width: 100%;
 	text-align: center;
 	color: #1f1f1f;
-	font-size: 28upx;
+	font-size: 26upx;
 	margin-top: 17upx;
 	font-weight: bold;
 }
@@ -279,18 +279,18 @@ export default {
 }
 .likes_num:nth-child(1) {
 	position: absolute;
-	bottom: 140upx;
-	left: 150upx;
+	bottom: 23.3%;
+	left: 18%;
 }
 .likes_num:nth-child(2) {
 	position: absolute;
-	bottom: 180upx;
-	left: 378upx;
+	bottom: 30.3%;
+	left: 45.5%;
 }
 .likes_num:nth-child(3) {
 	position: absolute;
-	bottom: 115upx;
-	left: 600upx;
+	bottom: 19.3%;
+	left: 72.3%;
 }
 .article_ranking_wrapper {
 	width: 100%;
