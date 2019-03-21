@@ -15,7 +15,7 @@
 			</block>
 		</view>
 
-		<view class="add-addr-button" @click="edit">
+		<view class="add-addr-button" @click="edit({})">
 			<image v-bind:src="addIcon"></image>
 			<view class="text">添加地址</view>
 		</view>
@@ -23,13 +23,17 @@
 </template>
 
 <script>
-import { mapMutations,mapState } from 'vuex';
+import { mapMutations,mapState,mapActions } from 'vuex';
 
 export default {
 	computed:{
 		...mapState({
 			addressList:state=>state.address.list,
-		})
+		}),
+ 		/* addressList(){  常规写法
+ 			return this.$store.state.address.list;
+ 		} */
+
 	},
 	
 	
@@ -38,11 +42,15 @@ export default {
 			saveEdit: 'address/saveEdit',
 			
 		}),
+		...mapActions({
+			getAddressList:'address/getAddressList',
+		}),
 		edit(address) {
 			this.saveEdit(address);
 			uni.navigateTo({
 				url: 'edit'
 			});
+			
 		}
 	},
 	data() {
@@ -53,7 +61,8 @@ export default {
 		};
 	},
 	onLoad() {
-		
+		//this.$store.dispatch('address/getAddressList')  常规写法
+		this.getAddressList();
 	}
 };
 </script>

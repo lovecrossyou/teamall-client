@@ -50,7 +50,7 @@ export default {
 	data() {
 		return {
 			defultIcon: '../../static/addr/defult_addr.png',
-			isDefult:false,
+			isDefult:addrM.isDefault,
 			themeColor: '#007AFF',
 			cityPickerValueDefault: [0, 0, 1],
 		};
@@ -67,11 +67,11 @@ export default {
 			this.$refs.mpvueCityPicker.show();
 		},
 		changeDefult(){
-			this.$data.isDefult = !this.$data.isDefult;
-			if(this.$data.isDefult){
-				this.$data.defultIcon = '../../static/addr/defult_addr.png';
+			this.isDefult = !this.isDefult;
+			if(this.isDefult){
+				this.defultIcon = '../../static/addr/defult_addr.png';
 			}else{
-				this.$data.defultIcon = '../../static/addr/defult_addr_selected.png';
+				this.defultIcon = '../../static/addr/defult_addr_selected.png';
 			}
 			
 		},
