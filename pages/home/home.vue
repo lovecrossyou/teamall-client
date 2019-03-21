@@ -3,7 +3,7 @@
 		<view>
 			<view class="home_find_list">
 				<view class="home_find_list_left">
-					<view class="home_find_list_item" v-for="(item, i) in homeFindList" :key="i" @click="selectedIndex = i"
+					<view @click='changeActive(i)' class="home_find_list_item" v-for="(item, i) in homeFindList" :key="i" 
 					 v-bind:class="[selectedIndex == i ? 'activeClass' : 'initialClass']">
 						{{ item }}
 					</view>
@@ -18,7 +18,6 @@
 					{{item}}
 				</view>
 			</view>
-			<!-- <navBarList v-if="selectedIndex == 0" :data="homeFindListSecond" :indexChange="indexChange"></navBarList> -->
 		</view>
 
 		<view v-if="selectedIndex == 0">
@@ -82,8 +81,9 @@
 		computed: {},
 		methods: {
 			changeActive(i){
+				console.log('changeActive ',i)
 				this.selectedIndex=i;
-				this.indexChange(i);
+				// this.indexChange(i);
 			},
 			indexChange(index) {
 				console.log('index', index);

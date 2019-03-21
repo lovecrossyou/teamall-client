@@ -1,7 +1,10 @@
 <template>
 	<view class="represent_info_wrapper">
 		<view class='endorsement_nav'>
-			<image class="endorsement_nav_arrow" :src="nav_right" @click="goBack"></image>
+			<!-- <image class="endorsement_nav_arrow" :src="nav_right" @click="goBack"></image> -->
+			<view>
+				
+			</view>
 			<view class='endorsement_nav_title'>代言商品</view>
 			<view class='endorsement_nav_right' />
 		</view>
