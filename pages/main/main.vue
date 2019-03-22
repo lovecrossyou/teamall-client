@@ -2,20 +2,24 @@
 	<view class="tea_mall_home_page">
 		<searchBox></searchBox>
 		<!-- 导航栏 -->
-		<navBarList :data="navBarListArr" ></navBarList>
-		<view class="banner-wrapper">
-			<banner></banner>
-		</view>
-		<view class="tea_mall_home_page_section">
-			<!-- 免费试饮 -->
-			<freeTea></freeTea>
-			<!-- 爆款工夫茶 -->
-			<hotTea></hotTea>
-			<!-- 限时秒杀 -->
-			<seckill></seckill>
-			<!-- 推荐 -->
-			<recommend></recommend>
-		</view>
+		<navBarList :data="navBarListArr" @sendSelectedInd='sendSelectedInd' ></navBarList>
+		<Block v-if="carefullyChosen">
+			<view>
+				<view class="banner-wrapper">
+					<banner></banner>
+				</view>
+				<view class="tea_mall_home_page_section">
+					<!-- 免费试饮 -->
+					<freeTea></freeTea>
+					<!-- 爆款工夫茶 -->
+					<hotTea></hotTea>
+					<!-- 限时秒杀 -->
+					<seckill></seckill>
+				</view>
+			</view>
+		</Block>
+		<!-- 推荐 -->
+		<recommend></recommend>
 		<view class="cart-wrapper">
 			<floatShoppingCart/>
 		</view>
@@ -38,12 +42,14 @@
 	export default {
 		data() {
 			return {
-				list:[]
+				list:[],
+				sendSelectedTabInd:0
 			}
 		},
 		computed:{
 			...mapState({
-				navBarListArr:state=>state.main.arr
+				navBarListArr:state=>state.main.navBarListArr,
+				carefullyChosen:state=>state.main.carefullyChosen
 			})
 		},
 		methods:{
@@ -51,13 +57,22 @@
 				let res = await api.HomeCategoryList({
 					accessInfo:{}
 				})
-				console.log(res.respCategoryModelList)
 				this.$store.commit('main/setArr',res.respCategoryModelList)	
 			},
-			
+			async fetchTeaMallContent(ind){
+				const res = await api.HomeTeaMallContent({
+					  "accessInfo": {},
+					  "categoryId": 0
+				})
+				this.$store.commit('main/setMallContent',res)
+			},
+			sendSelectedInd(i){
+				this.sendSelectedTabInd=i;
+			}
 		},
 		onLoad(opt) {
-			this.fetchCategory()
+			this.fetchCategory();
+			this.fetchTeaMallContent();
 			return;
 			if (!this.hasLogin) {
 				uni.showModal({

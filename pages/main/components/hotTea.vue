@@ -2,9 +2,9 @@
 	<view class="hot_tea_wrapper">
 		<view class="hot_tea_tit">爆款工夫茶</view>
 		<view class="hot_tea_content">
-			<view class="hot_tea_item" v-for='(item,i) in arr' :key='i' @click="goDetail">
+			<view class="hot_tea_item" v-for='(item,i) in selllingKungFuTeaList' :key='i' @click="goDetail">
 				<view class="hot_tea_item_img">
-					<image :src="hot_tea" alt="" />
+					<image :src="item.imageUrl" alt="" />
 				</view>
 				<view class="hot_tea_item_intro">
 					<view class="hot_tea_item_intro_content">{{item.name}}</view>
@@ -17,26 +17,18 @@
 </template>
 
 <script>
+	import {mapState} from 'vuex';
 	export default {
+		computed:{
+			...mapState({
+				selllingKungFuTeaList:state=>state.main.selllingKungFuTeaList
+			})
+		},
 		methods:{
 			goDetail(){
 				uni.navigateTo({
 					url:"/pages/product/product"
 				})
-			}
-		},
-		data() {
-			return {
-				hot_tea: "../../static/main/hot_tea.png",
-				arr: [{
-						price: 9.9,
-						name: "自桃树乌龙茶15包组合自桃树乌龙茶15包组合"
-					},
-					{
-						price: 0.01,
-						name: "梦想"
-					},
-				]
 			}
 		}
 	}

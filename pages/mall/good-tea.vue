@@ -3,7 +3,7 @@
 		<view class='endorsement_nav' @click="goBack">
 			<image class="endorsement_nav_arrow" :src="nav_right" ></image>
 			<view class='endorsement_nav_title'>好茶试饮</view>
-			<view class='endorsement_nav_right' />
+			<view class='endorsement_nav_right'/>
 		</view>
 		<view class="header">
 			<view class="title">
@@ -14,20 +14,20 @@
 			</view>
 		</view>
 		<view class="product-list">
-			<block v-for="(product,index) in list" :key="index">
+			<block v-for="(product,index) in teaTryList" :key="index">
 				<view class="p-item">
 					<image v-bind:src="pIcon" class="p-icon">
 					</image>
 					<view class="p-info">
 						<view class="p-name">
-							{{product.name}}
+							{{product.productName}}
 						</view>
 						<view class="p-desc">
-							{{product.desc}}
+							{{product.subTitle}}
 						</view>
 						<view class="p-footer-wrapper">
 							<view class="price">
-								{{product.price}}
+								{{product.productPrice}}
 							</view>
 							<image v-bind:src="cartIcon" class="cart">
 
@@ -42,42 +42,34 @@
 </template>
 
 <script>
+	import api from '../../util/api.js';
+	import {mapState} from 'vuex';
 	export default {
+		computed:{
+			...mapState({
+				teaTryList:state=>state.mall.teaTryList
+			})
+		},
 		methods:{
 			goBack(){
 				uni.navigateBack();
+			},
+			async fetchTeaMallTeaTryList(){
+				const res = await api.teaMallTeaTryList({
+					accessInfo:{}
+				})
+				this.$store.commit('mall/setTeaTryList',res)
 			}
+		},
+		onLoad(){
+			console.log('我进来了')
+			this.fetchTeaMallTeaTryList();
 		},
 		data() {
 			return {
 				nav_right: "../../static/represent/nav_right.png",
 				pIcon: '../../static/mall/goodtea_p.png',
 				cartIcon: '../../static/mall/goodtea_btn_shopping.png',
-				list: [{
-					name: '蜜桃乌龙茶花果茶买2送1白桃乌龙茶15包组',
-					price: '￥9.9',
-					desc: '热泡、冷泡随心泡买二送一 ',
-				}, {
-					name: '蜜桃乌龙茶花果茶买2送1白桃乌龙茶15包组',
-					price: '￥10',
-					desc: '热泡、冷泡随心泡买二送一 ',
-				},{
-					name: '蜜桃乌龙茶花果茶买2送1白桃乌龙茶15包组',
-					price: '￥9.9',
-					desc: '热泡、冷泡随心泡买二送一 ',
-				}, {
-					name: '蜜桃乌龙茶花果茶买2送1白桃乌龙茶15包组',
-					price: '￥10',
-					desc: '热泡、冷泡随心泡买二送一 ',
-				},{
-					name: '蜜桃乌龙茶花果茶买2送1白桃乌龙茶15包组',
-					price: '￥9.9',
-					desc: '热泡、冷泡随心泡买二送一 ',
-				}, {
-					name: '蜜桃乌龙茶花果茶买2送1白桃乌龙茶15包组',
-					price: '￥10',
-					desc: '热泡、冷泡随心泡买二送一 ',
-				}]
 			}
 		}
 	}
