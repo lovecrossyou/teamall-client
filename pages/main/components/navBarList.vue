@@ -1,18 +1,26 @@
 <template>
 	<view class="nav_bar_list">
-		<view v-for="(item,i) in arr" :key="i" @click='key=i' v-bind:class="[key==i?'activeClass':'initialClass']">
-			{{item}}
+		<view v-for="(item,i) in data" :key="i" @click='changeActive(i)' v-bind:class="[selectedIndex==i?'activeClass':'initialClass']">
+			{{item.categoryName}}
 		</view>
 	</view>
 </template>
 
 <script>
 	export default {
+		props:{
+			data:Array,
+		},
 		data() {
 			return {
-				arr: ["精选", "绿茶", "红茶", "黄茶", "白茶", "青茶", "黑茶"],
-				key: 0
+				selectedIndex: 0
 			}
+		},
+		methods:{
+			changeActive(i){
+				this.selectedIndex=i;
+			}
+			
 		}
 	}
 </script>

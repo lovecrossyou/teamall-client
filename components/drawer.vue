@@ -71,7 +71,6 @@
 		},
 		methods: {
 			close() {
-				console.log("close---------------------s")
 				this.openDrawer = false
 				this.showDrawer = false
 				this.$emit('close')
@@ -79,8 +78,11 @@
 					this.visibleSync = false
 				}, 200)
 			},
-			moveHandle(){
-				console.log("moveHandle---------------------s")
+			open(){
+				this.visibleSync = true;
+				this.showDrawer = true;
+			},
+			moveHandle(){ 
 			}
 		}
 	}

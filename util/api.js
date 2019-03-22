@@ -1,16 +1,23 @@
 import request from './request'
+const uploadBaseUrl = "";
 
 const api = {
-
-	requestCartClient: (params) => request.post("client/shop/cartClient", params),
-	deliveryAddressList: (params) =>request.post("client/deliveryAddress/list",params),
-	deliveryAddressCreate: (params) =>request.post("client/deliveryAddress/create",params),
-	searchNearby: (params) => request.get("client/common/searchAddress",params),
-	deliveryAddressEdit:(params) => request.post("client/deliveryAddress/edit",params),
-	shopOrderCreate:(params) => request.post("client/shopOrder/create",params),
-	keplerPayConfirm:(params)=> request.post("client/keplerPay/confirm",params),
-	getDefaultAddress:(params)=> request.post("client/deliveryAddress/getDefault",params),
-	
-
+	//获取茶商城首页分类
+	HomeCategoryList:(params)=>request.post('/productService/teaMall/home/category',params),
+	searchNearby: (params) => request.post("map/search", params),
+	//上传
+	uploader: (file, callback) => {
+		uni.uploadFile({
+			url: uploadBaseUrl + '/manage/qiniu/upload',
+			filePath: file,
+			name: 'file',
+			success: (result) => {
+				const data = JSON.parse(result.data);
+				if (parseInt(data.status) === 0) {
+					callback(data.data);
+				}
+			}
+		});
+	}
 }
 export default api

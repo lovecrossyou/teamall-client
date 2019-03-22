@@ -3,7 +3,7 @@
 		<view class="search_box_left" @click="goMain">
 			<image :src="icon_return"></image>
 		</view>
-		<view class="search_box_right">
+		<view class="search_box_right" @click="goSearchproduct">
 			<view class="search_box_right_input">
 				<image :src="icon_search"></image>
 				<view>搜索商品或品牌</view>
@@ -23,7 +23,12 @@
 		methods:{
 			goMain(){
 				uni.switchTab({
-					url:"../main/main"
+					url:"/pages/main/main"
+				})
+			},
+			goSearchproduct(){
+				uni.navigateTo({
+					url:"/pages/main/components/searchProduct"
 				})
 			}
 		}

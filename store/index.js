@@ -1,12 +1,18 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
 import address from "./modules/address"
+import publish from "./modules/publish"
+import main from "./modules/main"
+
 Vue.use(Vuex)
 
 const store = new Vuex.Store({
 	modules:{
-		address
+		address,
+		publish,
+		main
 	},
+	
     state: {
         /**
          * 是否需要强制登录

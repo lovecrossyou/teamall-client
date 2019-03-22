@@ -5,19 +5,14 @@
 			<image class="video-play" v-bind:src="playIcon"></image>
 		</view>
 		<view class="title-content">
-			<input   placeholder="添加标题" placeholder-class="title-style">
-							
-						</input>
+			<input placeholder="添加标题" placeholder-class="title-style" :value="formData.title">
+			</input>
 			<text>28</text></view>
 		<view class="line"></view>
-		<textarea
-			value=""
-			placeholder="说说你的心得，可能会帮助更多人哦~"
-			placeholder-class="content-style"
-		/>
-		<view class="position-content" ho>
+		<textarea value="" placeholder="说说你的心得，可能会帮助更多人哦~" :value="formData.desc" placeholder-class="content-style" />
+		<view class="position-content" @click="goSearch">
 			<image v-bind:src="loctionIcon"></image>
-			<text @click="goAa">选择位置</text>
+			<text>{{formData.address}}</text>
 			<uni-icon type="arrowright" color="#bbb" size="20"></uni-icon>
 		</view>
 
@@ -63,7 +58,7 @@
 
 <script>
 import uniIcon from '@/components/uni-icon/uni-icon.vue';
-
+import {mapState} from "vuex"
 const image = '../../static/publish/production.png';
 
 export default {
@@ -78,7 +73,7 @@ export default {
 			closeIcon: '../../static/publish/btn_shutdown.png',
 			windowImg: '../../static/publish/bg_pop_up.png',
 			positionList: [
-				'方桌咖啡',
+				'方桌咖啡33',
 				'北京市西城区体育',
 				'传统北京家常菜',
 				'方桌咖啡',
@@ -93,14 +88,22 @@ export default {
 		uniIcon
 	},
 	methods: {
-		goAa() {
+		goSearch(){
 			uni.navigateTo({
-				url: './aa'
-			});
+				url:'/pages/searchAddress/search'
+			})
 		},
 		closeWindow(){
 			this.$data.windowOpened = false;
 		}
+	},
+	computed:{
+		...mapState("publish",{
+			formData:state=>state.formData
+		}),
+// 		formData(){
+// 			return this.$store.state.publish.formData;
+// 		}
 	}
 };
 </script>

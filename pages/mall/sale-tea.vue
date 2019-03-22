@@ -11,8 +11,8 @@
 		
 		<view class="selectheader">
 			<view class="selectback">
-				<view class="selectleftbtn" v-bind:class="[activeSegment?unselectedclass:selectedclass]" @click="didselected">今日秒杀</view>
-				<view class="selectrightbtn" v-bind:class="[activeSegment?selectedclass:unselectedclass]" @click="didselected">明日预告</view>
+				<view class="selectleftbtn" v-bind:class="[activeSegment?unselectedclass:selectedclass]" @click="turnSpokesShow">今日秒杀</view>
+				<view class="selectrightbtn" v-bind:class="[activeSegment?selectedclass:unselectedclass]" @click="turnLogisticInfo">明日预告</view>
 			</view>
 			<view class="countdown">23：15：24.12</view>
 		</view>
@@ -105,7 +105,19 @@
 			didselected() {
 				this.activeSegment=!this.activeSegment;
 				console.log(this.activeSegment);
-			}
+			},
+			turnSpokesShow(){
+				console.log('spokes-show');
+				uni.navigateTo({
+					url:"/pages/mall/spokes-show"
+				})
+			},
+			turnLogisticInfo(){
+				console.log('logistics-info');
+				uni.navigateTo({
+					url:"/pages/mall/logistics-info"
+				})
+			},
 		}
 	}
 </script>
@@ -115,6 +127,7 @@
 		width: 100%;
 
 		.header {
+			
 			height: 372upx;
 			width: 100%;
 			background: url('http://qnimage.xiteng.com/goodtea_top_bg.png') no-repeat;

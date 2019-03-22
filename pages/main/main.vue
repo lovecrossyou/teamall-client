@@ -2,7 +2,7 @@
 	<view class="tea_mall_home_page">
 		<searchBox></searchBox>
 		<!-- 导航栏 -->
-		<navBarList></navBarList>
+		<navBarList :data="navBarListArr" ></navBarList>
 		<view class="banner-wrapper">
 			<banner></banner>
 		</view>
@@ -16,14 +16,14 @@
 			<!-- 推荐 -->
 			<recommend></recommend>
 		</view>
-
+		<view class="cart-wrapper">
+			<floatShoppingCart/>
+		</view>
 	</view>
 </template>
 
 <script>
-	import {
-		mapState
-	} from "vuex";
+	import {mapState} from "vuex";
 	import banner from './components/banner.vue';
 	import searchBox from './components/searchBox.vue';
 	import navBarList from './components/navBarList.vue';
@@ -31,12 +31,34 @@
 	import hotTea from './components/hotTea.vue';
 	import seckill from './components/seckill.vue';
 	import recommend from './components/recommend.vue';
+	import floatShoppingCart from './components/floatShoppingCart'
+	
+	import api  from "../../util/api.js"
+	
 	export default {
 		data() {
-			return {}
+			return {
+				list:[]
+			}
 		},
-		computed: mapState(['forcedLogin', 'hasLogin', 'userName']),
-		onLoad() {
+		computed:{
+			...mapState({
+				navBarListArr:state=>state.main.arr
+			})
+		},
+		methods:{
+			async fetchCategory(){
+				let res = await api.HomeCategoryList({
+					accessInfo:{}
+				})
+				console.log(res.respCategoryModelList)
+				this.$store.commit('main/setArr',res.respCategoryModelList)	
+			},
+			
+		},
+		onLoad(opt) {
+			this.fetchCategory()
+			return;
 			if (!this.hasLogin) {
 				uni.showModal({
 					title: '未登录',
@@ -72,6 +94,7 @@
 			hotTea,
 			seckill,
 			recommend,
+			floatShoppingCart
 		}
 	}
 </script>
@@ -91,6 +114,16 @@
 
 		.tea_mall_home_page_section {
 			width: 100%;
+		}
+		
+		.cart-wrapper{
+			position: fixed;
+			right: 30upx;
+			top: 50%;
+			width: 120upx;
+			height: 120upx;
+			background: #FF594B;
+			border-radius: 50%;
 		}
 	}
 </style>

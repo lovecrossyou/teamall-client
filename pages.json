@@ -2,7 +2,13 @@
 	"pages": [{
 			"path": "pages/home/home",
 			"style": {
-				"navigationBarTitleText": "茶模"
+				"navigationBarTitleText": "茶模",
+				"navigationStyle": "custom",
+				"app-plus": {
+					"titleNView": {
+						"type": "transparent" //透明渐变导航栏,
+					}
+				}
 			}
 		},
 		//pages数组中第一项表示应用启动页,
@@ -33,7 +39,6 @@
 			"path": "pages/category/category",
 			"style": {
 				"navigationStyle": "custom",
-				"navigationBarTitleText": "分类",
 				"app-plus": {
 					"titleNView": {
 						"type": "transparent" //透明渐变导航栏,
@@ -147,7 +152,12 @@
 		{
 			"path": "pages/main/components/searchProduct",
 			"style": {
-				"navigationBarTitleText": "消息"
+				"navigationStyle": "custom",
+				"app-plus": {
+					"titleNView": {
+						"type": "transparent" //透明渐变导航栏
+					}
+				}
 			}
 		},
 		{
@@ -256,6 +266,12 @@
 						"type": "transparent" //透明渐变导航栏
 					}
 				}
+			}
+		},
+		{
+			"path": "pages/searchAddress/search",
+			"style": {
+				"navigationBarTitleText": "添加地址"
 			}
 		}
 	],

@@ -3,7 +3,7 @@
 		<!-- 头部搜索 -->
 		<view class="top_area">
 			<view class="top_search">
-				<view class="back_icon">
+				<view class="back_icon" @click="goBack">
 					<img src="http://qnimage.xiteng.com/store_top_icon_return@2x.png" alt="" />
 				</view>
 				<view class="top_search_input">
@@ -135,6 +135,11 @@
 			changeTab(index) {
 				console.log('index ', index);
 				this.activeTabIndex = index;
+			},
+			goBack(){
+				uni.navigateBack({
+					
+				})
 			}
 		}
 	};
