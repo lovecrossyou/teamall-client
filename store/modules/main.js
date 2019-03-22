@@ -1,15 +1,18 @@
 const state ={
-	arr: ["精选1", "绿茶2", "红茶", "黄茶", "白茶", "青茶", "黑茶"],
+	arr: [],
 }
-const mumations ={
-	
+const mutations ={
+	setArr(state,data){
+		state.arr=data
+	}
 }
 const actions ={
 	
 }
 
 export default {
+	namespaced:true,
 	state,
-	mumations,
+	mutations,
 	actions
 }

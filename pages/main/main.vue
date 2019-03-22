@@ -16,18 +16,14 @@
 			<!-- 推荐 -->
 			<recommend></recommend>
 		</view>
-		
 		<view class="cart-wrapper">
 			<floatShoppingCart/>
 		</view>
-
 	</view>
 </template>
 
 <script>
-	import {
-		mapState
-	} from "vuex";
+	import {mapState} from "vuex";
 	import banner from './components/banner.vue';
 	import searchBox from './components/searchBox.vue';
 	import navBarList from './components/navBarList.vue';
@@ -42,25 +38,26 @@
 	export default {
 		data() {
 			return {
-				
+				list:[]
 			}
 		},
-		// computed: mapState(['forcedLogin', 'hasLogin', 'userName']),
 		computed:{
 			...mapState({
 				navBarListArr:state=>state.main.arr
 			})
 		},
-		
 		methods:{
 			async fetchCategory(){
-				const res =  api.homeCategoryList({
-					accessInfo:{}	
-				});
-			}
+				let res = await api.HomeCategoryList({
+					accessInfo:{}
+				})
+				console.log(res.respCategoryModelList)
+				this.$store.commit('main/setArr',res.respCategoryModelList)	
+			},
+			
 		},
 		onLoad(opt) {
-			// this.fetchCategory();
+			this.fetchCategory()
 			return;
 			if (!this.hasLogin) {
 				uni.showModal({

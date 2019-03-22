@@ -1,17 +1,15 @@
 <template>
 	<view class="nav_bar_list">
 		<view v-for="(item,i) in data" :key="i" @click='changeActive(i)' v-bind:class="[selectedIndex==i?'activeClass':'initialClass']">
-			{{item}}
+			{{item.categoryName}}
 		</view>
 	</view>
 </template>
 
 <script>
-	
 	export default {
 		props:{
 			data:Array,
-			indexChange:Function
 		},
 		data() {
 			return {
@@ -21,7 +19,6 @@
 		methods:{
 			changeActive(i){
 				this.selectedIndex=i;
-				this.indexChange(i);
 			}
 			
 		}

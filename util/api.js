@@ -3,7 +3,7 @@ const uploadBaseUrl = "";
 
 const api = {
 	//获取茶商城首页分类
-	homeCategoryList: params => request.post("productService/teaMall/home/category",params),
+	HomeCategoryList:(params)=>request.post('/productService/teaMall/home/category',params),
 	searchNearby: (params) => request.post("map/search", params),
 	//上传
 	uploader: (file, callback) => {
