@@ -20,7 +20,7 @@ export default {
 						phone: 13681111111,
 						city:'北京市西城区',
 						detail: '粮科大厦2',
-						isDefault:false
+						isDefault:true
 					},
 					{
 						name: '花花2',
