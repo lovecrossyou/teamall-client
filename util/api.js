@@ -2,8 +2,15 @@ import request from './request'
 const uploadBaseUrl = "";
 
 const api = {
-	//获取茶商城首页分类
+	//茶商城首页分类
 	HomeCategoryList:(params)=>request.post('/productService/teaMall/home/category',params),
+	//商城首页栏目内容
+	HomeTeaMallContent:(params)=>request.post('/productService/teaMall/home',params),
+	//好茶试饮
+	teaMallTeaTryList:(params)=>request.post('/productService/teaMall/teaTryList',params),
+	//限时秒杀
+	seckKillList:(params)=>request.post('/productService/teaMall/seckKillList',params),
+	
 	searchNearby: (params) => request.post("map/search", params),
 	//上传
 	uploader: (file, callback) => {

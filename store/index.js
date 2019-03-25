@@ -3,6 +3,7 @@ import Vuex from 'vuex'
 import address from "./modules/address"
 import publish from "./modules/publish"
 import main from "./modules/main"
+import mall from './modules/mall'
 
 Vue.use(Vuex)
 
@@ -10,7 +11,8 @@ const store = new Vuex.Store({
 	modules:{
 		address,
 		publish,
-		main
+		main,
+		mall,
 	},
 	
     state: {

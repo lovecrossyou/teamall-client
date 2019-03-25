@@ -73,6 +73,8 @@
 </template>
 
 <script>
+	import api from '../../util/api.js';
+	import {mapState} from 'vuex';
 	export default {
 		data() {
 			return {
@@ -99,25 +101,33 @@
 			}
 		},
 		computed: {
-		}
-		,
+			...mapState({
+				todaySeckKillList:state=>state.mall.todaySeckKillList
+			})
+		},
 		methods: {
 			didselected() {
 				this.activeSegment=!this.activeSegment;
-				console.log(this.activeSegment);
 			},
 			turnSpokesShow(){
-				console.log('spokes-show');
 				uni.navigateTo({
 					url:"/pages/mall/spokes-show"
 				})
 			},
 			turnLogisticInfo(){
-				console.log('logistics-info');
 				uni.navigateTo({
 					url:"/pages/mall/logistics-info"
 				})
 			},
+			async fetchSeckKillList(){
+				const res = await api.seckKillList({
+					accessInfo:{}
+				})
+				this.$store.commit('mall/setSeckKillList',res)
+			}
+		},
+		onLoad(){
+			this.fetchSeckKillList()
 		}
 	}
 </script>

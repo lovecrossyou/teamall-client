@@ -4,19 +4,9 @@
             <view class="page-section swiper">
                 <view class="page-section-spacing">
                     <swiper class="swiper" :indicator-dots="indicatorDots" :autoplay="autoplay" :interval="interval" :duration="duration">
-                        <swiper-item>
+                        <swiper-item v-for='(item,i) in bannerList' :key='i'>
                             <view class="swiper-item uni-bg-red">
-								<image :src="mall_banner"></image>
-							</view>
-                        </swiper-item>
-                        <swiper-item>
-                            <view class="swiper-item uni-bg-green">
-								<image :src="mall_banner"></image>
-							</view>
-                        </swiper-item>
-                        <swiper-item>
-                            <view class="swiper-item uni-bg-blue">
-								<image :src="mall_banner"></image>
+								<image :src="item.imageUrl"></image>
 							</view>
                         </swiper-item>
                     </swiper>
@@ -27,6 +17,7 @@
 </template>
 
 <script>
+	import {mapState} from "vuex";
 	export default {
     data() {
         return {
@@ -35,7 +26,8 @@
             indicatorDots: true,
             autoplay: true,
             interval: 2000,
-            duration: 500
+            duration: 500,
+			arr:[]
         }
     },
     methods: {
@@ -51,7 +43,12 @@
         durationChange(e) {
             this.duration = e.target.value
         }
-    }
+    },
+	computed:{
+		...mapState({
+			bannerList:state=> state.main.bannerList
+		})
+	}
 }
 </script>
 

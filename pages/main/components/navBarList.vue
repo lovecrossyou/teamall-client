@@ -7,6 +7,8 @@
 </template>
 
 <script>
+	import api from '../../../util/api.js';
+	
 	export default {
 		props:{
 			data:Array,
@@ -17,8 +19,17 @@
 			}
 		},
 		methods:{
+			async fetchTeaMallContent(ind){
+				const res = await api.HomeTeaMallContent({
+					  "accessInfo": {},
+					  "categoryId": ind
+				})
+				this.$store.commit('main/setMallContent',res)
+			},
 			changeActive(i){
 				this.selectedIndex=i;
+				this.fetchTeaMallContent(i);
+				this.$emit('sendSelectedInd',i);
 			}
 			
 		}

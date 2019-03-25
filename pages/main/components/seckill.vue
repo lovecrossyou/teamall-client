@@ -3,15 +3,15 @@
 		<view class="seckill_tit">
 			<view class="seckill_tit_left" @click="sale">限时秒杀</view>
 			<view class="seckill_tit_right">
-				<view class="seckill_tit_right_item">23</view>:
+				<view class="seckill_tit_right_item">{{countDownTime}}</view>:
 				<view class="seckill_tit_right_item">23</view>:
 				<view class="seckill_tit_right_item">11.11</view>
 			</view>
 		</view>
 		<view class="seckill_content">
-			<view class="seckill_content_item" v-for='(item,i) in arr' :key='i' @click="goList">
+			<view class="seckill_content_item" v-for='(item,i) in seckKillProduct' :key='i' @click="goList">
 				<view class="seckill_content_item_img">
-					<image :src="item.img" alt="" />
+					<image :src="item.imageUrl" alt="" />
 				</view>
 				<view class="seckill_content_item_intro">
 					<view class="seckill_content_item_intro_content">{{item.name}}</view>
@@ -23,7 +23,14 @@
 </template>
 
 <script>
+	import {mapState} from 'vuex';
 	export default {
+		computed:{
+			...mapState({
+				countDownTime:state=>state.main.countDownTime,
+				seckKillProduct:state=>state.main.seckKillProduct,
+			})
+		},
 		methods: {
 			goList() {
 				uni.navigateTo({
@@ -35,31 +42,6 @@
 				uni.navigateTo({
 					url: "/pages/mall/sale-tea"
 				})
-			}
-		},
-		data() {
-			return {
-				arr: [{
-						price: 9.9,
-						img: "../../static/main/seckil_item.png",
-						name: "自桃树乌龙茶15包组合自桃树乌龙茶15包组合"
-					},
-					{
-						price: 0.22,
-						img: "../../static/main/seckil_item.png",
-						name: "没有梦想，何必远方"
-					},
-					{
-						price: 112,
-						img: "../../static/main/seckil_item.png",
-						name: "我有可爱的嘉宝贝"
-					},
-					{
-						price: 1422,
-						img: "../../static/main/seckil_item.png",
-						name: "我有可爱的嘉宝贝"
-					},
-				]
 			}
 		}
 	}

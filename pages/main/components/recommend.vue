@@ -1,8 +1,8 @@
 <template>
 	<view class="recommend_wrapper">
-		<view class="recommend_item" v-for='(item,i) in arr' :key='i' @click="goProduct(item)">
+		<view class="recommend_item" v-for='(item,i) in recommendProductModelList' :key='i' @click="goProduct(item)">
 			<view class="recommend_item_img">
-				<image :src="item.img" alt="" />
+				<image :src="item.imageUrl" alt="" />
 			</view>
 			<view class="recommend_item_intro">
 				<view class="recommend_item_intro_content">{{item.name}}</view>
@@ -13,37 +13,18 @@
 </template>
 
 <script>
+	import {mapState} from 'vuex';
 	export default {
+		computed:{
+			...mapState({
+				recommendProductModelList:state=>state.main.recommendProductModelList
+			})
+		},
 		methods:{
 			goProduct(item){
 				uni.navigateTo({
 					url:"/pages/product/product"
 				})
-			}
-		},
-		data() {
-			return {
-				arr: [{
-						price: 9.9,
-						img: "../../static/main/recommend_item.png",
-						name: "自桃树乌龙茶15包组合自桃树乌龙茶包组合自桃树乌龙茶包组合自桃树乌龙茶	15包组合"
-					},
-					{
-						price: 0.22,
-						img: "../../static/main/recommend_item.png",
-						name: "没有梦想，何必远方"
-					},
-					{
-						price: 112,
-						img: "../../static/main/recommend_item.png",
-						name: "我有可爱的嘉宝贝"
-					},
-					{
-						price: 1422,
-						img: "../../static/main/recommend_item.png",
-						name: "我有可爱的嘉宝贝"
-					},
-				]
 			}
 		}
 	}
