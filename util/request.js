@@ -22,10 +22,12 @@ request.interceptors.request.use((request) => {
 
 request.interceptors.response.use((response, promise) => {
 	uni.hideLoading()
-	if (!(response.data.status === "ok")) {
+	
+	console.log('response ',response)
+	if (!(response.data.errMsg === "ok")) {
 		errorPrompt(response)
 	}
-	return promise.resolve(response.data)
+	return promise.resolve(response.data.respData)
 }, (err, promise) => {
 	uni.hideLoading()
 	errorPrompt(err)

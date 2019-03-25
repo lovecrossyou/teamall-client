@@ -1,10 +1,10 @@
 <template>
 	<view class="free_tea_wrapper">
-		<view class="free_tea_left">
-			<!-- <view class="free_tea_intro" @click="freeClick">
+		<view class="free_tea_left" @click="freeClick">
+			<view class="free_tea_intro" >
 				<view class="free_tea_intro_tit">好茶试饮</view>
 				<view>人气好茶免费送</view>
-			</view> -->
+			</view>
 			<view class="free_tea_image">
 				<image :src="mall_main_img_1" alt="" />
 			</view>

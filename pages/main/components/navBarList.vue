@@ -1,17 +1,17 @@
 <template>
 	<view class="nav_bar_list">
 		<view v-for="(item,i) in data" :key="i" @click='changeActive(i)' v-bind:class="[selectedIndex==i?'activeClass':'initialClass']">
-			{{item}}
+			{{item.categoryName}}
 		</view>
 	</view>
 </template>
 
 <script>
+	import api from '../../../util/api.js';
 	
 	export default {
 		props:{
 			data:Array,
-			indexChange:Function
 		},
 		data() {
 			return {
@@ -19,9 +19,17 @@
 			}
 		},
 		methods:{
+			async fetchTeaMallContent(ind){
+				const res = await api.HomeTeaMallContent({
+					  "accessInfo": {},
+					  "categoryId": ind
+				})
+				this.$store.commit('main/setMallContent',res)
+			},
 			changeActive(i){
 				this.selectedIndex=i;
-				this.indexChange(i);
+				this.fetchTeaMallContent(i);
+				this.$emit('sendSelectedInd',i);
 			}
 			
 		}
