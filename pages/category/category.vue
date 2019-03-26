@@ -8,7 +8,7 @@
 				<block v-for="(item,index) in categorylist" :key="index">
 					<view class="categoryItem" :class="{'categoryclickItem':isclick===index}" @click="changeStyle(index)">
 						<view class="categoryTxt">
-							{{item.categoryitem}}
+							{{item.name}}
 						</view>
 					</view>
 				</block>
@@ -26,209 +26,35 @@
 </template>
 
 <script>
-	import search from '../main/components/search.vue'
+	import search from '../main/components/search.vue';
+	import { mapMutations,mapState,mapActions} from 'vuex';
 	export default {
 		components: {
 			search
 		},
 		data() {
 			return {
-				isclick: 0,
-				tealist: [],
-				categorylist: [{
-						categoryitem: "热卖",
-						list: [{
-								icon: "/static/category/tea.jpg",
-								name: "1.1"
-							},
-							{
-								icon: "/static/category/tea.jpg",
-								name: "1.2"
-							},
-							{
-								icon: "/static/category/tea.jpg",
-								name: "1.3"
-							},
-							{
-								icon: "/static/category/tea.jpg",
-								name: "1.4"
-							}
-						]
-					},
-					{
-						categoryitem: "绿茶",
-						list: [{
-								icon: "/static/category/tea.jpg",
-								name: "2.1"
-							},
-							{
-								icon: "/static/category/tea.jpg",
-								name: "2.2"
-							},
-							{
-								icon: "/static/category/tea.jpg",
-								name: "2.3"
-							},
-							{
-								icon: "/static/category/tea.jpg",
-								name: "2.4"
-							}
-						]
-					},
-					{
-						categoryitem: "红茶",
-						list: [{
-								icon: "/static/category/tea.jpg",
-								name: "3.1"
-							},
-							{
-								icon: "/static/category/tea.jpg",
-								name: "3.2"
-							},
-							{
-								icon: "/static/category/tea.jpg",
-								name: "3.3"
-							},
-							{
-								icon: "/static/category/tea.jpg",
-								name: "3.4"
-							}
-						]
-					},
-					{
-						categoryitem: "乌龙茶",
-						list: [{
-								icon: "/static/category/tea.jpg",
-								name: "4.1"
-							},
-							{
-								icon: "/static/category/tea.jpg",
-								name: "4.2"
-							},
-							{
-								icon: "/static/category/tea.jpg",
-								name: "4.3"
-							},
-							{
-								icon: "/static/category/tea.jpg",
-								name: "4.4"
-							}
-						]
-					},
-					{
-						categoryitem: "黑茶",
-						list: [{
-								icon: "/static/category/tea.jpg",
-								name: "5.1"
-							},
-							{
-								icon: "/static/category/tea.jpg",
-								name: "5.2"
-							},
-							{
-								icon: "/static/category/tea.jpg",
-								name: "5.3"
-							},
-							{
-								icon: "/static/category/tea.jpg",
-								name: "5.4"
-							}
-						]
-					},
-					{
-						categoryitem: "白茶",
-						list: [{
-								icon: "/static/category/tea.jpg",
-								name: "6.1"
-							},
-							{
-								icon: "/static/category/tea.jpg",
-								name: "6.2"
-							},
-							{
-								icon: "/static/category/tea.jpg",
-								name: "6.3"
-							},
-							{
-								icon: "/static/category/tea.jpg",
-								name: "6.4"
-							}
-						]
-					},
-					{
-						categoryitem: "黄茶",
-						list: [{
-								icon: "/static/category/tea.jpg",
-								name: "7.1"
-							},
-							{
-								icon: "/static/category/tea.jpg",
-								name: "7.2"
-							},
-							{
-								icon: "/static/category/tea.jpg",
-								name: "7.3"
-							},
-							{
-								icon: "/static/category/tea.jpg",
-								name: "7.4"
-							}
-						]
-					},
-					{
-						categoryitem: "花草茶",
-						list: [{
-								icon: "/static/category/tea.jpg",
-								name: "8.1"
-							},
-							{
-								icon: "/static/category/tea.jpg",
-								name: "8.2"
-							},
-							{
-								icon: "/static/category/tea.jpg",
-								name: "8.3"
-							},
-							{
-								icon: "/static/category/tea.jpg",
-								name: "8.4"
-							}
-						]
-					},
-					{
-						categoryitem: "茶具",
-						list: [{
-								icon: "/static/category/tea.jpg",
-								name: "9.1"
-							},
-							{
-								icon: "/static/category/tea.jpg",
-								name: "9.2"
-							},
-							{
-								icon: "/static/category/tea.jpg",
-								name: "9.3"
-							},
-							{
-								icon: "/static/category/tea.jpg",
-								name: "9.4"
-							}
-						]
-					}
-				]
+				
 			}
 		},
 		methods: {
-			changeStyle(index) {
-				this.isclick = index;
-				this.tealist = this.categorylist[index].list;
-			},
-			getteaList() {
-				this.tealist = this.categorylist[0].list
-			}
+			...mapMutations({
+				changeStyle: 'category/changeStyle'
+			}),
+			...mapActions({
+				getTeaList: 'category/getTeaList'
+			})
+			
 		},
-		created() {
-			this.getteaList()
+		computed: {
+			...mapState({
+				isclick:state=>state.category.isclick,
+				tealist:state=>state.category.tealist,
+				categorylist:state=>state.category.categorylist
+			})
+		},
+		onLoad(opt) {
+			this.getTeaList();
 		}
 	}
 </script>

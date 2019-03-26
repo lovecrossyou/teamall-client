@@ -87,7 +87,8 @@
 
 <script>
 import checkBox from '@/components/custom-checkbox.vue';
-import recommend from '@/pages/main/components/recommend.vue';
+import recommend from './cart-recommend.vue';
+import {mapActions} from 'vuex';
 var startX = 0;
 var endX = 0;
 export default {
@@ -339,7 +340,10 @@ export default {
 			});
 		},
 		// 删除商品
-		deletePro(id) {}
+		deletePro(id) {},
+		...mapActions({
+			requestRecommendList:'cart/requestRecommendList'
+		})
 	},
 	components: {
 		checkBox,
@@ -367,6 +371,9 @@ export default {
 				this._totalCount();
 			}
 		}
+	},
+	onLoad() {
+		this.requestRecommendList();
 	}
 };
 </script>
