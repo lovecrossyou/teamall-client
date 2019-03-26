@@ -4,7 +4,7 @@ import address from "./modules/address"
 import publish from "./modules/publish"
 import main from "./modules/main"
 import mall from './modules/mall'
-
+import cart from './modules/cart'
 Vue.use(Vuex)
 
 const store = new Vuex.Store({
@@ -13,6 +13,7 @@ const store = new Vuex.Store({
 		publish,
 		main,
 		mall,
+		cart,
 	},
 	
     state: {
