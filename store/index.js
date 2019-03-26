@@ -5,6 +5,9 @@ import publish from "./modules/publish"
 import main from "./modules/main"
 import mall from './modules/mall'
 import cart from './modules/cart'
+import category from "./modules/category"
+
+
 Vue.use(Vuex)
 
 const store = new Vuex.Store({
@@ -14,6 +17,7 @@ const store = new Vuex.Store({
 		main,
 		mall,
 		cart,
+		category
 	},
 	
     state: {
