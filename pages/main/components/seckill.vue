@@ -6,10 +6,16 @@
 				<view class="seckill_tit_right_item">{{countDownTime}}</view>:
 				<view class="seckill_tit_right_item">23</view>:
 				<view class="seckill_tit_right_item">11.11</view>
+				<uni-countdown 
+					:day="1" 
+					:hour="1" 
+					:minute="12" 
+					:second="40">
+				</uni-countdown>
 			</view>
 		</view>
 		<view class="seckill_content">
-			<view class="seckill_content_item" v-for='(item,i) in seckKillProduct' :key='i' @click="goList">
+			<view class="seckill_content_item" v-for='(item,i) in seckKillProduct' :key='i' @click="goDetail(item.productId)">
 				<view class="seckill_content_item_img">
 					<image :src="item.imageUrl" alt="" />
 				</view>
@@ -24,6 +30,7 @@
 
 <script>
 	import {mapState} from 'vuex';
+	import uniCountdown from "@/components/uni-countdown/uni-countdown.vue"
 	export default {
 		computed:{
 			...mapState({
@@ -37,18 +44,18 @@
 // 			},1000);
 		},
 		methods: {
-			goList() {
-				uni.navigateTo({
-					url: "/pages/mall/good-tea"
-				})
-			},
 			sale() {
-				console.log('sale-tea');
 				uni.navigateTo({
 					url: "/pages/mall/sale-tea"
 				})
+			},
+			goDetail(productId){
+				uni.navigateTo({
+					url:"/pages/product/product?productId="+productId
+				})
 			}
-		}
+		},
+		components: {uniCountdown}
 	}
 </script>
 
