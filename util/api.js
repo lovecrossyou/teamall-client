@@ -10,6 +10,8 @@ const api = {
 	teaMallTeaTryList:(params)=>request.post('/productService/teaMall/teaTryList',params),
 	//限时秒杀
 	seckKillList:(params)=>request.post('/productService/teaMall/seckKillList',params),
+	//商品详情
+	productDetails:(params)=>request.post('/productService/teaMall/productDetails',params),
 	
 	searchNearby: (params) => request.post("map/search", params),
 	//上传

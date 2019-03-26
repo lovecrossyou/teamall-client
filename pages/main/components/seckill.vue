@@ -14,8 +14,8 @@
 					<image :src="item.imageUrl" alt="" />
 				</view>
 				<view class="seckill_content_item_intro">
-					<view class="seckill_content_item_intro_content">{{item.name}}</view>
-					<view class="seckill_content_item_intro_price">￥{{item.price}}</view>
+					<view class="seckill_content_item_intro_content">{{item.productName}}</view>
+					<view class="seckill_content_item_intro_price">￥{{item.productPrice}}</view>
 				</view>
 			</view>
 		</view>
@@ -30,6 +30,11 @@
 				countDownTime:state=>state.main.countDownTime,
 				seckKillProduct:state=>state.main.seckKillProduct,
 			})
+		},
+		onLoad(opt) {
+// 			setInterval(()=>{
+// 				this.$store.commit('main/updateTimer');
+// 			},1000);
 		},
 		methods: {
 			goList() {

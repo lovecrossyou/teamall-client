@@ -2,13 +2,13 @@
 	<view class="hot_tea_wrapper">
 		<view class="hot_tea_tit">爆款工夫茶</view>
 		<view class="hot_tea_content">
-			<view class="hot_tea_item" v-for='(item,i) in selllingKungFuTeaList' :key='i' @click="goDetail">
+			<view class="hot_tea_item" v-for='(item,i) in selllingKungFuTeaList' :key='i' @click="goDetail(item.productId)">
 				<view class="hot_tea_item_img">
 					<image :src="item.imageUrl" alt="" />
 				</view>
 				<view class="hot_tea_item_intro">
-					<view class="hot_tea_item_intro_content">{{item.name}}</view>
-					<view class="hot_tea_item_intro_price">￥{{item.price}}</view>
+					<view class="hot_tea_item_intro_content">{{item.productName}}</view>
+					<view class="hot_tea_item_intro_price">￥{{item.productPrice}}</view>
 				</view>
 			</view>
 
@@ -25,9 +25,9 @@
 			})
 		},
 		methods:{
-			goDetail(){
+			goDetail(productId){
 				uni.navigateTo({
-					url:"/pages/product/product"
+					url:"/pages/product/product?productId="+productId
 				})
 			}
 		}

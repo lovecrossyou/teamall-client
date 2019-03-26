@@ -5,8 +5,8 @@
 				<image :src="item.imageUrl" alt="" />
 			</view>
 			<view class="recommend_item_intro">
-				<view class="recommend_item_intro_content">{{item.name}}</view>
-				<view class="recommend_item_intro_price">￥{{item.price}}</view>
+				<view class="recommend_item_intro_content">{{item.productName}}</view>
+				<view class="recommend_item_intro_price">￥{{item.productPrice}}</view>
 			</view>
 		</view>
 	</view>
@@ -72,9 +72,9 @@
 
 				.recommend_item_intro_content {
 					width: 100%;
-					height: 42px;
-					overflow: hidden;
-					text-overflow: ellipsis;
+// 					height: 42px;
+// 					overflow: hidden;
+// 					text-overflow: ellipsis;
 				}
 
 				.recommend_item_intro_price {
