@@ -12,6 +12,9 @@ const mutations ={
 	setArr(state,data){
 		state.navBarListArr=data
 	},
+	updateTimer(){
+		state.countDownTime++;
+	},
 	setMallContent(state,data){
 		state.carefullyChosen=data.carefullyChosen;
 		if(data.carefullyChosen){

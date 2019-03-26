@@ -23,13 +23,8 @@
 		<view class="scroll-wrapper">
 			<swiper class="swiper" :indicator-dots="indicatorDots" :autoplay="autoplay" :interval="interval" :duration="duration">
 				<swiper-item>
-					<view class="swiper-item">
-						<image :src="product_image"></image>
-					</view>
-				</swiper-item>
-				<swiper-item>
-					<view class="swiper-item">
-						<image :src="product_image"></image>
+					<view class="swiper-item" v-for="(item,i) in imageUrlList" :key='i' >
+						<image :src="item"></image>
 					</view>
 				</swiper-item>
 			</swiper>
@@ -39,7 +34,7 @@
 		<view class="price-section">
 			<view class="price-section-item">
 				<view class="price">
-					￥125
+					￥{{productInfoModel.currentlyPrice}}
 				</view>
 				<view>距结束仅剩</view>
 			</view>
@@ -52,13 +47,13 @@
 		<!-- 商品信息  -->
 		<view class="product-info-title">
 			<view>
-				<span class="pinkage">包邮</span>
-				<span>2018新茶西湖牌龙井茶叶正宗雨前西湖龙井茶茶纸包春茶绿茶250g</span>
+				<span class="pinkage">{{freight}}</span>
+				<span>{{productInfoModel.name}}</span>
 			</view>
 			<view class="product-info-guarantee">
-				<view class="product-info-guarantee-item" v-for='i in [1,2,3,4]' :key='i'>
+				<view class="product-info-guarantee-item" v-for="(item,i) in commitment" :key="i">
 					<image :src="icon_hook"></image>
-					<view>破损包退</view>
+					<view>{{item}}</view>
 				</view>
 			</view>
 		</view>
@@ -68,36 +63,37 @@
 				<image :src="left_btn"></image>
 			</view>
 			<view class="product-info-parameter-item">
-				<view>新人福利：领取新人专享福利</view>
+				<view>优惠券</view>
 				<image :src="left_btn"></image>
 			</view>
 			<view class="product-info-parameter-item">
-				<view>新人福利：领取新人专享福利</view>
+				<view>{{freight}}</view>
 			</view>
 			<view class="product-info-parameter-item">
-				<view>新人福利：领取新人专享福利</view>
+				<view>产品参数</view>
 				<image :src="left_btn"></image>
 			</view>
 		</view>
 		<!-- 商品评论 -->
 		<view class="product-comment-container">
 			<view class="product-info-parameter-item">
-				<view>商品评价（1233）</view>
+				<view>商品评价（{{commentAmount}}）</view>
 				<image :src="left_btn"></image>
-			</view>	
+			</view>
 			<view class="product-comment">
-				<view class="product-comment-item" v-for="i in [1,2,3,4]" :key='i'>
-					<image :src="evaluation_head"></image>
+				<view class="product-comment-item" v-for="(commentUser,index) in commentModelList" :key='index'>
+					<image :src="commentUser.userIcoin"></image>
 					<view class="product-comment-item-message">
-						<view>张先生</view>
+						<view>{{commentUser.userName}}</view>
 						<view class="add_time">
-							<span>2018-8-12</span>
-							<span>分类：新茶龙井250G</span>
+							<span class="add_time_left">{{commentUser.time}}</span>
+							<span>分类：{{commentUser.category}}</span>
 						</view>
-						<view class="comment-content">茶叶收到了，第三次买了，味道很清香。这次送了茶巾，继续支持</view>
+						<view class="comment-content">{{commentUser.content}}</view>
 						<view class="comment-img">
-							<image :src="like_product"></image>
-							<image :src="like_product"></image>
+							<block v-for="(item,i) in commentUser.imageUrlList" :key="i">
+								<image :src="item"></image>
+							</block>
 						</view>
 					</view>
 				</view>
@@ -108,13 +104,11 @@
 		<view class="shop-wrapper">
 			<view class="shop_info">
 				<view class="left">
-					<image :src="shop_icon"></image>
+					<image :src="shopInfoModel.shopIocn"></image>
 					<view class="name-wrapper">
-						<view class="name">
-							张一元旗舰店
-						</view>
+						<view class="name">{{shopInfoModel.shopName}}</view>
 						<view class="number">
-							全部宝贝：98
+							全部宝贝：{{shopInfoModel.productAmount}}
 						</view>
 					</view>
 				</view>
@@ -124,7 +118,7 @@
 				</view>
 			</view>
 			<view class="des_info">
-				
+
 			</view>
 			<view class="product_info">
 				<view class="product-info-guarantee-item" v-for='i in [1,2,3]' :key='i'>
@@ -134,10 +128,10 @@
 			</view>
 			<image :src="icon_high"></image>
 		</view>
-		
+
 		<view class="maybe_like">你可能喜欢</view>
 		<recommend></recommend>
-		
+
 		<!-- 底部菜单 -->
 		<view class="footer">
 			<view class="shop">
@@ -165,8 +159,21 @@
 </template>
 
 <script>
+	import api from '../../util/api.js';
+	import { mapState } from 'vuex';
 	import recommend from '../main/components/recommend';
 	export default {
+		computed:{
+			...mapState({
+				productInfoModel:state=>state.product.productInfoModel,
+				imageUrlList:state=>state.product.imageUrlList,
+				freight:state=>state.product.freight,
+				commentAmount:state=>state.product.commentAmount,
+				commentModelList:state=>state.product.commentModelList,
+				shopInfoModel:state=>state.product.shopInfoModel,
+				
+			})
+		},
 		methods: {
 			goShop() {
 				uni.navigateTo({
@@ -177,6 +184,13 @@
 				uni.navigateTo({
 					url: "/pages/order/order-confirm"
 				})
+			},
+			async fetchProductDetails(productId){
+				const res = await api.productDetails({
+				   accessInfo:{},
+				   productId:productId
+				})
+				this.$store.commit('product/setProductDetails',res)
 			}
 		},
 		data() {
@@ -196,10 +210,15 @@
 				evaluation_head: "../../static/product/evaluation_head.png",
 				icon_high: "../../static/product/icon_high.png",
 				like_product: "../../static/product/like_product.png",
+				commitment:["破损包退","正品保证","七天退换","极速退款"]
 			};
 		},
-		components:{
+		components: {
 			recommend
+		},
+		onLoad(opt){
+			console.log('productId==========',opt.productId)
+			this.fetchProductDetails(opt.productId)
 		}
 	}
 </script>
@@ -208,7 +227,8 @@
 	.main {
 		width: 100%;
 		background-color: #F4F8FB;
-		padding-bottom:102upx;
+		padding-bottom: 102upx;
+
 		.header {
 			padding: 44upx 24upx;
 			box-sizing: border-box;
@@ -292,15 +312,16 @@
 
 			.pinkage {
 				display: inline-block;
-				width: 68upx;
 				height: 36upx;
 				line-height: 36upx;
 				text-align: center;
 				background: #FF594B;
-				border-radius: 6px;
+				border-radius: 6upx;
 				color: #FFFFFF;
 				font-size: 24upx;
 				margin-right: 8upx;
+				padding-left:10upx;
+				padding-right:10upx;
 			}
 
 			.product-info-guarantee {
@@ -321,87 +342,102 @@
 				}
 			}
 		}
-		
-		.product-info-parameter{
-			margin-top:10upx;
-			background:#FFFFFF;
-			padding-left:22upx;
+
+		.product-info-parameter {
+			margin-top: 10upx;
+			background: #FFFFFF;
+			padding-left: 22upx;
 			box-sizing: border-box;
-			.product-info-parameter-item{
-				height:86upx;
+
+			.product-info-parameter-item {
+				height: 86upx;
 				display: flex;
 				align-items: center;
 				justify-content: space-between;
-				padding-right:22upx;
-				font-size:28upx;
-				font-weight:400;
-				color:#333333;
-				border-bottom:1upx solid #EAEAEA; 
-				image{	
-					width:14upx;
-					height:28upx;
+				padding-right: 22upx;
+				font-size: 28upx;
+				font-weight: 400;
+				color: #333333;
+				border-bottom: 1upx solid #EAEAEA;
+
+				image {
+					width: 14upx;
+					height: 28upx;
 				}
 			}
-			:nth-child(4){
-				border:none;	
+
+			:nth-child(4) {
+				border: none;
 			}
 		}
-		
-		.product-comment-container{
-			margin-top:10upx;
-			background:#FFFFFF;
-			padding:0 22upx;
+
+		.product-comment-container {
+			margin-top: 10upx;
+			background: #FFFFFF;
+			padding: 0 22upx;
 			box-sizing: border-box;
-			.product-info-parameter-item{
-				height:94upx;
+
+			.product-info-parameter-item {
+				height: 94upx;
 				display: flex;
 				align-items: center;
 				justify-content: space-between;
-				padding-right:22upx;
-				font-size:32upx;
-				font-weight:500;
-				color:#333333;
-				image{	
-					width:14upx;
-					height:28upx;
+				padding-right: 22upx;
+				font-size: 32upx;
+				font-weight: 500;
+				color: #333333;
+
+				image {
+					width: 14upx;
+					height: 28upx;
 				}
 			}
-			.product-comment{
-				
-				.product-comment-item{
-					display: flex;			
-					font-size:28upx;
-					image{
-						width:68upx;
-						height:68upx;
+
+			.product-comment {
+
+				.product-comment-item {
+					display: flex;
+					font-size: 28upx;
+
+					image {
+						width: 68upx;
+						height: 68upx;
 						border-radius: 50%;
-						margin-right:16upx;
+						margin-right: 16upx;
 					}
-					.product-comment-item-message{
-						padding-bottom:32upx;
-						.add_time{
-							font-size:24upx;
-							font-family:PingFang-SC-Regular;
-							font-weight:400;
-							color:rgba(153,153,153,1);
-							margin-top:10upx;
-							margin-bottom:22upx;
+
+					.product-comment-item-message {
+						padding-bottom: 32upx;
+
+						.add_time {
+							font-size: 24upx;
+							font-family: PingFang-SC-Regular;
+							font-weight: 400;
+							color: rgba(153, 153, 153, 1);
+							margin-top: 10upx;
+							margin-bottom: 22upx;
+							.add_time_left{
+								padding-right:22upx;
+							}
 						}
-						.comment-content{
-							line-height:1.5;
+
+						.comment-content {
+							line-height: 1.5;
 						}
-						.comment-img{
-							margin-top:22upx;
-							image{
-								width:148upx;
-								height:148upx;
-								border-radius:4upx;
+
+						.comment-img {
+							margin-top: 22upx;
+
+							image {
+								width: 148upx;
+								height: 148upx;
+								border-radius: 4upx;
 							}
 						}
 					}
-					
-					
-					
+
+
+
 				}
 			}
 		}
@@ -409,8 +445,9 @@
 		.shop-wrapper {
 			padding: 30upx 24upx;
 			box-sizing: border-box;
-			background:#FFFFFF;
-			margin-top:10upx;
+			background: #FFFFFF;
+			margin-top: 10upx;
+
 			.shop_info {
 				display: flex;
 				flex-direction: row;
@@ -478,18 +515,19 @@
 				}
 			}
 
-			.des_info {
-				
-			}
-			.product_info{
+			.des_info {}
+
+			.product_info {
+				display: flex;
+				justify-content: space-around;
+				align-items: center;
+				margin: 28upx 0;
+
+				.product-info-guarantee-item {
 					display: flex;
-					justify-content: space-around;
 					align-items: center;
-					margin:28upx 0;
-				.product-info-guarantee-item{
-					display: flex;
-					align-items: center;
-					font-size:24upx;
+					font-size: 24upx;
+
 					image {
 						width: 28upx;
 						height: 28upx;
@@ -497,19 +535,20 @@
 					}
 				}
 			}
-			image{
-				width:100%;
-				height:500upx;
+
+			image {
+				width: 100%;
+				height: 500upx;
 			}
 		}
-		
-		.maybe_like{
-			font-size:32upx;
-			font-family:PingFang-SC-Medium;
-			font-weight:500;
-			color:rgba(51,51,51,1);
+
+		.maybe_like {
+			font-size: 32upx;
+			font-family: PingFang-SC-Medium;
+			font-weight: 500;
+			color: rgba(51, 51, 51, 1);
 			padding-left: 40upx;
-			margin-top:48upx;
+			margin-top: 48upx;
 		}
 
 		.footer {
@@ -519,7 +558,8 @@
 			bottom: 0;
 			left: 0;
 			right: 0;
-			background:#FFFFFF;
+			background: #FFFFFF;
+
 			.shop {
 				width: 116upx;
 				height: 100%;
