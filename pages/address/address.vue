@@ -15,7 +15,7 @@
 			</block>
 		</view>
 
-		<view class="add-addr-button" @click="edit({})">
+		<view class="add-addr-button" @click="edit(initAddress)">
 			<image v-bind:src="addIcon"></image>
 			<view class="text">添加地址</view>
 		</view>
@@ -57,7 +57,7 @@ export default {
 		return {
 			modifyIcon: '../../static/addr/addr_edit_icon.png',
 			addIcon: '../../static/addr/add_icon.png',
-			
+			initAddress: {city:'',detail:'',isDefault:false,name:'',phone:''},
 		};
 	},
 	onLoad() {

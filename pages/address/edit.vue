@@ -44,7 +44,7 @@
 			...mapState({
 				addrM: state => state.address.editAddress
 			}),
-			defultIcon: function() {
+			defultIcon() {
 				return this.addrM.isDefault ? '../../static/addr/defult_addr_selected.png' : '../../static/addr/defult_addr.png';
 			}
 		},
@@ -67,7 +67,7 @@
 			},
 
 			onConfirm(e) {
-				console.log(e)
+				this.addrM.city = e.label;
 			},
 			onCancel(e) {
 				console.log(e)
