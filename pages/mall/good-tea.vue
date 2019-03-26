@@ -16,7 +16,7 @@
 		<view class="product-list">
 			<block v-for="(product,index) in teaTryList" :key="index">
 				<view class="p-item">
-					<image v-bind:src="pIcon" class="p-icon">
+					<image v-bind:src="product.imageUrl" class="p-icon">
 					</image>
 					<view class="p-info">
 						<view class="p-name">
@@ -62,7 +62,6 @@
 			}
 		},
 		onLoad(){
-			console.log('我进来了')
 			this.fetchTeaMallTeaTryList();
 		},
 		data() {

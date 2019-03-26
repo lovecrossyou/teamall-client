@@ -1,6 +1,8 @@
 const state={
 	teaTryList:[],
+	todayCountDownTime:0,
 	todaySeckKillList:[],
+	tomorrowCountDownTime:0,
 	tomorrowSeckKillList:[],
 }
 const mutations={
@@ -8,9 +10,10 @@ const mutations={
 		state.teaTryList=data
 	},
 	setSeckKillList(state,data){
-		console.log('展示一下===',data)
-		state.todaySeckKillList=data.todaySeckKillListModel
-		state.tomorrowSeckKillList=data.tomorrowSeckKillListModel
+		state.todayCountDownTime=data.todaySeckKillListModel.countDownTime
+		state.todaySeckKillList=data.todaySeckKillListModel.seckKillList
+		state.tomorrowCountDownTime=data.tomorrowSeckKillListModel.countDownTime
+		state.tomorrowSeckKillList=data.tomorrowSeckKillListModel.seckKillList
 	}
 }
 export default {

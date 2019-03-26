@@ -1,12 +1,12 @@
 <template>
 	<view class="recommend_wrapper">
-		<view class="recommend_item" v-for='(item,i) in recommendProductModelList' :key='i' @click="goProduct(item)">
+		<view class="recommend_item" v-for='(item,i) in recommendProductModelList' :key='i' @click="goDetail(item.productId)">
 			<view class="recommend_item_img">
 				<image :src="item.imageUrl" alt="" />
 			</view>
 			<view class="recommend_item_intro">
-				<view class="recommend_item_intro_content">{{item.name}}</view>
-				<view class="recommend_item_intro_price">￥{{item.price}}</view>
+				<view class="recommend_item_intro_content">{{item.productName}}</view>
+				<view class="recommend_item_intro_price">￥{{item.productPrice}}</view>
 			</view>
 		</view>
 	</view>
@@ -21,9 +21,9 @@
 			})
 		},
 		methods:{
-			goProduct(item){
+			goDetail(productId){
 				uni.navigateTo({
-					url:"/pages/product/product"
+					url:"/pages/product/product?productId="+productId
 				})
 			}
 		}
@@ -72,9 +72,9 @@
 
 				.recommend_item_intro_content {
 					width: 100%;
-					height: 42px;
-					overflow: hidden;
-					text-overflow: ellipsis;
+// 					height: 42px;
+// 					overflow: hidden;
+// 					text-overflow: ellipsis;
 				}
 
 				.recommend_item_intro_price {
