@@ -1,10 +1,9 @@
 const state = {
 	isClick: 0,
 	sortkey: 0,
-	sorttype: "",
+	sorttype: '',
 	minnum: 0,
 	maxnum: 0,
-	list: [],
 	bannerlist: ["综合", "销量", "价格", "筛选"],
 	productlist: [{
 			name: "张一元福建铁观音福建福建铁观音",
@@ -109,7 +108,8 @@ const state = {
 }
 
 
-// const sortProduct = (type, key) => (a,b)=> {
+// const sortProduct = (array,type,key) => (a,b)=> {
+// 	console.log("sortProduct");
 // 	if (key === 0) {
 // 		return (a, b) => b[type] - a[type];
 // 	} else {
@@ -117,14 +117,25 @@ const state = {
 // 	}
 // }
 
-
-const sortProduct = (a,b)=>{
-	return a- b;
+const sortProduct = function(array,type,key){
+	return array.sort(function(a,b){
+		if (key === 0) {
+				return (a, b) => b[type] - a[type];
+			} else {
+				return (a, b) => a[type] - b[type];
+			}
+	})
 }
+
 
 const getters = {
 	productList(state) {
-		return state.productlist.sort(sortProduct);
+		console.log("productList111");
+		if(state.sorttype===''){
+			return state.productlist;
+		}else{
+			return sortProduct(state.productlist,state.sorttype,state.sortkey);
+		}
 	}
 }
 
@@ -137,11 +148,12 @@ const mutations = {
 		state.isClick = index;
 		switch (index) {
 			case 0:
+				state.sorttype = '';
 				break;
 			case 1:
 				state.sorttype = "volume";
 				state.sortkey = state.sortkey == 0 ? 1 : 0;
-				console.log("1");
+				console.log("销量");
 				break;
 			case 2:
 				state.sorttype = "price";
@@ -152,26 +164,27 @@ const mutations = {
 				break;
 		}
 	},
-	filterBybrand(state, key, {
+	filterBybrand(state, {
+		key,
 		close
 	}) {
-		state.list = state.productlist;
-		state.list = state.list.filter(product => product.brandnum === key);
+		state.productlist = state.productlist.filter(product => product.brandnum === key);
 		close();
 	},
-	filterBycategory(state, key, {
+	filterBycategory(state,  {
+		key,
 		close
 	}) {
-		state.list = state.productlist;
-		state.list = state.list.filter(product => product.categorynum === key);
+		state.productlist = state.productlist.filter(product => product.categorynum === key);
 		close();
 	},
 	filterByprice(state, {
+		minnum,
+		maxnum,
 		close
 	}) {
-		state.list = state.productlist;
 		if (state.minnum < state.maxnum) {
-			state.list = state.list.filter(product => state.minnum < product.price && product.price < state.maxnum);
+			state.productlist = state.productlist.filter(product => state.minnum < product.price && product.price < state.maxnum);
 			close();
 		} else {
 			alert("请输入正确的价格！")
