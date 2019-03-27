@@ -1,24 +1,23 @@
 <template>
 	<view class="shoppingcar" :style="minHeight">
 		<view class="shopList">
-			<view class="dianpu" v-for="(item, index) in shopData" :key="index">
+			<view class="dianpu" v-for="(item, index) in shopList" :key="index">
 				<view class="dianpu-name">
 					<checkBox
-						class="select"
-						:isselected="item.checked"
+						:isselected="item.allProductSelected"
 						@change="shopActive(item)"
 					></checkBox>
 
 					<image v-bind:src="shopIcon"></image>
-					<view class="text">{{ item.shop_name }}</view>
+					<view class="text">{{ item.shopName }}</view>
 					<view class="lingquan">领券</view>
 				</view>
 				<scroll-view
 					scroll-x="true"
 					class="scrollView"
-					v-for="(ite, ind) in item.data"
+					v-for="(ite, ind) in item.productItemModelList"
 					:key="ind"
-					:id="ite.pro_id"
+					:id="ite.productItemId"
 					:scroll-left="ite.scrollLeft"
 					@touchstart="touchS"
 					@touchend="touchE"
@@ -26,58 +25,55 @@
 					<view class="viewbox">
 						<view class="shangpin">
 							<checkBox
-								:isselected="ite.isChecked"
+								:isselected="ite.selected"
 								@change="proActive(item, ite)"
-								class="selectIcon"
 							></checkBox>
 							<view class="shangpin-info">
-								<image :src="ite.pro_img"></image>
+								<image :src="ite.productIconUrl"></image>
 
 								<view class="text-info">
-									<text class="name">{{ ite.pro_name }}</text>
-									<text class="size">{{ ite.pro_count }}</text>
+									<text class="name">{{ ite.productName }}</text>
+									<text class="size">{{ ite.volume }}</text>
 
 									<view class="price-wrpper">
-										<text class="danjia">￥{{ ite.now_price }}</text>
+										<text class="danjia">￥200</text>
 
 										<view class="numInput">
 											<text
 												@tap="changeCount(ite, -1)"
-												:class="ite.pro_count == 0 ? 'numbox-disabled' : ''"
+												:class="
+													ite.selectCount == 0 ? 'numbox-disabled' : ''
+												"
 											>
 												-
 											</text>
-											<input type="number" v-model="ite.pro_count" />
+											<input type="number" v-model="ite.selectCount" />
 											<text @tap="changeCount(ite, 1)">+</text>
 										</view>
 									</view>
 								</view>
 							</view>
 						</view>
-						<view class="hong" @tap="deletePro(ite.pro_id)">删除</view>
+						<view class="hong" @tap="deletePro(ite.productItemId)">删除</view>
 					</view>
 				</scroll-view>
 			</view>
 			<view class="line">
-				{{ '一\u2003' }}
+				{{ '一  ' }}
 				<view class="text">猜你喜欢</view>
-				{{ '\u2003一' }}
+				{{ '  一' }}
 			</view>
 			<recommend></recommend>
 		</view>
 
 		<!-- 底部结算 -->
 		<view class="bottom-jiesuan">
-			<checkBox
-				class="bottom-all-icon"
-				:isselected="isCheckAll"
-				@change="allCheck"
-			></checkBox>
+			<checkBox :isselected="allSelected" @change="allCheck"></checkBox>
 			<view class="all-text">全选</view>
 
-			<view class="price-wrpper">
-				<text class="price">合计：￥{{ allPrice }}</text>
-				<text class="youhui">店铺优惠{{ allPrice }}元</text>
+			<view class="price-wrpper-bottom">
+				<view class="price">合计：￥{{ ''+cartTotalPrice }}</view>
+				<view class="youhui">店铺优惠{{ ''+cartTotalPrice }}元</view>
 			</view>
 
 			<view class="btn" @tap="jiesuan"><view class="text">去结算(5)</view></view>
@@ -88,12 +84,14 @@
 <script>
 import checkBox from '@/components/custom-checkbox.vue';
 import recommend from './cart-recommend.vue';
-import {mapActions} from 'vuex';
+import { mapActions, mapState } from 'vuex';
 var startX = 0;
 var endX = 0;
 export default {
 	data() {
 		return {
+			scrollLeftCurrent: 0,
+			scrollLeftOther: 0,
 			// 全选，返回
 			isCheckAll: false,
 			allPrice: 0, //所有价格
@@ -133,93 +131,6 @@ export default {
 							scrollLeft: 0
 						}
 					]
-				},
-				{
-					shop_name: '香奈儿专营店',
-					checked: false,
-					yunfei: 10,
-					price: 300,
-					checkedCount: 0,
-					data: [
-						{
-							pro_id: 19,
-							pro_name: ' 香奈儿可可小姐淡香水 50ml',
-							pro_name2: ' (又名：香奈儿',
-							reduce_price: 16,
-							now_price: 100,
-							pro_count: 1,
-							pro_img: '../../../static/mall/shop_icon.png',
-							isChecked: false,
-							// 滚动条
-							scrollLeft: 0
-						},
-						{
-							pro_id: 20,
-							pro_name: ' 香奈儿可可小姐淡香水 50ml',
-							pro_name2: ' (又名：香奈儿 可可小姐淡香水（瓶装）50ml)',
-							reduce_price: 16,
-							now_price: 100,
-							pro_count: 1,
-							pro_img: '../../../static/mall/shop_icon.png',
-							isChecked: false,
-							// 滚动条
-							scrollLeft: 0
-						}
-					]
-				},
-				{
-					shop_name: '香奈儿专营店',
-					checked: false,
-					yunfei: 10,
-					price: 300,
-					checkedCount: 0,
-					data: [
-						{
-							pro_id: 21,
-							pro_name: ' 香奈儿可可小姐淡香水 50ml',
-							pro_name2: ' (又名：香奈儿 可可小姐淡香水（瓶装）50ml)',
-							reduce_price: 16,
-							now_price: 100,
-							pro_count: 1,
-							pro_img: '../../../static/mall/shop_icon.png',
-							isChecked: false,
-							// 滚动条
-							scrollLeft: 0
-						},
-						{
-							pro_id: 22,
-							pro_name: ' 香奈儿可可小姐淡香水 50ml',
-							pro_name2: ' (又名：香奈儿 可可小姐淡香水（瓶装）50ml)',
-							reduce_price: 16,
-							now_price: 100,
-							pro_count: 1,
-							pro_img: '../../../static/mall/shop_icon.png',
-							isChecked: false,
-							// 滚动条
-							scrollLeft: 0
-						}
-					]
-				},
-				{
-					shop_name: '香奈儿专营店',
-					checked: false,
-					yunfei: 12,
-					price: 500,
-					checkedCount: 0,
-					data: [
-						{
-							pro_id: 3,
-							pro_name: ' 香奈儿可可小姐淡香水 50000ml',
-							pro_name2: ' (又名：香奈儿 可可小姐淡香水（瓶装）50ml)',
-							reduce_price: 16,
-							now_price: 100,
-							pro_count: 1,
-							pro_img: '../../../static/mall/shop_icon.png',
-							isChecked: false,
-							// 滚动条
-							scrollLeft: 0
-						}
-					]
 				}
 			]
 		};
@@ -235,6 +146,7 @@ export default {
 					this.shopData.forEach(item => {
 						item.data.forEach(goods => {
 							if (goods.pro_id == e.currentTarget.id) {
+								this.scrollLeftCurrent = 0;
 								goods.scrollLeft = 0;
 							}
 						});
@@ -243,6 +155,7 @@ export default {
 					this.shopData.forEach(item => {
 						item.data.forEach(goods => {
 							if (goods.pro_id == e.currentTarget.id) {
+								this.scrollLeftCurrent = 75;
 								goods.scrollLeft = 75;
 							}
 						});
@@ -342,7 +255,8 @@ export default {
 		// 删除商品
 		deletePro(id) {},
 		...mapActions({
-			requestRecommendList:'cart/requestRecommendList'
+			requestRecommendList: 'cart/requestRecommendList',
+			requestCartList: 'cart/requestCartList'
 		})
 	},
 	components: {
@@ -357,10 +271,19 @@ export default {
 		}
 	},
 	computed: {
+		...mapState({
+			allSelected: state => state.cart.allSelected,
+			cartTotalPrice: state => {
+				console.log(state.cart.totalPrice)
+				return state.cart.totalPrice
+			},
+			shopList: state => state.cart.shopList,
+		}),
 		minHeight() {
 			var systemInfo = uni.getSystemInfoSync();
 			return `min-height:${systemInfo.windowHeight}px`;
-		}
+		},
+		
 	},
 	watch: {
 		//深度监听所有数据，每次改变重新计算总价和总数
@@ -374,6 +297,7 @@ export default {
 	},
 	onLoad() {
 		this.requestRecommendList();
+		this.requestCartList();
 	}
 };
 </script>
@@ -428,11 +352,7 @@ export default {
 						padding-left: 40upx;
 						padding-right: 40upx;
 						display: flex;
-
-						.selectIcon {
-							align-self: center;
-							margin-right: 20upx;
-						}
+						align-items: center;
 						.shangpin-info {
 							display: flex;
 							flex: 1;
@@ -462,8 +382,9 @@ export default {
 							.price-wrpper {
 								display: flex;
 								flex: 1;
-
-								align-items: flex-end;
+								
+								align-items: center;
+								
 								.danjia {
 									font-size: 28upx;
 									font-family: PingFang-SC-Medium;
@@ -535,13 +456,9 @@ export default {
 		justify-content: flex-end;
 		background: #ffffffff;
 		z-index: 100;
-		.bottom-all-icon {
-			align-self: center;
-			margin-right: 11upx;
-		}
-
+		align-items: center;
 		.all-text {
-			align-self: center;
+			
 			font-size: 28upx;
 			font-family: PingFang-SC-Medium;
 			font-weight: 500;
@@ -549,13 +466,14 @@ export default {
 			flex: 1;
 		}
 
-		.price-wrpper {
+		.price-wrpper-bottom {
 			display: flex;
 			flex-direction: column;
 			justify-content: space-between;
 			margin-top: 16upx;
 			margin-bottom: 6upx;
 			margin-right: 16upx;
+			
 			.price {
 				font-size: 32upx;
 				font-family: PingFang-SC-Bold;
