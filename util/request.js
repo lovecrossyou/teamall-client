@@ -1,7 +1,7 @@
 import Fly from 'flyio/dist/npm/wx'
 import service from "../service"
 const request = new Fly()
-const baseURL = 'http://192.168.1.226:9334/'
+const baseURL = 'http://192.168.137.76:9334/'
 request.config.baseURL = baseURL
 // request.config.headers = {
 // 	"content-type": "application/json",

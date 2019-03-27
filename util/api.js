@@ -14,6 +14,12 @@ const api = {
 	productDetails:(params)=>request.post('/productService/teaMall/productDetails',params),
 	
 	searchNearby: (params) => request.post("map/search", params),
+	//添加商品到购物车
+	addToCart:(params)=>{
+		params.accessInfo={accessToken:'cf646a3d9e934c02a54390f43e67766a',accessSecret:'6ca0e5c4d74c4b4884c958a368d660eb'},
+		console.log(params);
+	return	request.post('/productService/shoppingCart/addProduct',params)
+	},
 	//上传
 	uploader: (file, callback) => {
 		uni.uploadFile({
