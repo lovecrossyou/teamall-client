@@ -60,7 +60,7 @@
 			</block>
 		</view>
 		<view class="productList">
-			<block v-for="(item,index) in productList" :key="index">
+			<block v-for="(item,index) in productlist" :key="index">
 				<view class="productItem">
 					<image class="productIcon" :src="item.icon"></image>
 					<view class="productName">{{item.name}}</view>
@@ -74,39 +74,16 @@
 <script>
 	import search from "./search.vue";
 	import drawer from "../../../components/drawer.vue";
-	import {mapState,mapGetters,mapMutations} from 'vuex';
+	import {mapState,mapGetters} from 'vuex';
 
 	export default {
 		components: {
 			search,
 			drawer
 		},
-		methods: {
-			...mapMutations({
-				getList:'searchProduct/getList'
-			}),
-			changeStyle(index){
-				this.$store.commit('searchProduct/changeStyle',{index,open:this.$refs.drawer.open})
-			},
-			filterBybrand(){
-				this.$store.commit('searchProduct/filterBybrand',{close:this.$refs.drawer.close})
-			},
-			filterBycategory(){
-				this.$store.commit('searchProduct/filterBycategory',{close:this.$refs.drawer.close})
-			},
-			filterByprice(){
-				this.$store.commit('searchProduct/filterByprice',{close:this.$refs.drawer.close})
-			},
-			closeDrawer(){
-				this.$store.commit('searchProduct/closeDrawer',{close:this.$refs.drawer.close})
-			}
-		},
 		data() {
 			return {
 			}
-		},
-		onLoad() {
-			
 		},
 		computed:{
 			...mapState({
@@ -115,14 +92,34 @@
 				sorttype:state=>state.searchProduct.sorttype,
 				minnum:state=>state.searchProduct.minnum,
 				maxnum:state=>state.searchProduct.maxnum,
-				list:state=>state.searchProduct.list,
 				bannerlist:state=>state.searchProduct.bannerlist,
 				brandlist:state=>state.searchProduct.brandlist,
 				categorylist:state=>state.searchProduct.categorylist
 			}),
 			...mapGetters({
-				productList:'searchProduct/productList'
+				productlist:'searchProduct/productList'
 			})
+// 			productlist(){
+// 				console.log(this.$store.getters.productList)
+// 				return this.$store.getters.productList;
+// 			}
+		},
+		methods: {
+			changeStyle(index){
+				this.$store.commit('searchProduct/changeStyle',{index,open:this.$refs.drawer.open})
+			},
+			filterBybrand(filterKey){
+				this.$store.commit('searchProduct/filterBybrand',{filterKey,close:this.$refs.drawer.close})
+			},
+			filterBycategory(filterKey){
+				this.$store.commit('searchProduct/filterBycategory',{filterKey,close:this.$refs.drawer.close})
+			},
+			filterByprice(minnum,maxnum){
+				this.$store.commit('searchProduct/filterByprice',{minnum,maxnum,close:this.$refs.drawer.close})
+			},
+			closeDrawer(){
+				this.$store.commit('searchProduct/closeDrawer',{close:this.$refs.drawer.close})
+			}
 		}
 	}
 </script>
