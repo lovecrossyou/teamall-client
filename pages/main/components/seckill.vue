@@ -6,12 +6,6 @@
 				<view class="seckill_tit_right_item">{{countDownTime}}</view>:
 				<view class="seckill_tit_right_item">23</view>:
 				<view class="seckill_tit_right_item">11.11</view>
-				<uni-countdown 
-					:day="1" 
-					:hour="1" 
-					:minute="12" 
-					:second="40">
-				</uni-countdown>
 			</view>
 		</view>
 		<view class="seckill_content">
@@ -30,7 +24,6 @@
 
 <script>
 	import {mapState} from 'vuex';
-	import uniCountdown from "@/components/uni-countdown/uni-countdown.vue"
 	export default {
 		computed:{
 			...mapState({
@@ -54,8 +47,7 @@
 					url:"/pages/product/product?productId="+productId
 				})
 			}
-		},
-		components: {uniCountdown}
+		}
 	}
 </script>
 
