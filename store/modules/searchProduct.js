@@ -119,7 +119,7 @@ const state = {
 
 const sortProduct = function(array,type,key){
 	return array.sort(function(a,b){
-		if (key === '') {
+		if (key === 0) {
 				return (a, b) => b[type] - a[type];
 			} else {
 				return (a, b) => a[type] - b[type];

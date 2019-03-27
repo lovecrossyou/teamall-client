@@ -99,10 +99,7 @@
 			...mapGetters({
 				productlist:'searchProduct/productList'
 			})
-// 			productlist(){
-// 				console.log(this.$store.getters.productList)
-// 				return this.$store.getters.productList;
-// 			}
+
 		},
 		methods: {
 			changeStyle(index){
