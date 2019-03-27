@@ -7,6 +7,7 @@ import mall from './modules/mall'
 import product from './modules/product'
 import cart from './modules/cart'
 import category from "./modules/category"
+import searchProduct from './modules/searchProduct'
 
 
 Vue.use(Vuex)
@@ -19,7 +20,8 @@ const store = new Vuex.Store({
 		mall,
 		product,
 		cart,
-		category
+		category,
+		searchProduct
 	},
 	
     state: {
