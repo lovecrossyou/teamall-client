@@ -22,10 +22,10 @@
 			<view class="store_info">
 				<view class="store_info_left">
 					<view class="store_img">
-						<img src="http://qnimage.xiteng.com/store_logo@2x.png" alt="" />
+						<img :src="shopBaseInfoModel.shopIcon" alt="" />
 					</view>
 					<view class="store_name_area">
-						<view class="store_name">张一元旗舰店</view>
+						<view class="store_name">{{shopBaseInfoModel.shopName}}</view>
 						<p class="store_fans">粉丝数21.5万</p>
 					</view>
 				</view>
@@ -36,39 +36,19 @@
 		</view>
 
 		<!-- 首页&新品&热门&活动 -->
-		<view class="option_list_wrapper">
+		<view class="option_list_wrapper" >
 			<view
+				v-for="(category,index) in customList" :key="index"
 				class="option_item_text"
 				@click="changeTab(0)"
 				v-bind:class="[activeTabIndex === 0 ? activeClass : normalClass]"
 			>
-				首页
-			</view>
-			<view
-				class="option_item_text"
-				@click="changeTab(1)"
-				v-bind:class="[activeTabIndex === 1 ? activeClass : normalClass]"
-			>
-				新品
-			</view>
-			<view
-				class="option_item_text"
-				@click="changeTab(2)"
-				v-bind:class="[activeTabIndex === 2 ? activeClass : normalClass]"
-			>
-				热门
-			</view>
-			<view
-				class="option_item_text"
-				@click="changeTab(3)"
-				v-bind:class="[activeTabIndex === 3 ? activeClass : normalClass]"
-			>
-				活动
+				{{category.productCustomCategoryName}}
 			</view>
 		</view>
 		<!-- banner -->
 		<view class="store_banner">
-			<img src="http://qnimage.xiteng.com/store_banner@2x.png" alt="" />
+			<img :src="shopBaseInfoModel.shopBackgroundPic" alt="" mode="aspectFill"/>
 		</view>
 		<!-- 优惠券 -->
 		<view class="discount_wrapper">
@@ -117,6 +97,8 @@
 </template>
 
 <script>
+	import {mapState} from "vuex";
+	import api  from "../../util/api.js"
 	export default {
 		data() {
 			return {
@@ -126,12 +108,29 @@
 				},
 				normalClass: {},
 				shopList: [1,2,4,5,6,7],
-				couponsList:[1,2]
+				couponsList:[1,2],
+				customList:[],
+				shopBaseInfoModel:{}
 			};
 		},
-		components: {},
+		components: {
+		},
 		computed: {},
 		methods: {
+			async productList(){
+				let res = await api.customCategoryList({
+					shopId:1
+				});
+				this.customList = res;
+			},
+			async shopInfo(){
+				let res = await api.shopBaseInfo({
+					shopId:1,
+					
+					
+				})
+				this.shopBaseInfoModel = res;
+			},
 			changeTab(index) {
 				console.log('index ', index);
 				this.activeTabIndex = index;
@@ -141,6 +140,10 @@
 					
 				})
 			}
+		},
+		onLoad(){
+			this.productList(),
+			this.shopInfo()
 		}
 	};
 </script>

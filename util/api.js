@@ -12,8 +12,16 @@ const api = {
 	seckKillList:(params)=>request.post('/productService/teaMall/seckKillList',params),
 	//商品详情
 	productDetails:(params)=>request.post('/productService/teaMall/productDetails',params),
+	// 店铺商品分类（首页 & 新品 & 热门 & 活动）
+	customCategoryList:(params) => request.post("/findProductCustomCategoryListByShopId",params),
+	//店鋪信息
+	shopBaseInfo:(params) => request.post("/shop/baseInfo",params),
 	
 	searchNearby: (params) => request.post("map/search", params),
+	
+	
+	
+	
 	//上传
 	uploader: (file, callback) => {
 		uni.uploadFile({
