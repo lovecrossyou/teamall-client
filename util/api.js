@@ -18,12 +18,8 @@ const api = {
 	shopBaseInfo:(params) => request.post("/shop/baseInfo",params),
 	
 	searchNearby: (params) => request.post("map/search", params),
-<<<<<<< HEAD
-	
-	
-	
-	
-=======
+
+
 	//添加商品到购物车
 	addToCart:(params)=>{
 		params.accessInfo={accessToken:'cf646a3d9e934c02a54390f43e67766a',accessSecret:'6ca0e5c4d74c4b4884c958a368d660eb'};
@@ -36,7 +32,6 @@ const api = {
 		params.accessInfo={accessToken:'cf646a3d9e934c02a54390f43e67766a',accessSecret:'6ca0e5c4d74c4b4884c958a368d660eb'};
 		return	request.post('/productService/shoppingCart/productList',params)
 	},
->>>>>>> 68e48591cadda2c3340bf22b85ab9682d544e6d5
 	//上传
 	uploader: (file, callback) => {
 		uni.uploadFile({
