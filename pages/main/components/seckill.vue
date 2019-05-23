@@ -9,7 +9,7 @@
 			</view>
 		</view>
 		<view class="seckill_content">
-			<view class="seckill_content_item" v-for='(item,i) in seckKillProduct' :key='i' @click="goList">
+			<view class="seckill_content_item" v-for='(item,i) in seckKillProduct' :key='i' @click="goDetail(item.productId)">
 				<view class="seckill_content_item_img">
 					<image :src="item.imageUrl" alt="" />
 				</view>
@@ -37,15 +37,14 @@
 // 			},1000);
 		},
 		methods: {
-			goList() {
-				uni.navigateTo({
-					url: "/pages/mall/good-tea"
-				})
-			},
 			sale() {
-				console.log('sale-tea');
 				uni.navigateTo({
 					url: "/pages/mall/sale-tea"
+				})
+			},
+			goDetail(productId){
+				uni.navigateTo({
+					url:"/pages/product/product?productId="+productId
 				})
 			}
 		}

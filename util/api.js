@@ -12,8 +12,26 @@ const api = {
 	seckKillList:(params)=>request.post('/productService/teaMall/seckKillList',params),
 	//商品详情
 	productDetails:(params)=>request.post('/productService/teaMall/productDetails',params),
+	// 店铺商品分类（首页 & 新品 & 热门 & 活动）
+	customCategoryList:(params) => request.post("/findProductCustomCategoryListByShopId",params),
+	//店鋪信息
+	shopBaseInfo:(params) => request.post("/shop/baseInfo",params),
 	
 	searchNearby: (params) => request.post("map/search", params),
+
+
+	//添加商品到购物车
+	addToCart:(params)=>{
+		params.accessInfo={accessToken:'cf646a3d9e934c02a54390f43e67766a',accessSecret:'6ca0e5c4d74c4b4884c958a368d660eb'};
+		console.log(params);
+	return	request.post('/productService/shoppingCart/addProduct',params)
+	},
+	//购物车商品列
+	getCartList:()=>{
+		let params = {};
+		params.accessInfo={accessToken:'cf646a3d9e934c02a54390f43e67766a',accessSecret:'6ca0e5c4d74c4b4884c958a368d660eb'};
+		return	request.post('/productService/shoppingCart/productList',params)
+	},
 	//上传
 	uploader: (file, callback) => {
 		uni.uploadFile({

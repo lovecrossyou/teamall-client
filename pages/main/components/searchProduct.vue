@@ -60,7 +60,7 @@
 			</block>
 		</view>
 		<view class="productList">
-			<block v-for="(item,index) in list" :key="index">
+			<block v-for="(item,index) in productlist" :key="index">
 				<view class="productItem">
 					<image class="productIcon" :src="item.icon"></image>
 					<view class="productName">{{item.name}}</view>
@@ -74,177 +74,49 @@
 <script>
 	import search from "./search.vue";
 	import drawer from "../../../components/drawer.vue";
+	import {mapState,mapGetters} from 'vuex';
 
 	export default {
 		components: {
 			search,
 			drawer
 		},
-		methods: {
-			changeStyle(index) {
-				this.isClick = index;
-				switch (index) {
-					case 0:
-						this.list = this.productlist;
-						break;
-					case 1:
-						this.sorttype = "volume";
-						this.sortkey = this.sortkey == 0 ? 1 : 0;
-						this.list.sort(this.productSort(this.sorttype, this.sortkey));
-						break;
-					case 2:
-						this.sorttype = "price";
-						this.sortkey = this.sortkey == 0 ? 1 : 0;
-						this.list.sort(this.productSort(this.sorttype, this.sortkey));
-						break;
-					case 3:
-						this.$refs.drawer.open();
-						break;
-				}
-			},
-			productSort(type, key) {
-				if (key === 0) {
-					return (a,b)=>b[type] - a[type];
-					}
-				else {
-					return (a,b)=>a[type] - b[type];
-				}
-			},
-			filterBybrand(key){
-				this.list=this.productlist;
-				this.list=this.list.filter(product=>product.brandnum===key);
-				this.$refs.drawer.close();
-			},
-			filterBycategory(key){
-				this.list=this.productlist;
-				this.list=this.list.filter(product=>product.categorynum===key);
-				this.$refs.drawer.close();
-			},
-			filterByprice(minnum,maxnum){
-				this.list=this.productlist;
-				if(minnum<maxnum){
-				this.list=this.list.filter(product=>minnum<product.price&&product.price<maxnum);	
-				this.$refs.drawer.close();
-				}
-				else{
-					alert("请输入正确的价格！")
-				}
-			},
-			closeDrawer(){
-				this.$refs.drawer.close();
-			}
-		},
 		data() {
 			return {
-				isClick: 0,
-				sortkey: 0,
-				sorttype: "",
-				list:[],
-				bannerlist: ["综合", "销量", "价格", "筛选"],
-				productlist: [{
-						name: "张一元福建铁观音福建福建铁观音",
-						icon: "/static/category/product_icon.png",
-						volume: 100,
-						brandnum: 0,
-						categorynum: 3,
-						price: 552
-					},
-					{
-						name: "张一元福建铁观音福建福建碧螺春",
-						icon: "/static/category/product_icon.png",
-						volume: 88,
-						brandnum: 0,
-						categorynum: 0,
-						price: 661
-					},
-					{
-						name: "张一元福建铁观音福建福建铁观音",
-						icon: "/static/category/product_icon.png",
-						volume: 100,
-						brandnum: 0,
-						categorynum: 3,
-						price: 313
-					},
-					{
-						name: "张️二元福建铁观音福建福建铁观音",
-						icon: "/static/category/product_icon.png",
-						volume: 0,
-						brandnum: 1,
-						categorynum: 3,
-						price: 111
-					},
-					{
-						name: "张三元福建铁观音福建福建铁观音",
-						icon: "/static/category/product_icon.png",
-						volume: 166,
-						brandnum: 2,
-						categorynum: 3,
-						price: 111
-					},
-				],
-				brandlist: [{
-						brandnum: 0,
-						name: "张一元"
-					},
-					{
-						brandnum: 1,
-						name: "张二元"
-					},
-					{
-						brandnum: 2,
-						name: "张三元"
-					},
-					{
-						brandnum: 3,
-						name: "张四元"
-					},
-					{
-						brandnum: 4,
-						name: "张五元"
-					},
-					{
-						brandnum: 5,
-						name: "张六元"
-					}
-				],
-				categorylist: [{
-						categorynum: 0,
-						name: "红茶"
-					},
-					{
-						categorynum: 1,
-						name: "黄茶"
-					},
-					{
-						categorynum: 2,
-						name: "白茶"
-					},
-					{
-						categorynum: 3,
-						name: "绿茶"
-					},
-					{
-						categorynum: 4,
-						name: "青茶"
-					},
-					{
-						categorynum: 5,
-						name: "花茶"
-					},
-					{
-						categorynum: 6,
-						name: "茶周边"
-					},
-					{
-						categorynum: 7,
-						name: "礼盒"
-					}
-
-				]
 			}
 		},
-		created() {
-			this.list=this.productlist
+		computed:{
+			...mapState({
+				isClick:state=>state.searchProduct.isClick,
+				sortkey:state=>state.searchProduct.sortkey,
+				sorttype:state=>state.searchProduct.sorttype,
+				minnum:state=>state.searchProduct.minnum,
+				maxnum:state=>state.searchProduct.maxnum,
+				bannerlist:state=>state.searchProduct.bannerlist,
+				brandlist:state=>state.searchProduct.brandlist,
+				categorylist:state=>state.searchProduct.categorylist
+			}),
+			...mapGetters({
+				productlist:'searchProduct/productList'
+			})
+
+		},
+		methods: {
+			changeStyle(index){
+				this.$store.commit('searchProduct/changeStyle',{index,open:this.$refs.drawer.open})
+			},
+			filterBybrand(filterKey){
+				this.$store.commit('searchProduct/filterBybrand',{filterKey,close:this.$refs.drawer.close})
+			},
+			filterBycategory(filterKey){
+				this.$store.commit('searchProduct/filterBycategory',{filterKey,close:this.$refs.drawer.close})
+			},
+			filterByprice(minnum,maxnum){
+				this.$store.commit('searchProduct/filterByprice',{minnum,maxnum,close:this.$refs.drawer.close})
+			},
+			closeDrawer(){
+				this.$store.commit('searchProduct/closeDrawer',{close:this.$refs.drawer.close})
+			}
 		}
 	}
 </script>

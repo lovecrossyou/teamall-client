@@ -1,3 +1,5 @@
+import api from '../../util/api'
+
 export default {
 	namespaced: true,
 	state: {
@@ -14,6 +16,10 @@ export default {
 	},
 	actions: {
 		getAddressList({commit}) {
+			api.teaMallTeaTryList({accessInfo:{}}).then(res=>{
+				console.log(res);
+				//commit('saveList', res);
+			})
 			setTimeout(()=>{
 				const res = [{
 						name: '花花1',
@@ -37,7 +43,7 @@ export default {
 						isDefault:false
 					}
 				];
-				commit('saveList', res);
+				
 			},5000)
 			
 		}

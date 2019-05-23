@@ -1,11 +1,21 @@
+import api from '../../util/api'
 export default {
 	namespaced: true,
 	state: {
-		recommendList: []
+		recommendList: [],
+		allSelected:false,
+		totalPrice:0,
+		shopList:[],
+		
 	},
 	mutations: {
 		setRecommendList(state, data) {
 			state.recommendList = data;
+		},
+		setCartInfo(state,payload){
+			state.allSelected = payload.allSelected;
+			state.totalPrice = payload.totalPrice;
+			state.shopList = payload.shoppingCartProductItemOfShopModelList;
 		}
 	},
 	actions: {
@@ -26,7 +36,15 @@ export default {
 				];
 				commit('setRecommendList', res);
 			}, 2000)
+		},
+		requestCartList({commit,state}){
+			api.getCartList().then(res=>{
+				
+				commit('setCartInfo', res);
+				
+			})
 		}
+		
 	}
 
 }
