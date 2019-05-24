@@ -17,8 +17,36 @@ const errorPrompt = (err) => {
 	})
 }
 
+// 生成accessinfo信息
+export const createAccessInfo = () => {
+	var accessInfo = {
+		accessToken: '848424e6f83c42bf8f7a259fb8ba764b',
+		accessSecret:'1bfa6b9592fa49b398a25eb6ba476639'
+	}
+	return accessInfo;
+}
+
 request.interceptors.request.use((request) => {
 	uni.showLoading();
+	let body = request.body;
+	// if (body) {
+	// 	if (!body.accessInfo) {
+	// 		body = Object.assign({}, { ...body
+	// 		}, {
+	// 			accessInfo: createAccessInfo()
+	// 		});
+	// 	}
+	// } else {
+	// 	body = {
+	// 		accessInfo: createAccessInfo()
+	// 	}
+	// }
+	body = Object.assign({}, { ...body
+			}, {
+				accessInfo: createAccessInfo()
+			});
+	console.log('accessInfo------------'+JSON.stringify(body))
+	request.body = body;
 	return request
 })
 
