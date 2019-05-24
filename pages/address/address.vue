@@ -10,15 +10,13 @@
 						</view>
 						<view class="addr-detail">{{ address.fullAddress }}</view>
 					</view>
-					<view class="delete-addr" @click="deleteAddr">
-						删除地址
-					</view>
-					<image v-bind:src="modifyIcon" @click="edit(address)"></image>
+					<view class="delete-addr" @click="deleteAddr(address.deliveryAddressId,index)">删除地址</view>
+					<image v-bind:src="modifyIcon" @click="edit(address,index)"></image>
 				</view>
 			</block>
 		</view>
 
-		<view class="add-addr-button" @click="edit(initAddress)">
+		<view class="add-addr-button" @click="edit(initAddress,-1)">
 			<image v-bind:src="addIcon"></image>
 			<view class="text">添加地址</view>
 		</view>
@@ -26,34 +24,34 @@
 </template>
 
 <script>
-import { mapMutations,mapState,mapActions } from 'vuex';
+import { mapMutations, mapState, mapActions } from 'vuex';
 
 export default {
-	computed:{
+	computed: {
 		...mapState({
-			addressList:state=>state.address.list,
-		}),
- 		
-
+			addressList: state => state.address.list
+		})
 	},
-	
-	
+
 	methods: {
 		...mapMutations({
-			saveEdit: 'address/saveEdit',
-			
+			saveEdit: 'address/saveEdit'
+		
 		}),
 		...mapActions({
-			getAddressList:'address/getAddressList',
+			getAddressList: 'address/getAddressList',
+			deleteAddress: 'address/deleteAddress',
+			
 		}),
-		edit(address) {
-			this.saveEdit(address);
+		edit(address,index) {
+			this.saveEdit({address:address,index:index});
+			
 			uni.navigateTo({
 				url: 'edit'
 			});
-			
 		},
-		deleteAddr(){
+		deleteAddr(addressId,index) {
+			this.deleteAddress({addressId,index});
 			
 		}
 	},
@@ -61,11 +59,10 @@ export default {
 		return {
 			modifyIcon: '../../static/addr/addr_edit_icon.png',
 			addIcon: '../../static/addr/add_icon.png',
-			initAddress: {city:'',detail:'',isDefault:false,name:'',phone:''},
+			initAddress: { phoneNum: '', receiveName: '', areaAddress: '', detailedAddress: '', fullAddress: '', defaultAddress: false }
 		};
 	},
 	onLoad() {
-		
 		this.getAddressList();
 	}
 };
@@ -76,7 +73,6 @@ export default {
 
 .content-wrapper {
 	width: 100%;
-	
 
 	.addr-list {
 		padding-bottom: @footerHeight;

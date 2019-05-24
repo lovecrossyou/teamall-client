@@ -45,7 +45,7 @@ request.interceptors.request.use((request) => {
 			}, {
 				accessInfo: createAccessInfo()
 			});
-	console.log('accessInfo------------'+JSON.stringify(body))
+	//console.log('accessInfo------------'+JSON.stringify(body))
 	request.body = body;
 	return request
 })
