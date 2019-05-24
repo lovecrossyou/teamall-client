@@ -5,10 +5,13 @@
 				<view class="addr-item">
 					<view class="addr-info">
 						<view class="addr-info-top">
-							<view class="addr-name">{{ address.name }}</view>
-							<view class="addr-phone">{{ address.phone }}</view>
+							<view class="addr-name">{{ address.receiveName }}</view>
+							<view class="addr-phone">{{ address.phoneNum }}</view>
 						</view>
-						<view class="addr-detail">{{ address.detail }}</view>
+						<view class="addr-detail">{{ address.fullAddress }}</view>
+					</view>
+					<view class="delete-addr" @click="deleteAddr">
+						删除地址
 					</view>
 					<image v-bind:src="modifyIcon" @click="edit(address)"></image>
 				</view>
@@ -30,9 +33,7 @@ export default {
 		...mapState({
 			addressList:state=>state.address.list,
 		}),
- 		/* addressList(){  常规写法
- 			return this.$store.state.address.list;
- 		} */
+ 		
 
 	},
 	
@@ -51,6 +52,9 @@ export default {
 				url: 'edit'
 			});
 			
+		},
+		deleteAddr(){
+			
 		}
 	},
 	data() {
@@ -61,7 +65,7 @@ export default {
 		};
 	},
 	onLoad() {
-		//this.$store.dispatch('address/getAddressList')  常规写法
+		
 		this.getAddressList();
 	}
 };

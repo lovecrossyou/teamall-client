@@ -32,6 +32,17 @@ const api = {
 		params.accessInfo={accessToken:'848424e6f83c42bf8f7a259fb8ba764b',accessSecret:'1bfa6b9592fa49b398a25eb6ba476639'};
 		return	request.post('/productService/shoppingCart/productList',params)
 	},
+	
+	//查询收货地址
+	getAddressList:()=>{
+		let params = {};
+		params.accessInfo={accessToken:'848424e6f83c42bf8f7a259fb8ba764b',accessSecret:'1bfa6b9592fa49b398a25eb6ba476639'};
+		return	request.post('/productService/deliveryAddressList',params)
+	},
+	
+	
+	
+	
 	//上传
 	uploader: (file, callback) => {
 		uni.uploadFile({

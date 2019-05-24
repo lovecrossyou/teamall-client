@@ -25,7 +25,7 @@ request.interceptors.request.use((request) => {
 request.interceptors.response.use((response, promise) => {
 	uni.hideLoading()
 	
-	console.log('response ',response)
+	//console.log('response ',response)
 	if (!(response.data.errMsg === "ok")) {
 		errorPrompt(response)
 	}

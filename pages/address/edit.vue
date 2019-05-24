@@ -2,25 +2,25 @@
 	<view class="content-wrapper">
 		<view class="addr-cell">
 			<view class="title">联系人</view>
-			<input class="addr-input" type="text" v-model="addrM.name" placeholder="姓名" />
+			<input class="addr-input" type="text" v-model="addrM.receiveName" placeholder="姓名" />
 			<uni-icon type="arrowright" color="#bbb" size="20"></uni-icon>
 		</view>
 		<view class="addr-cell">
 			<view class="title">电话</view>
-			<input class="addr-input" type="number" v-model="addrM.phone" placeholder="收货人电话" />
+			<input class="addr-input" type="number" v-model="addrM.phoneNum" placeholder="收货人电话" />
 			<uni-icon type="arrowright" color="#bbb" size="20"></uni-icon>
 		</view>
 		<view class="addr-cell" @click="showCityPicker">
 			<view class="title">地址</view>
-			<input class="addr-input" type="text" v-model="addrM.city" placeholder="省,市,区/县" disabled=true />
+			<input class="addr-input" type="text" v-model="addrM.areaAddress" placeholder="省,市,区/县" disabled=true />
 			<uni-icon type="arrowright" color="#bbb" size="20"></uni-icon>
 		</view>
 		<view class="addr-cell">
 			<view class="title">详细地址</view>
-			<input class="addr-input" type="text" v-model="addrM.detail" placeholder="详细地址" />
+			<input class="addr-input" type="text" v-model="addrM.detailedAddress" placeholder="详细地址" />
 			<uni-icon type="arrowright" color="#bbb" size="20"></uni-icon>
 		</view>
-		<view class="defult-addr" @click="addrM.isDefault = !addrM.isDefault;">
+		<view class="defult-addr" @click="addrM.default = !addrM.default;">
 			<image :src="defultIcon"></image>
 			<view class="defult-text">设为默认地址</view>
 		</view>
@@ -45,7 +45,7 @@
 				addrM: state => state.address.editAddress
 			}),
 			defultIcon() {
-				return this.addrM.isDefault ? '../../static/addr/defult_addr_selected.png' : '../../static/addr/defult_addr.png';
+				return this.addrM.default ? '../../static/addr/defult_addr_selected.png' : '../../static/addr/defult_addr.png';
 			}
 		},
 		data() {
@@ -67,7 +67,7 @@
 			},
 
 			onConfirm(e) {
-				this.addrM.city = e.label;
+				this.addrM.areaAddress = e.label;
 			},
 			onCancel(e) {
 				console.log(e)
