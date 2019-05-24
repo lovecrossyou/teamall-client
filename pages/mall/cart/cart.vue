@@ -167,7 +167,7 @@ export default {
 		jiesuan() {
 			console.log('跳转到支付详情页面');
 			uni.navigateTo({
-				url: '/pages/my/zhifu',
+				url: '/pages/order/order-confirm',
 				success: res => {},
 				fail: () => {},
 				complete: () => {}
